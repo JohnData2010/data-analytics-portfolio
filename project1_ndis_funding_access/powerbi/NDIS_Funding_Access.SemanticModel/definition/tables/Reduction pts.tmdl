@@ -1,0 +1,62 @@
+/// What-if: non-use share reduction in percentage points
+table 'Reduction pts'
+	lineageTag: b48108aa-1767-8b51-dcba-5b0ad3671ced
+
+	measure 'Reduction pts value' = SELECTEDVALUE ( 'Reduction pts'[reduction_pts], 0 )
+		formatString: 0
+		displayFolder: Scenario
+		lineageTag: 20deae2b-a238-2763-97ac-b8c5bb7fb29a
+
+	measure 'Baseline not using' = SUMX ( FILTER ( an_scenario_grid, an_scenario_grid[reduction_pts] = 0 ), an_scenario_grid[baseline_not_using] )
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: cbf8b340-dd12-e849-174a-6751da75a512
+
+	measure 'Baseline eligible' = SUMX ( FILTER ( an_scenario_grid, an_scenario_grid[reduction_pts] = 0 ), an_scenario_grid[denominator_eligible_total] )
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: 6b08c433-722d-4f30-ae38-f89387fd7d5f
+
+	measure 'Scenario participants moving to use' =
+			VAR pts = [Reduction pts value]
+			RETURN SUMX ( FILTER ( an_scenario_grid, an_scenario_grid[reduction_pts] = 0 ),
+			    VAR moved = an_scenario_grid[denominator_eligible_total] * pts / 100
+			    RETURN IF ( moved > an_scenario_grid[baseline_not_using], an_scenario_grid[baseline_not_using], moved ) )
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: 8b770b1e-b8e9-bbf8-74cd-c4d25d893dcb
+
+	measure 'Scenario not using' = [Baseline not using] - [Scenario participants moving to use]
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: b1e0db3e-46c1-cf91-c130-924ed6330d8d
+
+	measure 'Scenario non-use share %' = DIVIDE ( [Scenario not using], [Baseline eligible] )
+		formatString: 0.0%
+		displayFolder: Scenario
+		lineageTag: 1883675a-8929-9d68-92b0-ae132480e57e
+
+	measure 'Baseline non-use share %' = DIVIDE ( [Baseline not using], [Baseline eligible] )
+		formatString: 0.0%
+		displayFolder: Scenario
+		lineageTag: fb8b5153-5506-5385-f2ac-44fb4b330664
+
+	measure 'Scenario note' = "Arithmetic only: each district's non-use share falls by " & [Reduction pts value] & " pts (floored at zero); eligible totals fixed at 30 Jun 2026; sum of published districts. Not a forecast."
+		displayFolder: Scenario
+		lineageTag: 69a20aa5-cf76-4eb7-7ec1-a5f2b8cfa114
+
+	column reduction_pts
+		dataType: int64
+		formatString: 0
+		lineageTag: b8297421-c452-4d9d-6feb-1c45a02ca333
+		summarizeBy: none
+		sourceColumn: [reduction_pts]
+
+		annotation SummarizationSetBy = User
+
+	partition 'Reduction pts' = calculated
+		mode: import
+		source = SELECTCOLUMNS ( GENERATESERIES ( 0, 20, 1 ), "reduction_pts", [Value] )
+
+	annotation PBI_ResultType = Table
+

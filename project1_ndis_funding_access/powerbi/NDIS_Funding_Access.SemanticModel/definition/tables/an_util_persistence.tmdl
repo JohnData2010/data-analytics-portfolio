@@ -1,0 +1,199 @@
+table an_util_persistence
+	lineageTag: 121c2b46-603c-9a4a-f83e-a509f7c8abdc
+
+	measure 'Districts persistently low (raw)' = CALCULATE ( COUNTROWS ( an_util_persistence ), an_util_persistence[persistent_low_raw] = TRUE () ) + 0
+		formatString: #,0
+		displayFolder: Module A
+		lineageTag: ccedce73-5ffc-4ac5-a5c5-87759553dada
+
+	measure 'Districts persistently low (like-for-like)' = CALCULATE ( COUNTROWS ( an_util_persistence ), an_util_persistence[persistent_low_adjusted] = TRUE () ) + 0
+		formatString: #,0
+		displayFolder: Module A
+		lineageTag: 4a98dc8d-32bc-ea5f-f2ed-69abe58d8d8f
+
+	measure 'Low mostly explained by mix' = CALCULATE ( COUNTROWS ( an_util_persistence ), an_util_persistence[low_mostly_mix] = TRUE () ) + 0
+		formatString: #,0
+		displayFolder: Module A
+		lineageTag: f6e6077f-5797-d185-825a-beb5c4acacc7
+
+	measure 'Mean like-for-like gap (pts)' = AVERAGE ( an_util_persistence[mean_like_for_like_gap] ) * 100
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Module A
+		lineageTag: b58685bb-1871-3164-92c8-b727b024bb1c
+
+	column district_key
+		dataType: string
+		lineageTag: 478f36bc-3831-e6ef-814d-5b46247283ce
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column state
+		dataType: string
+		lineageTag: ab1adcf5-f285-704f-d249-bae13a8f719c
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 95e02281-b6d4-250f-6d24-ae504a0a0737
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column quarters_observed
+		dataType: int64
+		formatString: 0
+		lineageTag: 84940dee-58a6-8fd5-a4df-0672e8981e2f
+		summarizeBy: none
+		sourceColumn: quarters_observed
+
+		annotation SummarizationSetBy = User
+
+	column quarters_bottom_quintile_raw
+		dataType: int64
+		formatString: 0
+		lineageTag: c3c3c547-287f-f9eb-4d09-d64b881566a3
+		summarizeBy: none
+		sourceColumn: quarters_bottom_quintile_raw
+
+		annotation SummarizationSetBy = User
+
+	column quarters_bottom_quintile_adjusted
+		dataType: int64
+		formatString: 0
+		lineageTag: 099a5f32-0af5-615d-ac25-984a7a7be154
+		summarizeBy: none
+		sourceColumn: quarters_bottom_quintile_adjusted
+
+		annotation SummarizationSetBy = User
+
+	column mean_observed_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b52c9bae-cbf0-f7a2-5007-d75b92220342
+		summarizeBy: none
+		sourceColumn: mean_observed_rate
+
+		annotation SummarizationSetBy = User
+
+	column mean_raw_gap
+		dataType: double
+		formatString: +0.000;-0.000;0.000
+		lineageTag: e22392a9-c1d8-d0e9-0582-951df4a827b0
+		summarizeBy: none
+		sourceColumn: mean_raw_gap
+
+		annotation SummarizationSetBy = User
+
+	column mean_mix_effect
+		dataType: double
+		formatString: +0.000;-0.000;0.000
+		lineageTag: 57cb1f1f-9d8b-8a98-650b-364e1ecb9651
+		summarizeBy: none
+		sourceColumn: mean_mix_effect
+
+		annotation SummarizationSetBy = User
+
+	column mean_like_for_like_gap
+		dataType: double
+		formatString: +0.000;-0.000;0.000
+		lineageTag: 4380cd29-81a3-d639-ef24-b8be830233d2
+		summarizeBy: none
+		sourceColumn: mean_like_for_like_gap
+
+		annotation SummarizationSetBy = User
+
+	column mean_within_cell_gap
+		dataType: double
+		formatString: +0.000;-0.000;0.000
+		lineageTag: db37f1b8-4672-d59f-4a55-4618f4f74942
+		summarizeBy: none
+		sourceColumn: mean_within_cell_gap
+
+		annotation SummarizationSetBy = User
+
+	column mean_within_cell_coverage
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9f22804a-e693-bcbf-136a-f7c8da3a7483
+		summarizeBy: none
+		sourceColumn: mean_within_cell_coverage
+
+		annotation SummarizationSetBy = User
+
+	column trend_pts_per_quarter
+		dataType: double
+		lineageTag: 01f07f84-6d7a-e0e1-ed53-e8ae74fceb48
+		summarizeBy: none
+		sourceColumn: trend_pts_per_quarter
+
+		annotation SummarizationSetBy = User
+
+	column latest_observed_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 96c2f72e-9d8f-bb5b-1a92-260ee8ed3ed9
+		summarizeBy: none
+		sourceColumn: latest_observed_rate
+
+		annotation SummarizationSetBy = User
+
+	column latest_like_for_like_gap
+		dataType: double
+		formatString: +0.000;-0.000;0.000
+		lineageTag: 46dfad54-2807-c898-c1bb-1ed67f1ad1e1
+		summarizeBy: none
+		sourceColumn: latest_like_for_like_gap
+
+		annotation SummarizationSetBy = User
+
+	column latest_active_participants
+		dataType: int64
+		formatString: 0
+		lineageTag: f44ae389-0306-0d34-0172-e30e209d428b
+		summarizeBy: none
+		sourceColumn: latest_active_participants
+
+		annotation SummarizationSetBy = User
+
+	column persistent_low_raw
+		dataType: boolean
+		lineageTag: ed6fb4fc-60c0-0e94-14d2-6e2a11aa6dec
+		summarizeBy: none
+		sourceColumn: persistent_low_raw
+
+		annotation SummarizationSetBy = User
+
+	column persistent_low_adjusted
+		dataType: boolean
+		lineageTag: 934c5bfc-695a-1bcf-3139-730930a1b631
+		summarizeBy: none
+		sourceColumn: persistent_low_adjusted
+
+		annotation SummarizationSetBy = User
+
+	column low_mostly_mix
+		dataType: boolean
+		lineageTag: 81c98a3f-babb-b6f9-60ec-0a5fc0b58a41
+		summarizeBy: none
+		sourceColumn: low_mostly_mix
+
+		annotation SummarizationSetBy = User
+
+	partition an_util_persistence = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_util_persistence.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"district_key", type text}, {"state", type text}, {"district", type text}, {"quarters_observed", Int64.Type}, {"quarters_bottom_quintile_raw", Int64.Type}, {"quarters_bottom_quintile_adjusted", Int64.Type}, {"mean_observed_rate", type number}, {"mean_raw_gap", type number}, {"mean_mix_effect", type number}, {"mean_like_for_like_gap", type number}, {"mean_within_cell_gap", type number}, {"mean_within_cell_coverage", type number}, {"trend_pts_per_quarter", type number}, {"latest_observed_rate", type number}, {"latest_like_for_like_gap", type number}, {"latest_active_participants", Int64.Type}, {"persistent_low_raw", type logical}, {"persistent_low_adjusted", type logical}, {"low_mostly_mix", type logical}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

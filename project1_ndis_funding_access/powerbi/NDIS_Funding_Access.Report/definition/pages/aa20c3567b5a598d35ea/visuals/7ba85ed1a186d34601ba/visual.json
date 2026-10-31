@@ -1,0 +1,242 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "7ba85ed1a186d34601ba",
+  "position": {
+    "x": 20,
+    "y": 490,
+    "z": 8000,
+    "height": 190,
+    "width": 1240,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "state"
+                }
+              },
+              "queryRef": "an_sda_persistence.state",
+              "nativeQueryRef": "state",
+              "displayName": "State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "an_sda_persistence.district",
+              "nativeQueryRef": "district",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "quarters_above_national"
+                }
+              },
+              "queryRef": "an_sda_persistence.quarters_above_national",
+              "nativeQueryRef": "quarters_above_national",
+              "displayName": "Qtrs above national"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "latest_not_using"
+                }
+              },
+              "queryRef": "an_sda_persistence.latest_not_using",
+              "nativeQueryRef": "latest_not_using",
+              "displayName": "Not using Jun-26"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "latest_eligible_total"
+                }
+              },
+              "queryRef": "an_sda_persistence.latest_eligible_total",
+              "nativeQueryRef": "latest_eligible_total",
+              "displayName": "Eligible Jun-26"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "latest_non_use_share"
+                }
+              },
+              "queryRef": "an_sda_persistence.latest_non_use_share",
+              "nativeQueryRef": "latest_non_use_share",
+              "displayName": "Non-use share Jun-26"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "mean_excess_pts"
+                }
+              },
+              "queryRef": "an_sda_persistence.mean_excess_pts",
+              "nativeQueryRef": "mean_excess_pts",
+              "displayName": "Mean excess (pts)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "change_share_pts"
+                }
+              },
+              "queryRef": "an_sda_persistence.change_share_pts",
+              "nativeQueryRef": "change_share_pts",
+              "displayName": "Change (pts)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "latest_any_masked"
+                }
+              },
+              "queryRef": "an_sda_persistence.latest_any_masked",
+              "nativeQueryRef": "latest_any_masked",
+              "displayName": "Masked"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "persistent_above_national"
+                }
+              },
+              "queryRef": "an_sda_persistence.persistent_above_national",
+              "nativeQueryRef": "persistent_above_national",
+              "displayName": "Persistent"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "an_sda_persistence"
+                  }
+                },
+                "Property": "quarters_above_national"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'District persistence (8 quarters)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

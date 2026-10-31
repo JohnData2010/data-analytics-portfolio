@@ -1,0 +1,38 @@
+model Model
+	culture: en-AU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["kpi_summary","kpi_meaningfulness","kpi_cohort","stress_kpi_values","stress_reversals","stress_rank_agreement","km_curves","sensitivity_scenarios","sensitivity_trend","kpi_integrity_recompute","qa_dq_results","qa_row_lineage","gov_source_manifest","coverage_assessment","backlog_reconstruction","backlog_limitations","kpi_period_comparability","fact_requests_a","fact_requests_b","DataFolder"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_dataset
+ref table kpi_summary
+ref table kpi_meaningfulness
+ref table kpi_cohort
+ref table stress_kpi_values
+ref table stress_reversals
+ref table stress_rank_agreement
+ref table km_curves
+ref table sensitivity_scenarios
+ref table sensitivity_trend
+ref table kpi_integrity_recompute
+ref table qa_dq_results
+ref table qa_row_lineage
+ref table gov_source_manifest
+ref table coverage_assessment
+ref table backlog_reconstruction
+ref table backlog_limitations
+ref table kpi_period_comparability
+ref table fact_requests_a
+ref table fact_requests_b
+
+ref cultureInfo en-AU
+

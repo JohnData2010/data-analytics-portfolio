@@ -1,0 +1,50 @@
+table an_sensitivity_threshold
+	lineageTag: b4868219-c357-ea03-ed37-8a8615186db6
+
+	column min_eligible
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c46afc6-6c5e-d0cf-d2b4-9e4777968a46
+		summarizeBy: none
+		sourceColumn: min_eligible
+
+		annotation SummarizationSetBy = User
+
+	column districts_ranked
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f409300-e6d6-1443-39ce-03585ab0d9d0
+		summarizeBy: none
+		sourceColumn: districts_ranked
+
+		annotation SummarizationSetBy = User
+
+	column overlap_with_base
+		dataType: int64
+		formatString: 0
+		lineageTag: 310b2c08-f54c-da47-afed-abc835850af7
+		summarizeBy: none
+		sourceColumn: overlap_with_base
+
+		annotation SummarizationSetBy = User
+
+	column top10
+		dataType: string
+		lineageTag: 430dd426-2184-1b28-64e8-9d5c624a352f
+		summarizeBy: none
+		sourceColumn: top10
+
+		annotation SummarizationSetBy = User
+
+	partition an_sensitivity_threshold = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_sensitivity_threshold.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"min_eligible", Int64.Type}, {"districts_ranked", Int64.Type}, {"overlap_with_base", Int64.Type}, {"top10", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

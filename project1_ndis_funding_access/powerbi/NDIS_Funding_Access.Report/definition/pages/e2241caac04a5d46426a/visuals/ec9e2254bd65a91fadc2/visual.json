@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ec9e2254bd65a91fadc2",
+  "position": {
+    "x": 335,
+    "y": 80,
+    "z": 3000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "Districts persistently low (raw)"
+                }
+              },
+              "queryRef": "an_util_persistence.Districts persistently low (raw)",
+              "nativeQueryRef": "Districts persistently low (raw)",
+              "displayName": "Persistently low (raw)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,57 @@
+table stress_rank_agreement
+	lineageTag: ae8a5075-65be-b20c-01fc-4870f188646f
+
+	column dataset
+		dataType: string
+		lineageTag: 50d8001b-1295-7db3-fdf3-ddcb029cb9f5
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column kpi_a
+		dataType: string
+		lineageTag: c5494ab6-b67a-8dde-490f-84e0f98b5d4b
+		summarizeBy: none
+		sourceColumn: kpi_a
+
+		annotation SummarizationSetBy = User
+
+	column kpi_b
+		dataType: string
+		lineageTag: 9f1816b5-2084-a7d4-a805-722cb976e0a2
+		summarizeBy: none
+		sourceColumn: kpi_b
+
+		annotation SummarizationSetBy = User
+
+	column spearman
+		dataType: double
+		formatString: 0.00
+		lineageTag: a2e3284a-c015-723c-75c2-d80b5e705aa2
+		summarizeBy: none
+		sourceColumn: spearman
+
+		annotation SummarizationSetBy = User
+
+	column groups
+		dataType: int64
+		formatString: 0
+		lineageTag: 70c2d275-97e1-e381-4b3d-6c7726edd8d3
+		summarizeBy: none
+		sourceColumn: groups
+
+		annotation SummarizationSetBy = User
+
+	partition stress_rank_agreement = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\stress_rank_agreement.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"kpi_a", type text}, {"kpi_b", type text}, {"spearman", type number}, {"groups", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

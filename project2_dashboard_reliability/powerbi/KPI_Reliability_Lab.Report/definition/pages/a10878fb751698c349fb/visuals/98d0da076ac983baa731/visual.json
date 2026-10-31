@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "98d0da076ac983baa731",
+  "position": {
+    "x": 440,
+    "y": 508,
+    "z": 7000,
+    "height": 172,
+    "width": 820,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gov_source_manifest"
+                    }
+                  },
+                  "Property": "file"
+                }
+              },
+              "queryRef": "gov_source_manifest.file",
+              "nativeQueryRef": "file",
+              "displayName": "File"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gov_source_manifest"
+                    }
+                  },
+                  "Property": "rows"
+                }
+              },
+              "queryRef": "gov_source_manifest.rows",
+              "nativeQueryRef": "rows",
+              "displayName": "Rows"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gov_source_manifest"
+                    }
+                  },
+                  "Property": "portal_records_count"
+                }
+              },
+              "queryRef": "gov_source_manifest.portal_records_count",
+              "nativeQueryRef": "portal_records_count",
+              "displayName": "Portal count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gov_source_manifest"
+                    }
+                  },
+                  "Property": "portal_modified"
+                }
+              },
+              "queryRef": "gov_source_manifest.portal_modified",
+              "nativeQueryRef": "portal_modified",
+              "displayName": "Portal modified"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gov_source_manifest"
+                    }
+                  },
+                  "Property": "sha256"
+                }
+              },
+              "queryRef": "gov_source_manifest.sha256",
+              "nativeQueryRef": "sha256",
+              "displayName": "SHA-256"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Source files'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

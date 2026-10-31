@@ -1,0 +1,31 @@
+table kpi_period_comparability
+	lineageTag: bb64e70a-54dd-50b4-64be-0c805e07b0ae
+
+	column kpi
+		dataType: string
+		lineageTag: 0d07cfc7-2542-c204-4cb4-c904756d9dd2
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column comparability_across_periods
+		dataType: string
+		lineageTag: 69482b34-e32e-4722-7249-11f931631b9d
+		summarizeBy: none
+		sourceColumn: comparability_across_periods
+
+		annotation SummarizationSetBy = User
+
+	partition kpi_period_comparability = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\kpi_period_comparability.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"kpi", type text}, {"comparability_across_periods", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

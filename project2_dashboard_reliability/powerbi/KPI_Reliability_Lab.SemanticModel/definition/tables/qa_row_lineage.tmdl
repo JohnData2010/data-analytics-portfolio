@@ -1,0 +1,40 @@
+table qa_row_lineage
+	lineageTag: 63b74e80-8c96-caea-00cf-405d5a4a814e
+
+	column dataset
+		dataType: string
+		lineageTag: 5825aca2-4c24-3611-d0cf-342f5487fb3f
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column step
+		dataType: string
+		lineageTag: f6c51587-aeff-44e3-4ddc-2eb4b93246d2
+		summarizeBy: none
+		sourceColumn: step
+
+		annotation SummarizationSetBy = User
+
+	column rows
+		dataType: int64
+		formatString: #,0
+		lineageTag: 00c804cb-6bc0-5fd1-5d75-c2a503801f5b
+		summarizeBy: none
+		sourceColumn: rows
+
+		annotation SummarizationSetBy = User
+
+	partition qa_row_lineage = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\qa_row_lineage.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"step", type text}, {"rows", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

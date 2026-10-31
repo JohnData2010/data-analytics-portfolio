@@ -1,0 +1,56 @@
+table an_sensitivity_flags
+	lineageTag: 9f8ecc66-8054-108c-2484-9b77e7141f6b
+
+	column module
+		dataType: string
+		lineageTag: 8e67f64a-6a3a-744b-7128-3180f5ad4f97
+		summarizeBy: none
+		sourceColumn: module
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: 005f8594-62af-44a5-9d98-e88018443eb0
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column definitions_flagging
+		dataType: int64
+		formatString: 0
+		lineageTag: a5bd53df-c81c-e2e2-fea6-8e6948e622e5
+		summarizeBy: none
+		sourceColumn: definitions_flagging
+
+		annotation SummarizationSetBy = User
+
+	column definitions
+		dataType: string
+		lineageTag: 759e83bb-b6f8-381a-a59e-e621d945c6e0
+		summarizeBy: none
+		sourceColumn: definitions
+
+		annotation SummarizationSetBy = User
+
+	column robustness
+		dataType: string
+		lineageTag: d88d8d5a-82f6-251c-ca32-25cf6b6e20c4
+		summarizeBy: none
+		sourceColumn: robustness
+
+		annotation SummarizationSetBy = User
+
+	partition an_sensitivity_flags = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_sensitivity_flags.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"module", type text}, {"district_key", type text}, {"definitions_flagging", Int64.Type}, {"definitions", type text}, {"robustness", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

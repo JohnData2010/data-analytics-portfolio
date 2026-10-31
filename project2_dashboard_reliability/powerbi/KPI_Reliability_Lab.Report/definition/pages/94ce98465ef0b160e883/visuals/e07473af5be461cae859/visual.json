@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "e07473af5be461cae859",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 2000,
+    "height": 330,
+    "width": 620,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "backlog_reconstruction"
+                    }
+                  },
+                  "Property": "month_end"
+                }
+              },
+              "queryRef": "backlog_reconstruction.month_end",
+              "nativeQueryRef": "month_end",
+              "active": true,
+              "displayName": "Month end"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "backlog_reconstruction"
+                    }
+                  },
+                  "Property": "reliable"
+                }
+              },
+              "queryRef": "backlog_reconstruction.reliable",
+              "nativeQueryRef": "reliable",
+              "displayName": "Reliable"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "backlog_reconstruction"
+                    }
+                  },
+                  "Property": "Reconstructed open requests"
+                }
+              },
+              "queryRef": "backlog_reconstruction.Reconstructed open requests",
+              "nativeQueryRef": "Reconstructed open requests"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reconstructed open requests at month end'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

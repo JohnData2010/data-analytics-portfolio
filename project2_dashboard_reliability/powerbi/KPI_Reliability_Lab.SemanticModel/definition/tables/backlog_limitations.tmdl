@@ -1,0 +1,31 @@
+table backlog_limitations
+	lineageTag: 7aa52179-3d8f-6976-8501-d11d65883d82
+
+	column limitation
+		dataType: string
+		lineageTag: d5789f90-7210-40d0-0668-d6ef75d708ac
+		summarizeBy: none
+		sourceColumn: limitation
+
+		annotation SummarizationSetBy = User
+
+	column detail
+		dataType: string
+		lineageTag: 6c4ecfad-f1d4-0023-2301-0923b344ab21
+		summarizeBy: none
+		sourceColumn: detail
+
+		annotation SummarizationSetBy = User
+
+	partition backlog_limitations = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\backlog_limitations.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"limitation", type text}, {"detail", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

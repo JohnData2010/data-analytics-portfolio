@@ -1,0 +1,48 @@
+relationship a0017b11-1e0e-8b34-d9ae-cd833f2c9f09
+	fromColumn: fact_funding_util_district.report_date
+	toColumn: dim_period.report_date
+
+relationship 5d6242cc-fabd-408e-4ebd-85f01587af89
+	fromColumn: fact_util_standardised.report_date
+	toColumn: dim_period.report_date
+
+relationship 4d691a48-2e88-7826-d714-1f3f8db52a68
+	fromColumn: fact_util_cells.report_date
+	toColumn: dim_period.report_date
+
+relationship 38d58378-a1cf-40b4-ee39-75db332426f1
+	fromColumn: fact_util_national.report_date
+	toColumn: dim_period.report_date
+
+relationship cd3b4645-41ab-1cbd-7e9e-d13bd5127580
+	fromColumn: fact_sda_district.report_date
+	toColumn: dim_period.report_date
+
+relationship cbc81b10-f1ea-9b55-5c95-d4aaee36404c
+	fromColumn: fact_funding_util_district.district_key
+	toColumn: dim_district.district_key
+
+relationship 75ed65e7-46d7-f2d9-d4a0-e7f48aabf36b
+	fromColumn: fact_util_standardised.district_key
+	toColumn: dim_district.district_key
+
+relationship 25058724-41ea-7093-66b8-137bf3a31cff
+	fromColumn: fact_util_cells.district_key
+	toColumn: dim_district.district_key
+
+relationship 4b23967d-c933-eca6-cae1-c1fa56bb89dc
+	fromColumn: fact_sda_district.district_key
+	toColumn: dim_district.district_key
+
+relationship d05cf7a9-64ae-69f3-8b63-6aeb60aea5ba
+	fromColumn: an_util_persistence.district_key
+	toColumn: dim_district.district_key
+
+relationship 69f9ccf1-01b1-9ab3-c4fa-fee3f0046e94
+	fromColumn: an_sda_persistence.district_key
+	toColumn: dim_district.district_key
+
+relationship e7642107-d573-e8f8-ac39-5097520981ae
+	fromColumn: an_scenario_grid.district_key
+	toColumn: dim_district.district_key
+

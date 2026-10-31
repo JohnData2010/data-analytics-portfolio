@@ -9,10 +9,13 @@ command, carry automated QA tests, and separate what the data shows from what it
 | [2. The Dashboard Reliability Lab](project2_dashboard_reliability/README.md) | When is a correctly computed KPI the wrong answer? | City of Melbourne customer service requests (2 datasets) | [KPI_Reliability_Report.md](project2_dashboard_reliability/reports/KPI_Reliability_Report.md) |
 
 Stack: Python 3.11, DuckDB (SQL transformations), pandas, matplotlib, pytest; Power BI consumes the
-CSV star schemas in each project's `outputs/powerbi/` (build guides in `powerbi/`).
+CSV star schemas in each project's `outputs/powerbi/`. Each project ships a ready-built Power BI project
+(`powerbi/*.pbip`: open in Power BI Desktop, press Refresh), generated from a Python spec by
+[`tools/pbip_writer.py`](tools/pbip_writer.py).
 
 ```bash
 pip install duckdb pandas openpyxl matplotlib pytest
 python project1_ndis_funding_access/src/run_pipeline.py && python -m pytest -q project1_ndis_funding_access/tests
 python project2_dashboard_reliability/src/run_pipeline.py
+python project1_ndis_funding_access/powerbi/build_pbip.py && python project2_dashboard_reliability/powerbi/build_pbip.py
 ```

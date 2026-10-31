@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cbc7c4e72400520971e3",
+  "position": {
+    "x": 20,
+    "y": 490,
+    "z": 7000,
+    "height": 190,
+    "width": 1240,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_period"
+                    }
+                  },
+                  "Property": "report_date"
+                }
+              },
+              "queryRef": "dim_period.report_date",
+              "nativeQueryRef": "report_date",
+              "displayName": "Reporting date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_period"
+                    }
+                  },
+                  "Property": "util_window_end"
+                }
+              },
+              "queryRef": "dim_period.util_window_end",
+              "nativeQueryRef": "util_window_end",
+              "displayName": "Utilisation window ends"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Observed utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.Observed utilisation %",
+              "nativeQueryRef": "Observed utilisation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Expected utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.Expected utilisation %",
+              "nativeQueryRef": "Expected utilisation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "National utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.National utilisation %",
+              "nativeQueryRef": "National utilisation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Mix effect (pts)"
+                }
+              },
+              "queryRef": "fact_util_standardised.Mix effect (pts)",
+              "nativeQueryRef": "Mix effect (pts)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Like-for-like gap (pts)"
+                }
+              },
+              "queryRef": "fact_util_standardised.Like-for-like gap (pts)",
+              "nativeQueryRef": "Like-for-like gap (pts)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By quarter'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

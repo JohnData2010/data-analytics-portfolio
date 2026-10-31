@@ -1,0 +1,87 @@
+table sensitivity_trend
+	lineageTag: 1a3f2d08-f056-db5c-cd36-aaccb51fd7a1
+
+	column dataset
+		dataType: string
+		lineageTag: e4416740-982d-20af-1d70-b2a9ac0d1fdf
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column kpi
+		dataType: string
+		lineageTag: ebcc4380-8ba3-657e-f968-f74c7e82dcac
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column kpi_label
+		dataType: string
+		lineageTag: 3c746cad-ccb0-9e00-4759-aaa784bb6f6d
+		summarizeBy: none
+		sourceColumn: kpi_label
+
+		annotation SummarizationSetBy = User
+
+	column period_from
+		dataType: string
+		lineageTag: 00c03898-7734-1ee4-8845-89877f4dd9a6
+		summarizeBy: none
+		sourceColumn: period_from
+
+		annotation SummarizationSetBy = User
+
+	column period_to
+		dataType: string
+		lineageTag: b4f470c0-7d82-44e1-2959-646729671ce9
+		summarizeBy: none
+		sourceColumn: period_to
+
+		annotation SummarizationSetBy = User
+
+	column value_from
+		dataType: double
+		lineageTag: b90a36ec-9dd7-e2ef-705d-236bc6e12405
+		summarizeBy: none
+		sourceColumn: value_from
+
+		annotation SummarizationSetBy = User
+
+	column value_to
+		dataType: double
+		lineageTag: 7a33829b-c51f-3bd0-3108-28d51c325525
+		summarizeBy: none
+		sourceColumn: value_to
+
+		annotation SummarizationSetBy = User
+
+	column change
+		dataType: double
+		lineageTag: 62a45b41-2094-abaf-114c-550cf752227e
+		summarizeBy: none
+		sourceColumn: change
+
+		annotation SummarizationSetBy = User
+
+	column direction
+		dataType: string
+		lineageTag: c06beb36-3177-b1ae-51c2-39e223b357ff
+		summarizeBy: none
+		sourceColumn: direction
+
+		annotation SummarizationSetBy = User
+
+	partition sensitivity_trend = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\sensitivity_trend.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"kpi", type text}, {"kpi_label", type text}, {"period_from", type text}, {"period_to", type text}, {"value_from", type number}, {"value_to", type number}, {"change", type number}, {"direction", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

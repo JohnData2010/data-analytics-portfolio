@@ -1,0 +1,66 @@
+/// Reporting quarter; utilisation window is lagged 3 months
+table dim_period
+	lineageTag: f4177d1d-efd6-e8ce-205b-3c98c22bf60e
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 9f4dec3f-ff7c-dea5-be06-ddf17a2ff68c
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fy_quarter
+		dataType: string
+		lineageTag: 369fe866-92c5-2a1b-d6e7-d153e65d617e
+		summarizeBy: none
+		sourceColumn: fy_quarter
+
+		annotation SummarizationSetBy = User
+
+	column new_age_bands
+		dataType: boolean
+		lineageTag: 7b14a39d-72d0-5da2-561d-ce6d345a5ac2
+		summarizeBy: none
+		sourceColumn: new_age_bands
+
+		annotation SummarizationSetBy = User
+
+	column util_window_start
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 59705021-fa33-8872-089c-292215834f09
+		summarizeBy: none
+		sourceColumn: util_window_start
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column util_window_end
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 5ece2f57-023a-2aee-afa2-5005acd07891
+		summarizeBy: none
+		sourceColumn: util_window_end
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_period = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\dim_period.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"fy_quarter", type text}, {"new_age_bands", type logical}, {"util_window_start", type datetime}, {"util_window_end", type datetime}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}, {"util_window_start", type date}, {"util_window_end", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

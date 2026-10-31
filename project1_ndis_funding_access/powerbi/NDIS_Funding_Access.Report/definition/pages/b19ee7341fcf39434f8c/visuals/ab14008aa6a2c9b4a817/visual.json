@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ab14008aa6a2c9b4a817",
+  "position": {
+    "x": 965,
+    "y": 80,
+    "z": 5000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Scenario not using"
+                }
+              },
+              "queryRef": "Reduction pts.Scenario not using",
+              "nativeQueryRef": "Scenario not using",
+              "displayName": "Still not using"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

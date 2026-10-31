@@ -1,0 +1,179 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c73ae8a6cba2b4fe9d81",
+  "position": {
+    "x": 20,
+    "y": 482,
+    "z": 3000,
+    "height": 198,
+    "width": 1240,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "kpi_label"
+                }
+              },
+              "queryRef": "sensitivity_trend.kpi_label",
+              "nativeQueryRef": "kpi_label",
+              "displayName": "KPI"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "period_from"
+                }
+              },
+              "queryRef": "sensitivity_trend.period_from",
+              "nativeQueryRef": "period_from",
+              "displayName": "From"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "period_to"
+                }
+              },
+              "queryRef": "sensitivity_trend.period_to",
+              "nativeQueryRef": "period_to",
+              "displayName": "To"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "value_from"
+                }
+              },
+              "queryRef": "sensitivity_trend.value_from",
+              "nativeQueryRef": "value_from",
+              "displayName": "Value from"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "value_to"
+                }
+              },
+              "queryRef": "sensitivity_trend.value_to",
+              "nativeQueryRef": "value_to",
+              "displayName": "Value to"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "change"
+                }
+              },
+              "queryRef": "sensitivity_trend.change",
+              "nativeQueryRef": "change",
+              "displayName": "Change"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_trend"
+                    }
+                  },
+                  "Property": "direction"
+                }
+              },
+              "queryRef": "sensitivity_trend.direction",
+              "nativeQueryRef": "direction",
+              "displayName": "Direction"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Trend direction by KPI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,89 @@
+table kpi_meaningfulness
+	lineageTag: d03e4a62-2861-9446-73aa-f950c4db8ddf
+
+	measure 'KM median days (open = censored)' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( MAX ( kpi_meaningfulness[value] ), kpi_meaningfulness[kpi] = "K06" ), BLANK () )
+		formatString: 0.0
+		displayFolder: Service performance
+		lineageTag: e96a43af-34f2-431d-7e5f-a959abebfcdf
+
+	measure 'Median reliability note' = IF ( HASONEVALUE ( dim_dataset[dataset] ), "Closed-only median is " & CALCULATE ( MAX ( kpi_meaningfulness[meaningful] ), kpi_meaningfulness[kpi] = "K01" ) & ": " & CALCULATE ( MAX ( kpi_meaningfulness[reason] ), kpi_meaningfulness[kpi] = "K01" ), BLANK () )
+		displayFolder: Service performance
+		lineageTag: a5d6cd15-dd49-eb9b-0d15-59ba21a65e2d
+
+	column dataset
+		dataType: string
+		lineageTag: b90a3f17-6db5-f9de-56e6-cb86a949da62
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column kpi
+		dataType: string
+		lineageTag: 2777a063-ddfe-895d-0755-a56f69ceddd3
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column name
+		dataType: string
+		lineageTag: f9a91910-18bb-7871-f86e-83450ba0577c
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = User
+
+	column value
+		dataType: double
+		formatString: 0.0##
+		lineageTag: dfa3e96e-300a-a9bd-0f49-a589b8efd452
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = User
+
+	column population
+		dataType: string
+		lineageTag: 948571ab-319e-1827-cb5b-ef074414e2f8
+		summarizeBy: none
+		sourceColumn: population
+
+		annotation SummarizationSetBy = User
+
+	column blind_spot
+		dataType: string
+		lineageTag: 401594f5-85bf-9a0e-99af-a3b17263479d
+		summarizeBy: none
+		sourceColumn: blind_spot
+
+		annotation SummarizationSetBy = User
+
+	column meaningful
+		dataType: string
+		lineageTag: 4f4ad4b3-0a32-b187-ee33-64e27027fa91
+		summarizeBy: none
+		sourceColumn: meaningful
+
+		annotation SummarizationSetBy = User
+
+	column reason
+		dataType: string
+		lineageTag: 224355ee-bd35-8476-5d40-65092bb8736c
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = User
+
+	partition kpi_meaningfulness = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\kpi_meaningfulness.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"kpi", type text}, {"name", type text}, {"value", type number}, {"population", type text}, {"blind_spot", type text}, {"meaningful", type text}, {"reason", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

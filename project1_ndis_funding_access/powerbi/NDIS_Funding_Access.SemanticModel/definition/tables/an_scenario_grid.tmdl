@@ -1,0 +1,120 @@
+table an_scenario_grid
+	lineageTag: c0510c53-7617-4627-ad86-3e8a1634a9ed
+
+	column district_key
+		dataType: string
+		lineageTag: a077e00f-72cc-ce6c-ca60-a0c8c994ebae
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column state
+		dataType: string
+		lineageTag: 2bad3ebf-e080-b89b-1faf-6a2db1a0638e
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 30a3bec8-6d41-a6e0-19c9-8ab56c71d5ea
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column denominator_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: ccd9dead-1212-16c1-7d2a-e78eebcac43a
+		summarizeBy: none
+		sourceColumn: denominator_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column denominator_eligible_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 954e49f7-1342-0101-659a-9853063451aa
+		summarizeBy: none
+		sourceColumn: denominator_eligible_total
+
+		annotation SummarizationSetBy = User
+
+	column baseline_not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a5a60ed-f2b1-aade-56fa-bd22e5e91462
+		summarizeBy: none
+		sourceColumn: baseline_not_using
+
+		annotation SummarizationSetBy = User
+
+	column baseline_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 35ce0b9b-91ee-37ca-3baf-988a87d99284
+		summarizeBy: none
+		sourceColumn: baseline_share
+
+		annotation SummarizationSetBy = User
+
+	column reduction_pts
+		dataType: int64
+		formatString: 0
+		lineageTag: b5a86bcd-65fc-79a4-f3e1-af3607a31a8b
+		summarizeBy: none
+		sourceColumn: reduction_pts
+
+		annotation SummarizationSetBy = User
+
+	column scenario_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cc6658ba-a8e1-0f6e-e2e5-bcffa3982eca
+		summarizeBy: none
+		sourceColumn: scenario_share
+
+		annotation SummarizationSetBy = User
+
+	column scenario_not_using
+		dataType: double
+		lineageTag: fc7397f5-3387-79e2-9050-37932a5c891c
+		summarizeBy: none
+		sourceColumn: scenario_not_using
+
+		annotation SummarizationSetBy = User
+
+	column participants_moving_to_use
+		dataType: double
+		lineageTag: 78a2641b-a7de-a3e4-8ddc-ff2d4a462495
+		summarizeBy: none
+		sourceColumn: participants_moving_to_use
+
+		annotation SummarizationSetBy = User
+
+	column assumption
+		dataType: string
+		lineageTag: 4126f521-7e91-1327-e95a-bf5fcbe23ac8
+		summarizeBy: none
+		sourceColumn: assumption
+
+		annotation SummarizationSetBy = User
+
+	partition an_scenario_grid = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_scenario_grid.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"district_key", type text}, {"state", type text}, {"district", type text}, {"denominator_date", type datetime}, {"denominator_eligible_total", Int64.Type}, {"baseline_not_using", Int64.Type}, {"baseline_share", type number}, {"reduction_pts", Int64.Type}, {"scenario_share", type number}, {"scenario_not_using", type number}, {"participants_moving_to_use", type number}, {"assumption", type text}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"denominator_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

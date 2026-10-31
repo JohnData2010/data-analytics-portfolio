@@ -1,0 +1,227 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ad319d1003fba90506db",
+  "position": {
+    "x": 20,
+    "y": 490,
+    "z": 8000,
+    "height": 190,
+    "width": 1240,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "state"
+                }
+              },
+              "queryRef": "an_util_persistence.state",
+              "nativeQueryRef": "state",
+              "displayName": "State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "an_util_persistence.district",
+              "nativeQueryRef": "district",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "quarters_bottom_quintile_raw"
+                }
+              },
+              "queryRef": "an_util_persistence.quarters_bottom_quintile_raw",
+              "nativeQueryRef": "quarters_bottom_quintile_raw",
+              "displayName": "Qtrs bottom fifth (raw)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "quarters_bottom_quintile_adjusted"
+                }
+              },
+              "queryRef": "an_util_persistence.quarters_bottom_quintile_adjusted",
+              "nativeQueryRef": "quarters_bottom_quintile_adjusted",
+              "displayName": "Qtrs bottom fifth (like-for-like)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "latest_observed_rate"
+                }
+              },
+              "queryRef": "an_util_persistence.latest_observed_rate",
+              "nativeQueryRef": "latest_observed_rate",
+              "displayName": "Utilisation Jun-26"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "mean_mix_effect"
+                }
+              },
+              "queryRef": "an_util_persistence.mean_mix_effect",
+              "nativeQueryRef": "mean_mix_effect",
+              "displayName": "Mean mix effect"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "mean_like_for_like_gap"
+                }
+              },
+              "queryRef": "an_util_persistence.mean_like_for_like_gap",
+              "nativeQueryRef": "mean_like_for_like_gap",
+              "displayName": "Mean like-for-like gap"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "persistent_low_adjusted"
+                }
+              },
+              "queryRef": "an_util_persistence.persistent_low_adjusted",
+              "nativeQueryRef": "persistent_low_adjusted",
+              "displayName": "Persistent (like-for-like)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_util_persistence"
+                    }
+                  },
+                  "Property": "low_mostly_mix"
+                }
+              },
+              "queryRef": "an_util_persistence.low_mostly_mix",
+              "nativeQueryRef": "low_mostly_mix",
+              "displayName": "Mostly mix"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "an_util_persistence"
+                  }
+                },
+                "Property": "quarters_bottom_quintile_adjusted"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'District persistence (8 quarters)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

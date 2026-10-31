@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "0ac26b27e527244bb8c6",
+  "position": {
+    "x": 800,
+    "y": 390,
+    "z": 3000,
+    "height": 290,
+    "width": 460,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_threshold"
+                    }
+                  },
+                  "Property": "min_eligible"
+                }
+              },
+              "queryRef": "an_sensitivity_threshold.min_eligible",
+              "nativeQueryRef": "min_eligible",
+              "displayName": "Min eligible"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_threshold"
+                    }
+                  },
+                  "Property": "districts_ranked"
+                }
+              },
+              "queryRef": "an_sensitivity_threshold.districts_ranked",
+              "nativeQueryRef": "districts_ranked",
+              "displayName": "Districts ranked"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_threshold"
+                    }
+                  },
+                  "Property": "overlap_with_base"
+                }
+              },
+              "queryRef": "an_sensitivity_threshold.overlap_with_base",
+              "nativeQueryRef": "overlap_with_base",
+              "displayName": "Overlap with base top 10"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_threshold"
+                    }
+                  },
+                  "Property": "top10"
+                }
+              },
+              "queryRef": "an_sensitivity_threshold.top10",
+              "nativeQueryRef": "top10",
+              "displayName": "Top 10"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SDA top 10 vs minimum eligible threshold'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

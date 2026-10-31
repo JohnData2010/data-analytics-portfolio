@@ -1,0 +1,106 @@
+table qa_reconciliation
+	lineageTag: 8f2a48a9-a990-eb81-ec07-b20327dc45be
+
+	measure 'Checks passed' = CALCULATE ( COUNTROWS ( qa_reconciliation ), qa_reconciliation[status] = "PASS" ) + 0
+		formatString: #,0
+		displayFolder: QA
+		lineageTag: 98ba1450-7a8d-ec4a-14f8-49094dab1d66
+
+	measure 'Checks warned' = CALCULATE ( COUNTROWS ( qa_reconciliation ), qa_reconciliation[status] = "WARN" ) + 0
+		formatString: #,0
+		displayFolder: QA
+		lineageTag: f660fe0b-d7c0-34d9-7b83-4a4c525a2875
+
+	measure 'Checks failed' = CALCULATE ( COUNTROWS ( qa_reconciliation ), qa_reconciliation[status] = "FAIL" ) + 0
+		formatString: #,0
+		displayFolder: QA
+		lineageTag: 357964fc-1305-49f6-0776-1977bf411ea5
+
+	column check_id
+		dataType: string
+		lineageTag: 7eb4b220-9827-abf5-9883-d8e374c2074c
+		summarizeBy: none
+		sourceColumn: check_id
+
+		annotation SummarizationSetBy = User
+
+	column kind
+		dataType: string
+		lineageTag: 6f3a24aa-13ef-796a-6a9e-a80082035848
+		summarizeBy: none
+		sourceColumn: kind
+
+		annotation SummarizationSetBy = User
+
+	column description
+		dataType: string
+		lineageTag: 05b6efcd-3331-9a08-033d-59417fa7b8b6
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = User
+
+	column expected
+		dataType: int64
+		formatString: 0
+		lineageTag: 052827e2-8d2c-7ad3-71ee-f5dcb3707eea
+		summarizeBy: none
+		sourceColumn: expected
+
+		annotation SummarizationSetBy = User
+
+	column actual
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c82f31d-c869-e490-65c5-335b63e10582
+		summarizeBy: none
+		sourceColumn: actual
+
+		annotation SummarizationSetBy = User
+
+	column difference
+		dataType: int64
+		formatString: 0
+		lineageTag: 339d2361-afb4-9018-941e-e08f36c2c9eb
+		summarizeBy: none
+		sourceColumn: difference
+
+		annotation SummarizationSetBy = User
+
+	column tolerance
+		dataType: int64
+		formatString: 0
+		lineageTag: 23c48745-04e7-d57c-c78c-9c86368690b6
+		summarizeBy: none
+		sourceColumn: tolerance
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: 6d0dda9b-ca3e-0874-f296-d52c5f309a7c
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column note
+		dataType: string
+		lineageTag: f8138279-05a9-3371-16b9-cdb5b3bae3d3
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = User
+
+	partition qa_reconciliation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\qa_reconciliation.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"check_id", type text}, {"kind", type text}, {"description", type text}, {"expected", Int64.Type}, {"actual", Int64.Type}, {"difference", Int64.Type}, {"tolerance", Int64.Type}, {"status", type text}, {"note", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

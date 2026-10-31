@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "989cc3e97b3e0da117a8",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 2000,
+    "height": 380,
+    "width": 1240,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "scenario"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.scenario",
+              "nativeQueryRef": "scenario",
+              "displayName": "Scenario"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "assumption_type"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.assumption_type",
+              "nativeQueryRef": "assumption_type",
+              "displayName": "Assumption"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "requests"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.requests",
+              "nativeQueryRef": "requests",
+              "displayName": "Requests"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "K01"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.K01",
+              "nativeQueryRef": "K01",
+              "displayName": "Median (closed)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "K06"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.K06",
+              "nativeQueryRef": "K06",
+              "displayName": "KM median"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "K03"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.K03",
+              "nativeQueryRef": "K03",
+              "displayName": "Closed ≤30d"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "d_K01"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.d_K01",
+              "nativeQueryRef": "d_K01",
+              "displayName": "Δ median"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "d_K06"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.d_K06",
+              "nativeQueryRef": "d_K06",
+              "displayName": "Δ KM median"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "slowest_by_median"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.slowest_by_median",
+              "nativeQueryRef": "slowest_by_median",
+              "displayName": "Slowest (median)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "slowest_by_km"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.slowest_by_km",
+              "nativeQueryRef": "slowest_by_km",
+              "displayName": "Slowest (KM)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "slowest_changed"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.slowest_changed",
+              "nativeQueryRef": "slowest_changed",
+              "displayName": "Slowest changed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sensitivity_scenarios"
+                    }
+                  },
+                  "Property": "median_vs_km_disagree"
+                }
+              },
+              "queryRef": "sensitivity_scenarios.median_vs_km_disagree",
+              "nativeQueryRef": "median_vs_km_disagree",
+              "displayName": "Median vs KM disagree"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scenarios'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

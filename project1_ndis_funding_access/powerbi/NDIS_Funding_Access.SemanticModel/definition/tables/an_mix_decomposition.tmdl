@@ -1,0 +1,126 @@
+table an_mix_decomposition
+	lineageTag: f7b3e4fa-3640-cdb4-656f-d06df4e8241c
+
+	column decomposition
+		dataType: string
+		lineageTag: 8eb77d77-ea0e-f95e-b9ca-5e4ee525b12b
+		summarizeBy: none
+		sourceColumn: decomposition
+
+		annotation SummarizationSetBy = User
+
+	column from_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: a260772f-f302-6d8c-31a1-828b894588a0
+		summarizeBy: none
+		sourceColumn: from_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column to_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 8c55aa6d-403d-9f73-66f6-41afe6393da8
+		summarizeBy: none
+		sourceColumn: to_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column rate_from
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 74376a63-3d3c-1990-6eca-eddd77098961
+		summarizeBy: none
+		sourceColumn: rate_from
+
+		annotation SummarizationSetBy = User
+
+	column rate_to
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4e5d76c9-ef34-5ce2-df3e-c3111ffe6ddc
+		summarizeBy: none
+		sourceColumn: rate_to
+
+		annotation SummarizationSetBy = User
+
+	column mix_effect
+		dataType: double
+		formatString: +0.0000;-0.0000;0
+		lineageTag: ee7a8dcb-7aaf-ab86-89c6-b0a21b1e396e
+		summarizeBy: none
+		sourceColumn: mix_effect
+
+		annotation SummarizationSetBy = User
+
+	column rate_effect
+		dataType: double
+		formatString: +0.0000;-0.0000;0
+		lineageTag: 3155e70f-c70e-ad56-4041-624f04f23f47
+		summarizeBy: none
+		sourceColumn: rate_effect
+
+		annotation SummarizationSetBy = User
+
+	column cells
+		dataType: int64
+		formatString: 0
+		lineageTag: 50ec9bbd-f72f-c208-bb1b-884441e7332d
+		summarizeBy: none
+		sourceColumn: cells
+
+		annotation SummarizationSetBy = User
+
+	column span
+		dataType: string
+		lineageTag: 754e5170-d9f4-67b0-2746-c66dd7776417
+		summarizeBy: none
+		sourceColumn: span
+
+		annotation SummarizationSetBy = User
+
+	column published_from
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 37a9826f-269c-b509-14d0-7eedcc069e27
+		summarizeBy: none
+		sourceColumn: published_from
+
+		annotation SummarizationSetBy = User
+
+	column published_to
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d5e50854-977c-7aad-8a92-47fceb9cc08c
+		summarizeBy: none
+		sourceColumn: published_to
+
+		annotation SummarizationSetBy = User
+
+	column reconstruction_error_to
+		dataType: double
+		formatString: +0.0000;-0.0000;0
+		lineageTag: 93a23106-9edd-931a-875e-c5fbd7d340ed
+		summarizeBy: none
+		sourceColumn: reconstruction_error_to
+
+		annotation SummarizationSetBy = User
+
+	partition an_mix_decomposition = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_mix_decomposition.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"decomposition", type text}, {"from_date", type datetime}, {"to_date", type datetime}, {"rate_from", type number}, {"rate_to", type number}, {"mix_effect", type number}, {"rate_effect", type number}, {"cells", Int64.Type}, {"span", type text}, {"published_from", type number}, {"published_to", type number}, {"reconstruction_error_to", type number}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"from_date", type date}, {"to_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

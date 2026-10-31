@@ -1,0 +1,48 @@
+/// Not related to dim_dataset: some findings span A+B
+table coverage_assessment
+	lineageTag: 2de75c22-4369-9da9-2a08-16a3e46b2635
+
+	column dataset
+		dataType: string
+		lineageTag: 289a2f0b-df54-4685-8bb6-07cb1ccc5e63
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column aspect
+		dataType: string
+		lineageTag: 43c4b1b1-f92e-5ab4-78e3-67104153d531
+		summarizeBy: none
+		sourceColumn: aspect
+
+		annotation SummarizationSetBy = User
+
+	column finding
+		dataType: string
+		lineageTag: a0c0a2ff-57ba-6d5f-6743-f35a016edf23
+		summarizeBy: none
+		sourceColumn: finding
+
+		annotation SummarizationSetBy = User
+
+	column implication
+		dataType: string
+		lineageTag: 75641e46-9403-4d3d-d32f-92b9863412be
+		summarizeBy: none
+		sourceColumn: implication
+
+		annotation SummarizationSetBy = User
+
+	partition coverage_assessment = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\coverage_assessment.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"aspect", type text}, {"finding", type text}, {"implication", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c3d06c4d561803cbfa61",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 2000,
+    "height": 96,
+    "width": 400,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "Checks passed"
+                }
+              },
+              "queryRef": "qa_reconciliation.Checks passed",
+              "nativeQueryRef": "Checks passed",
+              "displayName": "PASS"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

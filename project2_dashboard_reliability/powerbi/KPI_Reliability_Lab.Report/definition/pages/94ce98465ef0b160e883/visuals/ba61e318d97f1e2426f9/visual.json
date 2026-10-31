@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ba61e318d97f1e2426f9",
+  "position": {
+    "x": 20,
+    "y": 432,
+    "z": 4000,
+    "height": 248,
+    "width": 820,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "coverage_assessment"
+                    }
+                  },
+                  "Property": "dataset"
+                }
+              },
+              "queryRef": "coverage_assessment.dataset",
+              "nativeQueryRef": "dataset",
+              "displayName": "Dataset"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "coverage_assessment"
+                    }
+                  },
+                  "Property": "aspect"
+                }
+              },
+              "queryRef": "coverage_assessment.aspect",
+              "nativeQueryRef": "aspect",
+              "displayName": "Aspect"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "coverage_assessment"
+                    }
+                  },
+                  "Property": "finding"
+                }
+              },
+              "queryRef": "coverage_assessment.finding",
+              "nativeQueryRef": "finding",
+              "displayName": "Finding"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "coverage_assessment"
+                    }
+                  },
+                  "Property": "implication"
+                }
+              },
+              "queryRef": "coverage_assessment.implication",
+              "nativeQueryRef": "implication",
+              "displayName": "Implication"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Coverage assessment (A, B and A+B)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

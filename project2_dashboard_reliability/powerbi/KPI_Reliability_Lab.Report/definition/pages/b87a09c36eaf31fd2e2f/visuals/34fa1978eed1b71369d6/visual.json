@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "34fa1978eed1b71369d6",
+  "position": {
+    "x": 660,
+    "y": 92,
+    "z": 4000,
+    "height": 290,
+    "width": 600,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_reversals"
+                    }
+                  },
+                  "Property": "faster_on_median"
+                }
+              },
+              "queryRef": "stress_reversals.faster_on_median",
+              "nativeQueryRef": "faster_on_median",
+              "displayName": "Faster on median"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_reversals"
+                    }
+                  },
+                  "Property": "slower_on_median"
+                }
+              },
+              "queryRef": "stress_reversals.slower_on_median",
+              "nativeQueryRef": "slower_on_median",
+              "displayName": "Slower on median"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_reversals"
+                    }
+                  },
+                  "Property": "kpi_label"
+                }
+              },
+              "queryRef": "stress_reversals.kpi_label",
+              "nativeQueryRef": "kpi_label",
+              "displayName": "But on"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_reversals"
+                    }
+                  },
+                  "Property": "faster_value"
+                }
+              },
+              "queryRef": "stress_reversals.faster_value",
+              "nativeQueryRef": "faster_value",
+              "displayName": "Value (faster)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_reversals"
+                    }
+                  },
+                  "Property": "slower_value"
+                }
+              },
+              "queryRef": "stress_reversals.slower_value",
+              "nativeQueryRef": "slower_value",
+              "displayName": "Value (slower)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ranking reversals vs the closed-only median'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

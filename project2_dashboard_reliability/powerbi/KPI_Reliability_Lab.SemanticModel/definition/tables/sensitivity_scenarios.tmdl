@@ -1,0 +1,168 @@
+table sensitivity_scenarios
+	lineageTag: 167459ca-0f75-c4be-0dab-e5efa492884c
+
+	column dataset
+		dataType: string
+		lineageTag: 3bae0397-ce2b-6e10-52fa-4798c47196e5
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column scenario
+		dataType: string
+		lineageTag: b7749a4b-6c64-f92f-49b6-0bbd5e0aacbe
+		summarizeBy: none
+		sourceColumn: scenario
+
+		annotation SummarizationSetBy = User
+
+	column assumption_type
+		dataType: string
+		lineageTag: 5de1a563-a660-73ed-92b2-58bbbc21b8a6
+		summarizeBy: none
+		sourceColumn: assumption_type
+
+		annotation SummarizationSetBy = User
+
+	column requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d6724c-57f3-d395-25e3-b47ac68e4dab
+		summarizeBy: none
+		sourceColumn: requests
+
+		annotation SummarizationSetBy = User
+
+	column K01
+		dataType: double
+		formatString: 0.0
+		lineageTag: e77f2547-4fe4-d260-6e75-f423e4e0a1ec
+		summarizeBy: none
+		sourceColumn: K01
+
+		annotation SummarizationSetBy = User
+
+	column K02
+		dataType: double
+		formatString: 0.0
+		lineageTag: 89680705-5c50-c5fb-51e0-5ccdbba15464
+		summarizeBy: none
+		sourceColumn: K02
+
+		annotation SummarizationSetBy = User
+
+	column K03
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cae30601-5ad5-da3d-57cf-d9a68d152897
+		summarizeBy: none
+		sourceColumn: K03
+
+		annotation SummarizationSetBy = User
+
+	column K05
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 42aaa2a8-fbb0-0c5a-daa1-387bd3352eb5
+		summarizeBy: none
+		sourceColumn: K05
+
+		annotation SummarizationSetBy = User
+
+	column K06
+		dataType: double
+		formatString: 0.0
+		lineageTag: 30279a98-5532-3def-cd20-adfeda0c10af
+		summarizeBy: none
+		sourceColumn: K06
+
+		annotation SummarizationSetBy = User
+
+	column slowest_by_median
+		dataType: string
+		lineageTag: af94a199-abef-fe3e-2767-4c649600a077
+		summarizeBy: none
+		sourceColumn: slowest_by_median
+
+		annotation SummarizationSetBy = User
+
+	column slowest_by_km
+		dataType: string
+		lineageTag: a853417b-fed6-2c73-67c7-5e1595ca29bd
+		summarizeBy: none
+		sourceColumn: slowest_by_km
+
+		annotation SummarizationSetBy = User
+
+	column fastest_by_median
+		dataType: string
+		lineageTag: 14cb8cfe-3dd9-13e0-222b-88914ed1a1e7
+		summarizeBy: none
+		sourceColumn: fastest_by_median
+
+		annotation SummarizationSetBy = User
+
+	column d_K01
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: 3bd1d549-11c4-1ca8-c28d-ca14c86e10c6
+		summarizeBy: none
+		sourceColumn: d_K01
+
+		annotation SummarizationSetBy = User
+
+	column d_K06
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: 04f89f60-bba8-204d-3bdf-f87bd3361c72
+		summarizeBy: none
+		sourceColumn: d_K06
+
+		annotation SummarizationSetBy = User
+
+	column d_K03
+		dataType: double
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: c627a0b5-808b-0b1a-4e93-dc3e9b2679df
+		summarizeBy: none
+		sourceColumn: d_K03
+
+		annotation SummarizationSetBy = User
+
+	column slowest_changed
+		dataType: boolean
+		lineageTag: 759ed576-561e-2614-f119-5fb570c7aa56
+		summarizeBy: none
+		sourceColumn: slowest_changed
+
+		annotation SummarizationSetBy = User
+
+	column slowest_by_km_changed
+		dataType: boolean
+		lineageTag: 7024dbbe-bba4-8515-317b-365742644cbf
+		summarizeBy: none
+		sourceColumn: slowest_by_km_changed
+
+		annotation SummarizationSetBy = User
+
+	column median_vs_km_disagree
+		dataType: boolean
+		lineageTag: 50e6b7e6-7900-f186-6618-91e6ba23b0e3
+		summarizeBy: none
+		sourceColumn: median_vs_km_disagree
+
+		annotation SummarizationSetBy = User
+
+	partition sensitivity_scenarios = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\sensitivity_scenarios.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"scenario", type text}, {"assumption_type", type text}, {"requests", Int64.Type}, {"K01", type number}, {"K02", type number}, {"K03", type number}, {"K05", type number}, {"K06", type number}, {"slowest_by_median", type text}, {"slowest_by_km", type text}, {"fastest_by_median", type text}, {"d_K01", type number}, {"d_K06", type number}, {"d_K03", type number}, {"slowest_changed", type logical}, {"slowest_by_km_changed", type logical}, {"median_vs_km_disagree", type logical}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

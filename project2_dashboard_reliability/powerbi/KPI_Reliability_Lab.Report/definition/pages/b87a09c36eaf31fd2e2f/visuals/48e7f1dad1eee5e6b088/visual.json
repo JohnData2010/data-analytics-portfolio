@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "48e7f1dad1eee5e6b088",
+  "position": {
+    "x": 660,
+    "y": 392,
+    "z": 5000,
+    "height": 288,
+    "width": 600,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_rank_agreement"
+                    }
+                  },
+                  "Property": "kpi_a"
+                }
+              },
+              "queryRef": "stress_rank_agreement.kpi_a",
+              "nativeQueryRef": "kpi_a",
+              "displayName": "KPI A"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_rank_agreement"
+                    }
+                  },
+                  "Property": "kpi_b"
+                }
+              },
+              "queryRef": "stress_rank_agreement.kpi_b",
+              "nativeQueryRef": "kpi_b",
+              "displayName": "KPI B"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_rank_agreement"
+                    }
+                  },
+                  "Property": "spearman"
+                }
+              },
+              "queryRef": "stress_rank_agreement.spearman",
+              "nativeQueryRef": "spearman",
+              "displayName": "Spearman"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stress_rank_agreement"
+                    }
+                  },
+                  "Property": "groups"
+                }
+              },
+              "queryRef": "stress_rank_agreement.groups",
+              "nativeQueryRef": "groups",
+              "displayName": "Groups"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "stress_rank_agreement"
+                  }
+                },
+                "Property": "spearman"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rank agreement between KPIs (Spearman)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

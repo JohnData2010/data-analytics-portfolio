@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "896fb77f8b5af4469031",
+  "position": {
+    "x": 800,
+    "y": 80,
+    "z": 3000,
+    "height": 90,
+    "width": 460,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Raw gap (pts)"
+                }
+              },
+              "queryRef": "fact_util_standardised.Raw gap (pts)",
+              "nativeQueryRef": "Raw gap (pts)",
+              "displayName": "Raw gap to national (pts, all quarters)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

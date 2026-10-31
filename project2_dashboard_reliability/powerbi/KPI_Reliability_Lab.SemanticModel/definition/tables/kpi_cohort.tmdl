@@ -1,0 +1,87 @@
+table kpi_cohort
+	lineageTag: ebd77fb8-c055-9ac0-603d-1bb9c0811ee3
+
+	column dataset
+		dataType: string
+		lineageTag: efcc3cb0-9422-364f-30ec-4409c8a5a2de
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column service_group
+		dataType: string
+		lineageTag: 2ebbf5c2-ef9f-af02-7cd9-109a2d5b93d3
+		summarizeBy: none
+		sourceColumn: service_group
+
+		annotation SummarizationSetBy = User
+
+	column intake_month
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 47ae8530-4b41-60db-4101-f334f8971e7d
+		summarizeBy: none
+		sourceColumn: intake_month
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column received
+		dataType: int64
+		formatString: 0
+		lineageTag: c6fc6574-6ecc-42ef-98d8-80efdb762887
+		summarizeBy: none
+		sourceColumn: received
+
+		annotation SummarizationSetBy = User
+
+	column closed_within_30
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b19d412-a002-47d5-b164-51c5490792f6
+		summarizeBy: none
+		sourceColumn: closed_within_30
+
+		annotation SummarizationSetBy = User
+
+	column k03_closure_30d
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9c16fe4b-f4b0-d91a-42f5-b03d67a3124d
+		summarizeBy: none
+		sourceColumn: k03_closure_30d
+
+		annotation SummarizationSetBy = User
+
+	column followup_days_after_cohort_end
+		dataType: int64
+		formatString: 0
+		lineageTag: b8cdb47a-54c4-f786-4d61-4f72cf7ed66f
+		summarizeBy: none
+		sourceColumn: followup_days_after_cohort_end
+
+		annotation SummarizationSetBy = User
+
+	column full_window
+		dataType: boolean
+		lineageTag: d74f5516-45cf-c8e3-a9d8-5f8596e69269
+		summarizeBy: none
+		sourceColumn: full_window
+
+		annotation SummarizationSetBy = User
+
+	partition kpi_cohort = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\kpi_cohort.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"service_group", type text}, {"intake_month", type datetime}, {"received", Int64.Type}, {"closed_within_30", Int64.Type}, {"k03_closure_30d", type number}, {"followup_days_after_cohort_end", Int64.Type}, {"full_window", type logical}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"intake_month", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,40 @@
+/// State x NDIS service district
+table dim_district
+	lineageTag: dc817f7c-dd1b-adcc-b6ae-7a204ae87e06
+
+	column state
+		dataType: string
+		lineageTag: 629c1692-190a-effc-f61d-a979ccf47a52
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 10cc126d-23fa-a22c-500f-9d389130da2d
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: cbb49259-9f8c-6b8c-1933-759288abfc36
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	partition dim_district = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\dim_district.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"state", type text}, {"district", type text}, {"district_key", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

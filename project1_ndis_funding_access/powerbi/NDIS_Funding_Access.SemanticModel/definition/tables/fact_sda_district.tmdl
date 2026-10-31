@@ -1,0 +1,245 @@
+table fact_sda_district
+	lineageTag: 4925d0a4-8e73-66cc-238f-f1f340fba7e3
+
+	measure 'SDA in use' = SUM ( fact_sda_district[in_use] )
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: 7c6ab540-45ea-8e3a-0eef-e520029e7d79
+
+	measure 'SDA eligible not using' = SUM ( fact_sda_district[not_using] )
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: 7808f97b-ef3d-5532-a8c7-6c5e6e31ffcb
+
+	measure 'SDA eligible total' = SUM ( fact_sda_district[eligible_total] )
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: ba9168ed-6744-11df-d28c-e8c3aea5a35a
+
+	measure 'Non-use share %' = DIVIDE ( [SDA eligible not using], [SDA eligible total] )
+		formatString: 0.0%
+		displayFolder: Module B
+		lineageTag: 86e6f35e-800f-2001-8caf-0ede30bac173
+
+	measure 'National non-use share %' = AVERAGE ( fact_sda_district[national_non_use_share] )
+		formatString: 0.0%
+		displayFolder: Module B
+		lineageTag: b7bf399c-c922-88e5-f68c-3c3cd63f87f3
+
+	measure 'Masked cells in view' = CALCULATE ( COUNTROWS ( fact_sda_district ), fact_sda_district[any_masked] = TRUE () ) + 0
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: dc98a75c-ee99-0f78-7e69-6a6636103189
+
+	measure 'Latest national not using' =
+			VAR d = CALCULATE ( MAX ( fact_sda_district[report_date] ), ALL ( fact_sda_district ) )
+			RETURN CALCULATE ( MAX ( fact_sda_district[national_not_using] ), ALL ( fact_sda_district ),
+			    fact_sda_district[report_date] = d )
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: 820b1e29-6e36-764b-0ee6-5822657cf734
+
+	measure 'Latest national non-use share %' =
+			VAR d = CALCULATE ( MAX ( fact_sda_district[report_date] ), ALL ( fact_sda_district ) )
+			RETURN CALCULATE ( MAX ( fact_sda_district[national_non_use_share] ), ALL ( fact_sda_district ),
+			    fact_sda_district[report_date] = d )
+		formatString: 0.0%
+		displayFolder: Module B
+		lineageTag: 969d0cae-a05d-d628-5eaa-2813c5f36d6e
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 337d85ed-91be-d743-bcde-964b9260fb1f
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state
+		dataType: string
+		lineageTag: 6b2f4c7c-a696-ca0c-c4e8-3d5afcff70e5
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: db478363-03e4-ffdf-68f5-7176f73effdc
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column in_use
+		dataType: int64
+		formatString: 0
+		lineageTag: 79db0d68-d270-fece-d34c-d990d34bdffa
+		summarizeBy: none
+		sourceColumn: in_use
+
+		annotation SummarizationSetBy = User
+
+	column in_use_masked
+		dataType: boolean
+		lineageTag: 1833802a-6575-02bf-f1f2-183e8dea6269
+		summarizeBy: none
+		sourceColumn: in_use_masked
+
+		annotation SummarizationSetBy = User
+
+	column in_use_upper
+		dataType: int64
+		formatString: 0
+		lineageTag: da8bddb6-eb82-0946-eee0-d7353fff2da4
+		summarizeBy: none
+		sourceColumn: in_use_upper
+
+		annotation SummarizationSetBy = User
+
+	column not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 9951c7a2-b1a4-2d63-ba02-1ede8cc13ec5
+		summarizeBy: none
+		sourceColumn: not_using
+
+		annotation SummarizationSetBy = User
+
+	column not_using_masked
+		dataType: boolean
+		lineageTag: c205037c-4324-3c2a-051c-111780f1ca3f
+		summarizeBy: none
+		sourceColumn: not_using_masked
+
+		annotation SummarizationSetBy = User
+
+	column not_using_upper
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cba8afb-356b-edd9-2529-6daff546ba04
+		summarizeBy: none
+		sourceColumn: not_using_upper
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: 8dbcd630-90b7-3567-0299-0dfd85551b83
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column any_masked
+		dataType: boolean
+		lineageTag: 30aa2aff-ea04-931e-719b-4bd4085b5702
+		summarizeBy: none
+		sourceColumn: any_masked
+
+		annotation SummarizationSetBy = User
+
+	column eligible_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 51f88c34-92c9-3ad0-8739-53c27dfc607a
+		summarizeBy: none
+		sourceColumn: eligible_total
+
+		annotation SummarizationSetBy = User
+
+	column non_use_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a8b0f3d6-fd17-275c-74b7-27ad4a80d121
+		summarizeBy: none
+		sourceColumn: non_use_share
+
+		annotation SummarizationSetBy = User
+
+	column non_use_share_min
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4211db24-cced-af02-3bc7-ff8e3809378c
+		summarizeBy: none
+		sourceColumn: non_use_share_min
+
+		annotation SummarizationSetBy = User
+
+	column non_use_share_max
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e0dc7bb3-5a58-2be3-9cd0-b4e915788f82
+		summarizeBy: none
+		sourceColumn: non_use_share_max
+
+		annotation SummarizationSetBy = User
+
+	column active_participants
+		dataType: int64
+		formatString: 0
+		lineageTag: 71dab1f9-0841-14ea-6e85-c3789f8485c7
+		summarizeBy: none
+		sourceColumn: active_participants
+
+		annotation SummarizationSetBy = User
+
+	column active_participants_source
+		dataType: string
+		lineageTag: 0b982faa-86df-8d8d-8a24-8a86be397e58
+		summarizeBy: none
+		sourceColumn: active_participants_source
+
+		annotation SummarizationSetBy = User
+
+	column not_using_per_1000_active
+		dataType: double
+		lineageTag: fc13ac3a-a6ee-e525-b8dc-c5d8b10d3847
+		summarizeBy: none
+		sourceColumn: not_using_per_1000_active
+
+		annotation SummarizationSetBy = User
+
+	column national_non_use_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: db03ab8f-3f75-2b78-17a8-2607289b1fdb
+		summarizeBy: none
+		sourceColumn: national_non_use_share
+
+		annotation SummarizationSetBy = User
+
+	column national_not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 0efef04a-6f1a-a256-9800-11e1c3a14643
+		summarizeBy: none
+		sourceColumn: national_not_using
+
+		annotation SummarizationSetBy = User
+
+	column national_eligible
+		dataType: int64
+		formatString: 0
+		lineageTag: d18c487a-bccf-d715-6f85-66bc88a231b3
+		summarizeBy: none
+		sourceColumn: national_eligible
+
+		annotation SummarizationSetBy = User
+
+	partition fact_sda_district = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_sda_district.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"state", type text}, {"district", type text}, {"in_use", Int64.Type}, {"in_use_masked", type logical}, {"in_use_upper", Int64.Type}, {"not_using", Int64.Type}, {"not_using_masked", type logical}, {"not_using_upper", Int64.Type}, {"district_key", type text}, {"any_masked", type logical}, {"eligible_total", Int64.Type}, {"non_use_share", type number}, {"non_use_share_min", type number}, {"non_use_share_max", type number}, {"active_participants", Int64.Type}, {"active_participants_source", type text}, {"not_using_per_1000_active", type number}, {"national_non_use_share", type number}, {"national_not_using", Int64.Type}, {"national_eligible", Int64.Type}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

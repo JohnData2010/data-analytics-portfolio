@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c2a562d7ac1fff46ef7a",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 3000,
+    "height": 96,
+    "width": 400,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_evidence_register"
+                    }
+                  },
+                  "Property": "Observed patterns"
+                }
+              },
+              "queryRef": "an_evidence_register.Observed patterns",
+              "nativeQueryRef": "Observed patterns",
+              "displayName": "Observed pattern"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

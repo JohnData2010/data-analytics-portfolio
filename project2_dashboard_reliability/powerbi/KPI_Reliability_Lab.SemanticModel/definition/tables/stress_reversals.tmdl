@@ -1,0 +1,87 @@
+table stress_reversals
+	lineageTag: 90f57fd9-c3a3-9a07-d394-e27189412bba
+
+	column dataset
+		dataType: string
+		lineageTag: e986dd1c-46fe-ec5a-8176-ba2e559b7599
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column faster_on_median
+		dataType: string
+		lineageTag: 4bebae9c-e67e-d729-b326-1abe559829fe
+		summarizeBy: none
+		sourceColumn: faster_on_median
+
+		annotation SummarizationSetBy = User
+
+	column slower_on_median
+		dataType: string
+		lineageTag: 76f66d59-838b-d1a2-2703-8b2d57fbde03
+		summarizeBy: none
+		sourceColumn: slower_on_median
+
+		annotation SummarizationSetBy = User
+
+	column kpi
+		dataType: string
+		lineageTag: 12188767-5619-d380-3c44-aec56293005f
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column kpi_label
+		dataType: string
+		lineageTag: 14a89fcd-6209-21db-0dc8-3a37539ea2a3
+		summarizeBy: none
+		sourceColumn: kpi_label
+
+		annotation SummarizationSetBy = User
+
+	column faster_value
+		dataType: double
+		lineageTag: 70d3e8eb-771c-4e46-7738-f75001c7338b
+		summarizeBy: none
+		sourceColumn: faster_value
+
+		annotation SummarizationSetBy = User
+
+	column slower_value
+		dataType: double
+		lineageTag: 4ca2d15d-b9bb-71a6-5908-c07f70aacc87
+		summarizeBy: none
+		sourceColumn: slower_value
+
+		annotation SummarizationSetBy = User
+
+	column median_faster
+		dataType: double
+		lineageTag: 0bbe75b2-c65a-3fe5-5272-d5b17f32fd1d
+		summarizeBy: none
+		sourceColumn: median_faster
+
+		annotation SummarizationSetBy = User
+
+	column median_slower
+		dataType: double
+		lineageTag: 40679ec6-7601-1444-b31a-39e36d2c7dd4
+		summarizeBy: none
+		sourceColumn: median_slower
+
+		annotation SummarizationSetBy = User
+
+	partition stress_reversals = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\stress_reversals.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"faster_on_median", type text}, {"slower_on_median", type text}, {"kpi", type text}, {"kpi_label", type text}, {"faster_value", type number}, {"slower_value", type number}, {"median_faster", type number}, {"median_slower", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

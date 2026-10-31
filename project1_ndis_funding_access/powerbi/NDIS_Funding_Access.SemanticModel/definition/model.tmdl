@@ -1,0 +1,36 @@
+model Model
+	culture: en-AU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_period", "dim_district", "fact_funding_util_district", "fact_util_standardised", "fact_util_cells", "fact_util_national", "fact_sda_district", "fact_sda_sa4_context", "an_util_persistence", "an_sda_persistence", "an_scenario_grid", "Reduction pts", "an_evidence_register", "an_sensitivity_flags", "an_sensitivity_overlap", "an_sensitivity_threshold", "an_mix_decomposition", "qa_reconciliation", "DataFolder"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_period
+ref table dim_district
+ref table fact_funding_util_district
+ref table fact_util_standardised
+ref table fact_util_cells
+ref table fact_util_national
+ref table fact_sda_district
+ref table fact_sda_sa4_context
+ref table an_util_persistence
+ref table an_sda_persistence
+ref table an_scenario_grid
+ref table 'Reduction pts'
+ref table an_evidence_register
+ref table an_sensitivity_flags
+ref table an_sensitivity_overlap
+ref table an_sensitivity_threshold
+ref table an_mix_decomposition
+ref table qa_reconciliation
+
+ref cultureInfo en-AU
+

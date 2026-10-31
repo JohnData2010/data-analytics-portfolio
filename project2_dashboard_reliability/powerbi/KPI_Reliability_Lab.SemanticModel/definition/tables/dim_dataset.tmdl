@@ -1,0 +1,26 @@
+/// The two City of Melbourne extracts; never merged
+table dim_dataset
+	lineageTag: 110cf8bd-4c41-1295-f142-ef03b164fe86
+
+	column dataset
+		dataType: string
+		lineageTag: eb9088c6-b969-3a71-f0bd-abe564b9aa3a
+		summarizeBy: none
+		sourceColumn: [dataset]
+
+		annotation SummarizationSetBy = User
+
+	column dataset_label
+		dataType: string
+		lineageTag: e7f43628-b451-3092-8328-8a45f0be36ed
+		summarizeBy: none
+		sourceColumn: [dataset_label]
+
+		annotation SummarizationSetBy = User
+
+	partition dim_dataset = calculated
+		mode: import
+		source = DATATABLE ( "dataset", STRING, "dataset_label", STRING, { { "A", "A: resolution time, Nov 2014 to Nov 2016" }, { "B", "B: digital channel, Jan to Sep 2018 (Salesforce subset)" } } )
+
+	annotation PBI_ResultType = Table
+

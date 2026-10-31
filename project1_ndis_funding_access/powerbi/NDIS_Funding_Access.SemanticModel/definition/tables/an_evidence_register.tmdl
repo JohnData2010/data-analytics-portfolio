@@ -1,0 +1,110 @@
+table an_evidence_register
+	lineageTag: 21a3bd32-247e-e9fd-cdcf-9da98f76188f
+
+	measure 'Observed patterns' = CALCULATE ( COUNTROWS ( an_evidence_register ), an_evidence_register[status] = "Observed pattern" ) + 0
+		formatString: #,0
+		displayFolder: Module C
+		lineageTag: 8d585a71-1b68-f4d5-912e-ed77752a8a27
+
+	measure 'Requires investigation' = CALCULATE ( COUNTROWS ( an_evidence_register ), an_evidence_register[status] = "Requires investigation" ) + 0
+		formatString: #,0
+		displayFolder: Module C
+		lineageTag: 88ba4007-1c27-c409-19ed-a0a95e39b7d4
+
+	measure 'Unsupported conclusions' = CALCULATE ( COUNTROWS ( an_evidence_register ), an_evidence_register[status] = "Unsupported conclusion" ) + 0
+		formatString: #,0
+		displayFolder: Module C
+		lineageTag: 2e518b91-c88f-812d-8d00-2a373f3b7646
+
+	column claim_id
+		dataType: string
+		lineageTag: a3e6488d-769f-daa4-1746-fb05cfad52f6
+		summarizeBy: none
+		sourceColumn: claim_id
+
+		annotation SummarizationSetBy = User
+
+	column module
+		dataType: string
+		lineageTag: 5f7362da-d61e-3e5f-d9be-86717ae9742c
+		summarizeBy: none
+		sourceColumn: module
+
+		annotation SummarizationSetBy = User
+
+	column scope
+		dataType: string
+		lineageTag: fed35a86-5820-c442-6c1b-2cd713c97280
+		summarizeBy: none
+		sourceColumn: scope
+
+		annotation SummarizationSetBy = User
+
+	column topic
+		dataType: string
+		lineageTag: c37cef67-0c13-d5a4-bee5-e07683b28635
+		summarizeBy: none
+		sourceColumn: topic
+
+		annotation SummarizationSetBy = User
+
+	column claim
+		dataType: string
+		lineageTag: c4556f5d-e304-cc68-637a-b09b6b20f9c2
+		summarizeBy: none
+		sourceColumn: claim
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: 04962404-b16e-f9b1-cc5a-359019fa3f3c
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column rule
+		dataType: string
+		lineageTag: e60cc68d-9531-102a-91e4-03dacb3aa702
+		summarizeBy: none
+		sourceColumn: rule
+
+		annotation SummarizationSetBy = User
+
+	column evidence
+		dataType: string
+		lineageTag: 4ef07aec-7f9a-2790-9868-f21cf5a1d38e
+		summarizeBy: none
+		sourceColumn: evidence
+
+		annotation SummarizationSetBy = User
+
+	column caveats
+		dataType: string
+		lineageTag: e5fea379-7ba3-ee94-1c7b-837e5a2000f0
+		summarizeBy: none
+		sourceColumn: caveats
+
+		annotation SummarizationSetBy = User
+
+	column information_needed
+		dataType: string
+		lineageTag: 5675bd8a-355a-a81c-40d4-c23a1edc4886
+		summarizeBy: none
+		sourceColumn: information_needed
+
+		annotation SummarizationSetBy = User
+
+	partition an_evidence_register = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_evidence_register.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"claim_id", type text}, {"module", type text}, {"scope", type text}, {"topic", type text}, {"claim", type text}, {"status", type text}, {"rule", type text}, {"evidence", type text}, {"caveats", type text}, {"information_needed", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

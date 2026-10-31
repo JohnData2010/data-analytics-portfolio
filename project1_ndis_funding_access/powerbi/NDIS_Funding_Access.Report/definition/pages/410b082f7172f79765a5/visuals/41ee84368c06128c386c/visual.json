@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "41ee84368c06128c386c",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 2000,
+    "height": 400,
+    "width": 760,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_period"
+                    }
+                  },
+                  "Property": "report_date"
+                }
+              },
+              "queryRef": "dim_period.report_date",
+              "nativeQueryRef": "report_date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Observed utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.Observed utilisation %",
+              "nativeQueryRef": "Observed utilisation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Expected utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.Expected utilisation %",
+              "nativeQueryRef": "Expected utilisation %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "National utilisation %"
+                }
+              },
+              "queryRef": "fact_util_standardised.National utilisation %",
+              "nativeQueryRef": "National utilisation %"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Observed vs expected vs national'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

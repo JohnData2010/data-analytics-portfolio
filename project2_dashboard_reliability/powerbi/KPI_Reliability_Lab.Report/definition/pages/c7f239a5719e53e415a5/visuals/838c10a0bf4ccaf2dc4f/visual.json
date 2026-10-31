@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "838c10a0bf4ccaf2dc4f",
+  "position": {
+    "x": 1000,
+    "y": 92,
+    "z": 4000,
+    "height": 120,
+    "width": 260,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_meaningfulness"
+                    }
+                  },
+                  "Property": "KM median days (open = censored)"
+                }
+              },
+              "queryRef": "kpi_meaningfulness.KM median days (open = censored)",
+              "nativeQueryRef": "KM median days (open = censored)",
+              "displayName": "Median days, open counted"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

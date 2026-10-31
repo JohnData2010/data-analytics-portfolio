@@ -1,0 +1,133 @@
+table kpi_summary
+	lineageTag: 4175d0b8-5d30-7a5b-d07d-20405f5ab70d
+
+	measure 'Total requests' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( SUM ( kpi_summary[requests] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: #,0
+		displayFolder: Service performance
+		lineageTag: 954185a4-66f8-9b0f-b0a2-40017a9afe7a
+
+	measure 'Open requests' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( SUM ( kpi_summary[open] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: #,0
+		displayFolder: Service performance
+		lineageTag: 564782e8-879c-9b7f-05dd-8adaea5f7204
+
+	measure 'Open share' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( MAX ( kpi_summary[k05_open_share] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: 0.0%
+		displayFolder: Service performance
+		lineageTag: b20e3583-8cbe-de80-8141-f8daa759eea7
+
+	measure 'Median days (closed only)' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( MAX ( kpi_summary[k01_median_days] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: 0.0
+		displayFolder: Service performance
+		lineageTag: cea46703-c5f3-dc3d-034a-61f51a1f6c74
+
+	measure 'P90 days (closed only)' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( MAX ( kpi_summary[k02_p90_days] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: 0.0
+		displayFolder: Service performance
+		lineageTag: ca271078-bc62-ae44-6e2e-faf287a28058
+
+	measure 'Open median age (days)' = IF ( HASONEVALUE ( dim_dataset[dataset] ), CALCULATE ( MAX ( kpi_summary[k04_open_median_age] ), kpi_summary[service_group] = "(all)" ), BLANK () )
+		formatString: 0.0
+		displayFolder: Service performance
+		lineageTag: 0fbcfed0-4845-9131-a308-c14f802b919c
+
+	column dataset
+		dataType: string
+		lineageTag: e248193d-4889-8781-00db-ee23c2045f2e
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column service_group
+		dataType: string
+		lineageTag: fd0c97c6-9c27-4449-4a52-4e580d9e717e
+		summarizeBy: none
+		sourceColumn: service_group
+
+		annotation SummarizationSetBy = User
+
+	column requests
+		dataType: int64
+		formatString: #,0
+		lineageTag: c6cc733f-1ab8-bb01-d450-039012111b8b
+		summarizeBy: none
+		sourceColumn: requests
+
+		annotation SummarizationSetBy = User
+
+	column closed
+		dataType: int64
+		formatString: #,0
+		lineageTag: 71f32a58-8dfc-4acb-9d97-0fe85f6be4cb
+		summarizeBy: none
+		sourceColumn: closed
+
+		annotation SummarizationSetBy = User
+
+	column open
+		dataType: int64
+		formatString: #,0
+		lineageTag: ad0e3644-e1ac-6adf-0ccf-32fc405e5308
+		summarizeBy: none
+		sourceColumn: open
+
+		annotation SummarizationSetBy = User
+
+	column k01_median_days
+		dataType: double
+		formatString: 0.0
+		lineageTag: 4b6dba56-aac0-cc4c-6b69-bbe80759662c
+		summarizeBy: none
+		sourceColumn: k01_median_days
+
+		annotation SummarizationSetBy = User
+
+	column k02_p90_days
+		dataType: double
+		formatString: 0.0
+		lineageTag: 23e79ab7-0098-c2a6-8663-10a0d175cb09
+		summarizeBy: none
+		sourceColumn: k02_p90_days
+
+		annotation SummarizationSetBy = User
+
+	column k04_open_median_age
+		dataType: double
+		formatString: 0.0
+		lineageTag: 2bf42510-6120-8a2c-59f4-1b6988d5a98f
+		summarizeBy: none
+		sourceColumn: k04_open_median_age
+
+		annotation SummarizationSetBy = User
+
+	column k04_open_share_over_90d
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 64669e4c-28f9-a50c-c3b4-1042ad244eca
+		summarizeBy: none
+		sourceColumn: k04_open_share_over_90d
+
+		annotation SummarizationSetBy = User
+
+	column k05_open_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7e3f5d59-b4e1-6a5b-fb1e-d44bab713e49
+		summarizeBy: none
+		sourceColumn: k05_open_share
+
+		annotation SummarizationSetBy = User
+
+	partition kpi_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\kpi_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"service_group", type text}, {"requests", Int64.Type}, {"closed", Int64.Type}, {"open", Int64.Type}, {"k01_median_days", type number}, {"k02_p90_days", type number}, {"k04_open_median_age", type number}, {"k04_open_share_over_90d", type number}, {"k05_open_share", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

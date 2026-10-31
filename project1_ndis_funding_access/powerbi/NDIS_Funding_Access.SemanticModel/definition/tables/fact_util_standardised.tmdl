@@ -1,0 +1,167 @@
+table fact_util_standardised
+	lineageTag: 7dad99f9-5b33-85e1-2d57-ae44c584f431
+
+	measure 'Observed utilisation %' = AVERAGE ( fact_util_standardised[observed_rate] )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: 8ed1aed2-548e-a3bc-6805-836dbef677a8
+
+	measure 'Expected utilisation %' = AVERAGE ( fact_util_standardised[expected_rate] )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: 05dd9612-bb97-bd67-051f-ea43ac6bc65f
+
+	measure 'National utilisation %' = AVERAGE ( fact_util_standardised[national_rate] )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: 2c09c1c8-527e-29e6-9dec-7d11be1f6f03
+
+	measure 'Raw gap (pts)' = AVERAGE ( fact_util_standardised[raw_gap] ) * 100
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Module A
+		lineageTag: cd55b651-a069-9e3b-cee9-9e071eda2e8a
+
+	measure 'Mix effect (pts)' = AVERAGE ( fact_util_standardised[mix_effect] ) * 100
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Module A
+		lineageTag: bfe1c119-c85f-c589-560f-1f5a8ccd5ca9
+
+	measure 'Like-for-like gap (pts)' = AVERAGE ( fact_util_standardised[like_for_like_gap] ) * 100
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Module A
+		lineageTag: ce670135-755b-40ec-73ff-563c3c47d34f
+
+	measure 'Within-cell coverage %' = AVERAGE ( fact_util_standardised[within_cell_coverage] )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: 75253d4c-c349-d9d2-8fb7-c76b0e939f9d
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 5ab1414f-8bf8-bdc8-de5b-7c2fb27c8254
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state
+		dataType: string
+		lineageTag: 1c01d96c-044f-6c57-e07f-a69dce8e1229
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: dc0d7240-9ed2-fc2f-3eb5-59499459d4a2
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: bb93c3f1-7dfc-18c3-5a57-138b727f8b62
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column expected_rate
+		dataType: double
+		lineageTag: 2b4a89e3-6a9a-c586-6e57-c3533f919b46
+		summarizeBy: none
+		sourceColumn: expected_rate
+
+		annotation SummarizationSetBy = User
+
+	column within_cell_gap
+		dataType: double
+		lineageTag: 3ba04c44-ac28-7003-89bc-4a2f5002488b
+		summarizeBy: none
+		sourceColumn: within_cell_gap
+
+		annotation SummarizationSetBy = User
+
+	column within_cell_coverage
+		dataType: double
+		lineageTag: 10545778-2ce6-5a6f-f7a7-7be2d79187b1
+		summarizeBy: none
+		sourceColumn: within_cell_coverage
+
+		annotation SummarizationSetBy = User
+
+	column weight_share_estimated
+		dataType: double
+		lineageTag: 6ef0a231-95a1-b271-f418-3921de6cd6de
+		summarizeBy: none
+		sourceColumn: weight_share_estimated
+
+		annotation SummarizationSetBy = User
+
+	column observed_rate
+		dataType: double
+		lineageTag: 567adc10-f461-4fb9-982a-ece351bafad8
+		summarizeBy: none
+		sourceColumn: observed_rate
+
+		annotation SummarizationSetBy = User
+
+	column active_participants
+		dataType: int64
+		formatString: 0
+		lineageTag: 39a4c478-5ebd-7c66-b2f9-7a6994c50c59
+		summarizeBy: none
+		sourceColumn: active_participants
+
+		annotation SummarizationSetBy = User
+
+	column national_rate
+		dataType: double
+		lineageTag: be09699c-ef75-8f98-c0c3-bd9b5c5672a2
+		summarizeBy: none
+		sourceColumn: national_rate
+
+		annotation SummarizationSetBy = User
+
+	column mix_effect
+		dataType: double
+		lineageTag: 3d321dcc-119a-6e26-2366-69c31ccee9b3
+		summarizeBy: none
+		sourceColumn: mix_effect
+
+		annotation SummarizationSetBy = User
+
+	column like_for_like_gap
+		dataType: double
+		lineageTag: 3c16a616-a05c-94dc-abe3-27c9496a1749
+		summarizeBy: none
+		sourceColumn: like_for_like_gap
+
+		annotation SummarizationSetBy = User
+
+	column raw_gap
+		dataType: double
+		lineageTag: 54b03bd8-f3ef-46ab-80f9-0f55a373d3d3
+		summarizeBy: none
+		sourceColumn: raw_gap
+
+		annotation SummarizationSetBy = User
+
+	partition fact_util_standardised = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_util_standardised.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"state", type text}, {"district", type text}, {"district_key", type text}, {"expected_rate", type number}, {"within_cell_gap", type number}, {"within_cell_coverage", type number}, {"weight_share_estimated", type number}, {"observed_rate", type number}, {"active_participants", Int64.Type}, {"national_rate", type number}, {"mix_effect", type number}, {"like_for_like_gap", type number}, {"raw_gap", type number}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

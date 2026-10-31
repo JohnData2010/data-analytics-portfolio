@@ -1,0 +1,357 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ce1182774c40f26a8f0d",
+  "position": {
+    "x": 20,
+    "y": 256,
+    "z": 8000,
+    "height": 424,
+    "width": 1240,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "service_group"
+                }
+              },
+              "queryRef": "kpi_summary.service_group",
+              "nativeQueryRef": "service_group",
+              "displayName": "Service group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "requests"
+                }
+              },
+              "queryRef": "kpi_summary.requests",
+              "nativeQueryRef": "requests",
+              "displayName": "Requests"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "closed"
+                }
+              },
+              "queryRef": "kpi_summary.closed",
+              "nativeQueryRef": "closed",
+              "displayName": "Closed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "open"
+                }
+              },
+              "queryRef": "kpi_summary.open",
+              "nativeQueryRef": "open",
+              "displayName": "Open"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "k01_median_days"
+                }
+              },
+              "queryRef": "kpi_summary.k01_median_days",
+              "nativeQueryRef": "k01_median_days",
+              "displayName": "Median days (closed)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "k02_p90_days"
+                }
+              },
+              "queryRef": "kpi_summary.k02_p90_days",
+              "nativeQueryRef": "k02_p90_days",
+              "displayName": "P90 days (closed)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "k04_open_median_age"
+                }
+              },
+              "queryRef": "kpi_summary.k04_open_median_age",
+              "nativeQueryRef": "k04_open_median_age",
+              "displayName": "Open median age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "k04_open_share_over_90d"
+                }
+              },
+              "queryRef": "kpi_summary.k04_open_share_over_90d",
+              "nativeQueryRef": "k04_open_share_over_90d",
+              "displayName": "Open >90 days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_summary"
+                    }
+                  },
+                  "Property": "k05_open_share"
+                }
+              },
+              "queryRef": "kpi_summary.k05_open_share",
+              "nativeQueryRef": "k05_open_share",
+              "displayName": "Open share"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "kpi_summary"
+                  }
+                },
+                "Property": "requests"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By service group'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f5b4295c7457253a3126",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "service_group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1b980a3ae9d727d8e092",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "requests"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "708d9e20090667bcc450",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "closed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10b9430b490eae067a08",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "open"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0bf5fbf0540c306ad8c9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "k01_median_days"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "49cef5fc133a34e27e70",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "k02_p90_days"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d4e85213ede8d455cd8c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "k04_open_median_age"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "de6429d045240e50a4ee",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "k04_open_share_over_90d"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b92774722bedc6c71b60",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "kpi_summary"
+              }
+            },
+            "Property": "k05_open_share"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

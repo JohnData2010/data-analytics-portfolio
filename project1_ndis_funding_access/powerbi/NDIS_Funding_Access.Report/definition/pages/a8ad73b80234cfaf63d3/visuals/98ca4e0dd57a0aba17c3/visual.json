@@ -1,0 +1,227 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "98ca4e0dd57a0aba17c3",
+  "position": {
+    "x": 20,
+    "y": 190,
+    "z": 5000,
+    "height": 490,
+    "width": 1240,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "check_id"
+                }
+              },
+              "queryRef": "qa_reconciliation.check_id",
+              "nativeQueryRef": "check_id",
+              "displayName": "Check"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "kind"
+                }
+              },
+              "queryRef": "qa_reconciliation.kind",
+              "nativeQueryRef": "kind",
+              "displayName": "Kind"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "qa_reconciliation.description",
+              "nativeQueryRef": "description",
+              "displayName": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "expected"
+                }
+              },
+              "queryRef": "qa_reconciliation.expected",
+              "nativeQueryRef": "expected",
+              "displayName": "Expected"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "actual"
+                }
+              },
+              "queryRef": "qa_reconciliation.actual",
+              "nativeQueryRef": "actual",
+              "displayName": "Actual"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "difference"
+                }
+              },
+              "queryRef": "qa_reconciliation.difference",
+              "nativeQueryRef": "difference",
+              "displayName": "Difference"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "tolerance"
+                }
+              },
+              "queryRef": "qa_reconciliation.tolerance",
+              "nativeQueryRef": "tolerance",
+              "displayName": "Tolerance"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "qa_reconciliation.status",
+              "nativeQueryRef": "status",
+              "displayName": "Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_reconciliation"
+                    }
+                  },
+                  "Property": "note"
+                }
+              },
+              "queryRef": "qa_reconciliation.note",
+              "nativeQueryRef": "note",
+              "displayName": "Note"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "qa_reconciliation"
+                  }
+                },
+                "Property": "status"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Checks'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

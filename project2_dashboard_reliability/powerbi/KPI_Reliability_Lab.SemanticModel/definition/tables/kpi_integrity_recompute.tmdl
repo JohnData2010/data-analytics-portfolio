@@ -1,0 +1,63 @@
+table kpi_integrity_recompute
+	lineageTag: ddd031c5-3009-469d-8f8a-195c32dab41b
+
+	column dataset
+		dataType: string
+		lineageTag: 215b0ee9-a1e5-24ad-26ab-d6814c03c8aa
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column service_group
+		dataType: string
+		lineageTag: 62ae3fb4-8139-2c34-81bb-5aefb162fcf4
+		summarizeBy: none
+		sourceColumn: service_group
+
+		annotation SummarizationSetBy = User
+
+	column kpi
+		dataType: string
+		lineageTag: fb7c8923-5fa8-f64e-763f-626b4309e26f
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column value_sql
+		dataType: double
+		lineageTag: d61e4f05-3ada-dd99-c15b-147e407c488a
+		summarizeBy: none
+		sourceColumn: value_sql
+
+		annotation SummarizationSetBy = User
+
+	column value_python
+		dataType: double
+		lineageTag: 0b43d946-1cd6-b646-07d3-1ce4ca8e0245
+		summarizeBy: none
+		sourceColumn: value_python
+
+		annotation SummarizationSetBy = User
+
+	column computed_correctly
+		dataType: string
+		lineageTag: b35cb6a6-309c-30d0-1aa6-6d0eb1018abc
+		summarizeBy: none
+		sourceColumn: computed_correctly
+
+		annotation SummarizationSetBy = User
+
+	partition kpi_integrity_recompute = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\kpi_integrity_recompute.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"service_group", type text}, {"kpi", type text}, {"value_sql", type number}, {"value_python", type number}, {"computed_correctly", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "9fa4be88d80fc4779872",
+  "position": {
+    "x": 800,
+    "y": 380,
+    "z": 6000,
+    "height": 90,
+    "width": 460,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Within-cell coverage %"
+                }
+              },
+              "queryRef": "fact_util_standardised.Within-cell coverage %",
+              "nativeQueryRef": "Within-cell coverage %",
+              "displayName": "Budget share in unmasked cells"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

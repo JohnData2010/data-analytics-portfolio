@@ -1,0 +1,167 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "51383f3f678fcdd71e30",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 1000,
+    "height": 600,
+    "width": 760,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_flags"
+                    }
+                  },
+                  "Property": "module"
+                }
+              },
+              "queryRef": "an_sensitivity_flags.module",
+              "nativeQueryRef": "module",
+              "displayName": "Module"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_flags"
+                    }
+                  },
+                  "Property": "district_key"
+                }
+              },
+              "queryRef": "an_sensitivity_flags.district_key",
+              "nativeQueryRef": "district_key",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_flags"
+                    }
+                  },
+                  "Property": "definitions_flagging"
+                }
+              },
+              "queryRef": "an_sensitivity_flags.definitions_flagging",
+              "nativeQueryRef": "definitions_flagging",
+              "displayName": "Definitions flagging (of 5)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_flags"
+                    }
+                  },
+                  "Property": "robustness"
+                }
+              },
+              "queryRef": "an_sensitivity_flags.robustness",
+              "nativeQueryRef": "robustness",
+              "displayName": "Robustness"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_flags"
+                    }
+                  },
+                  "Property": "definitions"
+                }
+              },
+              "queryRef": "an_sensitivity_flags.definitions",
+              "nativeQueryRef": "definitions",
+              "displayName": "Definitions"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "an_sensitivity_flags"
+                  }
+                },
+                "Property": "definitions_flagging"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Districts by number of definitions flagging them'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

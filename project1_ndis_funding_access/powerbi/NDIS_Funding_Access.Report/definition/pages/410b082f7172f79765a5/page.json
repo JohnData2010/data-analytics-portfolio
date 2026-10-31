@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "410b082f7172f79765a5",
+  "displayName": "District like-for-like",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fe45ee6d35778bad5c97",
+  "position": {
+    "x": 965,
+    "y": 80,
+    "z": 5000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_sda_district"
+                    }
+                  },
+                  "Property": "Masked cells in view"
+                }
+              },
+              "queryRef": "fact_sda_district.Masked cells in view",
+              "nativeQueryRef": "Masked cells in view",
+              "displayName": "Masked district-quarters"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

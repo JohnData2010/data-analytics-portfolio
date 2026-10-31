@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "3c2ac5121b46bf2d41b1",
+  "position": {
+    "x": 800,
+    "y": 280,
+    "z": 5000,
+    "height": 90,
+    "width": 460,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_standardised"
+                    }
+                  },
+                  "Property": "Like-for-like gap (pts)"
+                }
+              },
+              "queryRef": "fact_util_standardised.Like-for-like gap (pts)",
+              "nativeQueryRef": "Like-for-like gap (pts)",
+              "displayName": "Like-for-like gap (pts)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

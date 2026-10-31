@@ -1,0 +1,57 @@
+table fact_util_national
+	lineageTag: b88a892e-c467-320e-6e28-f2bcb499dfa3
+
+	measure 'National utilisation by class %' = AVERAGE ( fact_util_national[utilisation] )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: 78c32ae1-f1ef-2586-b4bc-3fdea9f7028b
+
+	measure 'Latest national utilisation %' =
+			VAR d = CALCULATE ( MAX ( fact_util_national[report_date] ), ALL ( fact_util_national ) )
+			RETURN CALCULATE ( AVERAGE ( fact_util_national[utilisation] ), ALL ( fact_util_national ),
+			    fact_util_national[report_date] = d, fact_util_national[support_class] = "ALL" )
+		formatString: 0.0%
+		displayFolder: Module A
+		lineageTag: ccd8d7ca-b83c-ef27-2e1d-9d9ba59ea1e0
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 940f2d5a-5c75-1fae-2218-cd74d6d6314a
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column support_class
+		dataType: string
+		lineageTag: 48ad9d48-4a3c-f814-476d-18468a505e33
+		summarizeBy: none
+		sourceColumn: support_class
+
+		annotation SummarizationSetBy = User
+
+	column utilisation
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f0bbee7b-201b-a72f-f4d3-356cab37fd4d
+		summarizeBy: none
+		sourceColumn: utilisation
+
+		annotation SummarizationSetBy = User
+
+	partition fact_util_national = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_util_national.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"support_class", type text}, {"utilisation", type number}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

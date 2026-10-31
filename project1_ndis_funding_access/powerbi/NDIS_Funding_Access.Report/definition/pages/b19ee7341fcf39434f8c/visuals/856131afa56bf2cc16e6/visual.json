@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "856131afa56bf2cc16e6",
+  "position": {
+    "x": 650,
+    "y": 80,
+    "z": 4000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Scenario participants moving to use"
+                }
+              },
+              "queryRef": "Reduction pts.Scenario participants moving to use",
+              "nativeQueryRef": "Scenario participants moving to use",
+              "displayName": "Participants moving into SDA"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "83f174c640af5b33a6d7",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 3000,
+    "height": 588,
+    "width": 960,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "km_curves"
+                    }
+                  },
+                  "Property": "t"
+                }
+              },
+              "queryRef": "km_curves.t",
+              "nativeQueryRef": "t",
+              "active": true,
+              "displayName": "Days since received"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "km_curves"
+                    }
+                  },
+                  "Property": "service_group"
+                }
+              },
+              "queryRef": "km_curves.service_group",
+              "nativeQueryRef": "service_group"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "km_curves"
+                    }
+                  },
+                  "Property": "Share closed"
+                }
+              },
+              "queryRef": "km_curves.Share closed",
+              "nativeQueryRef": "Share closed"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Share closed by day'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

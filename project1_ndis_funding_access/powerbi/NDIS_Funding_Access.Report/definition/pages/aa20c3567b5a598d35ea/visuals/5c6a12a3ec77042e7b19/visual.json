@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "5c6a12a3ec77042e7b19",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 2000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_sda_district"
+                    }
+                  },
+                  "Property": "Latest national not using"
+                }
+              },
+              "queryRef": "fact_sda_district.Latest national not using",
+              "nativeQueryRef": "Latest national not using",
+              "displayName": "Eligible, not using SDA, Jun-26"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

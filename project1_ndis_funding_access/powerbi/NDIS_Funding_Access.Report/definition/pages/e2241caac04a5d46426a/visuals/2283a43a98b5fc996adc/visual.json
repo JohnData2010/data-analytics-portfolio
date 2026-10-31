@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2283a43a98b5fc996adc",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 2000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_util_national"
+                    }
+                  },
+                  "Property": "Latest national utilisation %"
+                }
+              },
+              "queryRef": "fact_util_national.Latest national utilisation %",
+              "nativeQueryRef": "Latest national utilisation %",
+              "displayName": "National utilisation, Jun-26"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

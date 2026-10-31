@@ -1,0 +1,276 @@
+/// Dataset B, one row per request (2018 Salesforce subset); local-time dates
+table fact_requests_b
+	lineageTag: f6ee0e96-fd4f-12c1-62d4-3487d38e7814
+
+	column source_row
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e9834cf-c7e2-df9a-6c3a-00597882ad83
+		summarizeBy: none
+		sourceColumn: source_row
+
+		annotation SummarizationSetBy = User
+
+	column service_type
+		dataType: string
+		lineageTag: c3d553d9-2e0f-3247-bed1-9553079ac936
+		summarizeBy: none
+		sourceColumn: service_type
+
+		annotation SummarizationSetBy = User
+
+	column status_raw
+		dataType: string
+		lineageTag: d3673d86-185e-ccdf-73d5-cbf819dc2575
+		summarizeBy: none
+		sourceColumn: status_raw
+
+		annotation SummarizationSetBy = User
+
+	column case_origin
+		dataType: string
+		lineageTag: 9de5f538-3c8e-c6e7-d66b-ee34e7bbf4e4
+		summarizeBy: none
+		sourceColumn: case_origin
+
+		annotation SummarizationSetBy = User
+
+	column suburb_raw
+		dataType: string
+		lineageTag: a3ef8207-d173-bcd7-0645-534a70052e9e
+		summarizeBy: none
+		sourceColumn: suburb_raw
+
+		annotation SummarizationSetBy = User
+
+	column date_opened_raw
+		dataType: string
+		lineageTag: aebfc5b5-3eaa-db48-cf2f-7d600b2d11cd
+		summarizeBy: none
+		sourceColumn: date_opened_raw
+
+		annotation SummarizationSetBy = User
+
+	column date_closed_raw
+		dataType: string
+		lineageTag: 59cd81eb-59b2-e583-beb5-b095e152659c
+		summarizeBy: none
+		sourceColumn: date_closed_raw
+
+		annotation SummarizationSetBy = User
+
+	column opened_local
+		dataType: dateTime
+		formatString: d mmm yyyy hh:nn
+		lineageTag: 896b92f4-0654-35a6-0ac3-2f2a9d8b9f08
+		summarizeBy: none
+		sourceColumn: opened_local
+
+		annotation SummarizationSetBy = User
+
+	column closed_local
+		dataType: dateTime
+		formatString: d mmm yyyy hh:nn
+		lineageTag: 6e30d08b-bed5-a562-f2be-6bbad9ad2886
+		summarizeBy: none
+		sourceColumn: closed_local
+
+		annotation SummarizationSetBy = User
+
+	column date_opened
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: cdb457e4-eba9-3e88-e60f-f0c0e7396498
+		summarizeBy: none
+		sourceColumn: date_opened
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_closed
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 739dd006-3d6d-ee89-b90d-7f2b2a0587ba
+		summarizeBy: none
+		sourceColumn: date_closed
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status_group
+		dataType: string
+		lineageTag: 77af7264-6985-e558-4dd2-09ea5defedbd
+		summarizeBy: none
+		sourceColumn: status_group
+
+		annotation SummarizationSetBy = User
+
+	column is_closed
+		dataType: boolean
+		lineageTag: 0acb342f-0ccd-5859-d1b2-ca8d13b24fcc
+		summarizeBy: none
+		sourceColumn: is_closed
+
+		annotation SummarizationSetBy = User
+
+	column is_duplicate
+		dataType: boolean
+		lineageTag: 2d788832-a834-35e1-0d6d-69fdb713982a
+		summarizeBy: none
+		sourceColumn: is_duplicate
+
+		annotation SummarizationSetBy = User
+
+	column channel_group
+		dataType: string
+		lineageTag: 813e3b99-03f6-7c55-b206-e7814c1360d3
+		summarizeBy: none
+		sourceColumn: channel_group
+
+		annotation SummarizationSetBy = User
+
+	column suburb
+		dataType: string
+		lineageTag: ca6800e3-d827-ee7f-1d45-34716e40246f
+		summarizeBy: none
+		sourceColumn: suburb
+
+		annotation SummarizationSetBy = User
+
+	column days_to_close
+		dataType: double
+		lineageTag: dd09a25d-300f-45d0-9745-02ba8cb3d01b
+		summarizeBy: none
+		sourceColumn: days_to_close
+
+		annotation SummarizationSetBy = User
+
+	column extract_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: a026bdfa-6d7f-c59c-5e21-c2b85f9e8210
+		summarizeBy: none
+		sourceColumn: extract_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column age_at_extract
+		dataType: int64
+		formatString: 0
+		lineageTag: 69e90381-a3ba-1bb8-d523-e4b10905a3a8
+		summarizeBy: none
+		sourceColumn: age_at_extract
+
+		annotation SummarizationSetBy = User
+
+	column intake_month
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 25545cb3-ac0c-2497-778b-912a354a6106
+		summarizeBy: none
+		sourceColumn: intake_month
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column intake_month_utc
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 6e2d821a-4583-2364-ad3f-693757b4f1b1
+		summarizeBy: none
+		sourceColumn: intake_month_utc
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dq_invalid_received
+		dataType: boolean
+		lineageTag: bebda4bc-0de6-f464-ccc7-baa137db9684
+		summarizeBy: none
+		sourceColumn: dq_invalid_received
+
+		annotation SummarizationSetBy = User
+
+	column dq_invalid_completed
+		dataType: boolean
+		lineageTag: 306d725f-b5f0-73f0-e25f-230dccc9ce48
+		summarizeBy: none
+		sourceColumn: dq_invalid_completed
+
+		annotation SummarizationSetBy = User
+
+	column dq_completed_before_received
+		dataType: boolean
+		lineageTag: f7f40533-2237-ac98-e55f-28d3b7f5fd63
+		summarizeBy: none
+		sourceColumn: dq_completed_before_received
+
+		annotation SummarizationSetBy = User
+
+	column dq_future_date
+		dataType: boolean
+		lineageTag: 3d98251b-a36d-16e7-35e7-27a446d728f4
+		summarizeBy: none
+		sourceColumn: dq_future_date
+
+		annotation SummarizationSetBy = User
+
+	column dq_closed_no_date
+		dataType: boolean
+		lineageTag: e7276b94-9bad-ecd2-e196-f470280e9b22
+		summarizeBy: none
+		sourceColumn: dq_closed_no_date
+
+		annotation SummarizationSetBy = User
+
+	column dq_open_with_date
+		dataType: boolean
+		lineageTag: 6b67f946-5a8f-09fb-4d3b-a43839787035
+		summarizeBy: none
+		sourceColumn: dq_open_with_date
+
+		annotation SummarizationSetBy = User
+
+	column dq_missing_suburb
+		dataType: boolean
+		lineageTag: 2a612f07-42d1-4856-afa7-001657ebe74d
+		summarizeBy: none
+		sourceColumn: dq_missing_suburb
+
+		annotation SummarizationSetBy = User
+
+	column dq_suburb_variant
+		dataType: boolean
+		lineageTag: 88e11e88-2ba2-ffe9-9069-9cecbb8eb3ac
+		summarizeBy: none
+		sourceColumn: dq_suburb_variant
+
+		annotation SummarizationSetBy = User
+
+	column dq_suburb_outside_com
+		dataType: boolean
+		lineageTag: 28792755-a179-56a6-0975-14ff41dd0023
+		summarizeBy: none
+		sourceColumn: dq_suburb_outside_com
+
+		annotation SummarizationSetBy = User
+
+	partition fact_requests_b = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_requests_b.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"source_row", Int64.Type}, {"service_type", type text}, {"status_raw", type text}, {"case_origin", type text}, {"suburb_raw", type text}, {"date_opened_raw", type text}, {"date_closed_raw", type text}, {"opened_local", type datetime}, {"closed_local", type datetime}, {"date_opened", type datetime}, {"date_closed", type datetime}, {"status_group", type text}, {"is_closed", type logical}, {"is_duplicate", type logical}, {"channel_group", type text}, {"suburb", type text}, {"days_to_close", type number}, {"extract_date", type datetime}, {"age_at_extract", Int64.Type}, {"intake_month", type datetime}, {"intake_month_utc", type datetime}, {"dq_invalid_received", type logical}, {"dq_invalid_completed", type logical}, {"dq_completed_before_received", type logical}, {"dq_future_date", type logical}, {"dq_closed_no_date", type logical}, {"dq_open_with_date", type logical}, {"dq_missing_suburb", type logical}, {"dq_suburb_variant", type logical}, {"dq_suburb_outside_com", type logical}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"date_opened", type date}, {"date_closed", type date}, {"extract_date", type date}, {"intake_month", type date}, {"intake_month_utc", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

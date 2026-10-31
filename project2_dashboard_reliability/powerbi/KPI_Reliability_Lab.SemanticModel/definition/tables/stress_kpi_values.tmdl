@@ -1,0 +1,100 @@
+table stress_kpi_values
+	lineageTag: bea6801d-20b3-69a0-7bef-378dec9cef0d
+
+	measure 'KPI value' = AVERAGE ( stress_kpi_values[value] )
+		formatString: 0.0##
+		displayFolder: Stress test
+		lineageTag: 683c41fc-1ab8-cdd6-813a-4d33ff6027d7
+
+	measure 'KPI rank' = MIN ( stress_kpi_values[rank] )
+		formatString: 0
+		displayFolder: Stress test
+		lineageTag: 45d98a2b-5409-9866-43dc-a9f47e28ac5c
+
+	column dataset
+		dataType: string
+		lineageTag: 946cdb9a-20a5-3bbd-f963-7a8d79cecff6
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column service_group
+		dataType: string
+		lineageTag: aa32ab98-bb0b-b0a5-04cc-5744084fb897
+		summarizeBy: none
+		sourceColumn: service_group
+
+		annotation SummarizationSetBy = User
+
+	column requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fdebd7e-eaec-1dbb-d5f1-02002cde177a
+		summarizeBy: none
+		sourceColumn: requests
+
+		annotation SummarizationSetBy = User
+
+	column kpi
+		dataType: string
+		lineageTag: 1b97bfe8-e5f5-3eb3-a3d6-d8bd353bad33
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = User
+
+	column kpi_label
+		dataType: string
+		lineageTag: 894d753d-02a5-4e2d-c440-3bea3edd7910
+		summarizeBy: none
+		sourceColumn: kpi_label
+
+		annotation SummarizationSetBy = User
+
+	column value
+		dataType: double
+		lineageTag: 3ee15cad-548c-bb1e-fbdd-4d0dcaa2760d
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = User
+
+	column higher_is_better
+		dataType: boolean
+		lineageTag: 759f3ad0-3292-e736-959a-6d9f6e2b8074
+		summarizeBy: none
+		sourceColumn: higher_is_better
+
+		annotation SummarizationSetBy = User
+
+	column rank
+		dataType: double
+		formatString: 0
+		lineageTag: 68300789-f7dd-78dd-c11b-2cac1c0db46c
+		summarizeBy: none
+		sourceColumn: rank
+
+		annotation SummarizationSetBy = User
+
+	column groups_ranked
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d30b0c5-e9eb-ef17-ee49-d787b8fc4358
+		summarizeBy: none
+		sourceColumn: groups_ranked
+
+		annotation SummarizationSetBy = User
+
+	partition stress_kpi_values = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\stress_kpi_values.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"service_group", type text}, {"requests", Int64.Type}, {"kpi", type text}, {"kpi_label", type text}, {"value", type number}, {"higher_is_better", type logical}, {"rank", type number}, {"groups_ranked", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

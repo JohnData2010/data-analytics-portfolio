@@ -1,0 +1,133 @@
+table fact_util_cells
+	lineageTag: 7382a5f6-b624-1077-e7eb-dbf6f217c4cd
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: a63578aa-7dcc-0af4-00b6-b3cab3f949bb
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state
+		dataType: string
+		lineageTag: 7e8317fb-f76f-e689-21fe-85d31e27172b
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 5c897463-de61-924d-33bb-58c199a374a3
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: 2752a125-3af6-751b-028b-ec89c93674f3
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column disability_group
+		dataType: string
+		lineageTag: e3326b0a-4589-0ce4-c216-ddc67000af85
+		summarizeBy: none
+		sourceColumn: disability_group
+
+		annotation SummarizationSetBy = User
+
+	column age_band
+		dataType: string
+		lineageTag: 31b34ad9-42d1-fb61-0cd1-e7a164da8a1b
+		summarizeBy: none
+		sourceColumn: age_band
+
+		annotation SummarizationSetBy = User
+
+	column age_band_h
+		dataType: string
+		lineageTag: c13f8941-6aea-2af1-235d-949a524cb892
+		summarizeBy: none
+		sourceColumn: age_band_h
+
+		annotation SummarizationSetBy = User
+
+	column participants_est
+		dataType: double
+		lineageTag: 3e656e8b-44e9-ba0d-f6ba-3a5a9a623896
+		summarizeBy: none
+		sourceColumn: participants_est
+
+		annotation SummarizationSetBy = User
+
+	column participants_masked
+		dataType: boolean
+		lineageTag: d637a71c-92eb-8d40-cbbe-39bc989f5fe8
+		summarizeBy: none
+		sourceColumn: participants_masked
+
+		annotation SummarizationSetBy = User
+
+	column avg_budget_est
+		dataType: double
+		lineageTag: 105bf126-ca62-e494-2165-6cc50ee307c7
+		summarizeBy: none
+		sourceColumn: avg_budget_est
+
+		annotation SummarizationSetBy = User
+
+	column budget_imputed
+		dataType: boolean
+		lineageTag: bc007e9d-827e-1ca4-65c3-8ba0b74672a5
+		summarizeBy: none
+		sourceColumn: budget_imputed
+
+		annotation SummarizationSetBy = User
+
+	column weight_budget
+		dataType: double
+		lineageTag: f296d0cd-4904-633a-4535-fb085bfc988c
+		summarizeBy: none
+		sourceColumn: weight_budget
+
+		annotation SummarizationSetBy = User
+
+	column district_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6d9f06e9-749f-0491-fa95-bd90e544e0ad
+		summarizeBy: none
+		sourceColumn: district_rate
+
+		annotation SummarizationSetBy = User
+
+	column nat_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1cf10d53-41ff-72a3-eb8b-e532f66fe8f6
+		summarizeBy: none
+		sourceColumn: nat_rate
+
+		annotation SummarizationSetBy = User
+
+	partition fact_util_cells = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_util_cells.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"state", type text}, {"district", type text}, {"district_key", type text}, {"disability_group", type text}, {"age_band", type text}, {"age_band_h", type text}, {"participants_est", type number}, {"participants_masked", type logical}, {"avg_budget_est", type number}, {"budget_imputed", type logical}, {"weight_budget", type number}, {"district_rate", type number}, {"nat_rate", type number}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

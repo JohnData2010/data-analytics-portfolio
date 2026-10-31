@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "NDIS_Funding_Access"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e27baef5-fde9-41b2-ec65-90129fd412e0"
+  }
+}

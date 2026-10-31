@@ -1,0 +1,71 @@
+table km_curves
+	lineageTag: f504fbe9-ffcd-ecb9-119f-97acbe14baad
+
+	measure 'Share closed' = IF ( MAX ( km_curves[t] ) <= 365, AVERAGE ( km_curves[share_closed] ) )
+		formatString: 0.0%
+		displayFolder: Survival
+		lineageTag: c73a7315-e521-9759-7f52-54d99c30f66d
+
+	column t
+		dataType: double
+		lineageTag: 428bff17-5f7c-8d8d-b36b-8fa2f2b62b4b
+		summarizeBy: none
+		sourceColumn: t
+
+		annotation SummarizationSetBy = User
+
+	column survival
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b71810ce-d261-551c-613a-cffd64b9b456
+		summarizeBy: none
+		sourceColumn: survival
+
+		annotation SummarizationSetBy = User
+
+	column at_risk
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f15940f-d0ae-f6b6-221b-3caf5e2ed24d
+		summarizeBy: none
+		sourceColumn: at_risk
+
+		annotation SummarizationSetBy = User
+
+	column dataset
+		dataType: string
+		lineageTag: fec8bcb4-d3d2-48d2-6b4d-83b577941a9a
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column service_group
+		dataType: string
+		lineageTag: 8db0ced4-80cb-23a6-5c26-ac28b66eac7f
+		summarizeBy: none
+		sourceColumn: service_group
+
+		annotation SummarizationSetBy = User
+
+	column share_closed
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f2d8db58-a9b9-402d-67f7-102afd5b1851
+		summarizeBy: none
+		sourceColumn: share_closed
+
+		annotation SummarizationSetBy = User
+
+	partition km_curves = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\km_curves.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"t", type number}, {"survival", type number}, {"at_risk", Int64.Type}, {"dataset", type text}, {"service_group", type text}, {"share_closed", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

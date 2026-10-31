@@ -1,0 +1,176 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fa8fb95d5070681b2933",
+  "position": {
+    "x": 20,
+    "y": 246,
+    "z": 7000,
+    "height": 434,
+    "width": 1240,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_scenario_grid"
+                    }
+                  },
+                  "Property": "district_key"
+                }
+              },
+              "queryRef": "an_scenario_grid.district_key",
+              "nativeQueryRef": "district_key",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Baseline eligible"
+                }
+              },
+              "queryRef": "Reduction pts.Baseline eligible",
+              "nativeQueryRef": "Baseline eligible"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Baseline not using"
+                }
+              },
+              "queryRef": "Reduction pts.Baseline not using",
+              "nativeQueryRef": "Baseline not using"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Baseline non-use share %"
+                }
+              },
+              "queryRef": "Reduction pts.Baseline non-use share %",
+              "nativeQueryRef": "Baseline non-use share %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Scenario participants moving to use"
+                }
+              },
+              "queryRef": "Reduction pts.Scenario participants moving to use",
+              "nativeQueryRef": "Scenario participants moving to use"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Scenario not using"
+                }
+              },
+              "queryRef": "Reduction pts.Scenario not using",
+              "nativeQueryRef": "Scenario not using"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reduction pts"
+                    }
+                  },
+                  "Property": "Scenario non-use share %"
+                }
+              },
+              "queryRef": "Reduction pts.Scenario non-use share %",
+              "nativeQueryRef": "Scenario non-use share %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Reduction pts"
+                  }
+                },
+                "Property": "Baseline not using"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By district (denominator: eligible total at 30 Jun 2026)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

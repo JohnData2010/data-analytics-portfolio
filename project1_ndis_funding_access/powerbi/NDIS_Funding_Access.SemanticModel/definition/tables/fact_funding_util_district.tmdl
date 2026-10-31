@@ -1,0 +1,112 @@
+/// Published rows incl. state/ALL aggregates: filter district_key before summing
+table fact_funding_util_district
+	lineageTag: 2daab82c-c0d7-655f-9a95-0f1a30d3640a
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: bf9e006b-be79-93c6-89ed-62503614756c
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state
+		dataType: string
+		lineageTag: 1368fb9e-a133-c9fe-854d-5747788e630b
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 1e428dd5-23a5-31c5-f8b5-68977a3f4aa1
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column district_key
+		dataType: string
+		lineageTag: 287ded2f-bd0d-d725-112f-4f628a367684
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column support_class
+		dataType: string
+		lineageTag: 610d962e-948d-5173-7986-396e19909c71
+		summarizeBy: none
+		sourceColumn: support_class
+
+		annotation SummarizationSetBy = User
+
+	column participants
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a0b6a0d-154f-e7ab-7852-5f3a81ae1543
+		summarizeBy: none
+		sourceColumn: participants
+
+		annotation SummarizationSetBy = User
+
+	column participants_source
+		dataType: string
+		lineageTag: 9a1bcdd1-41f5-2212-d73f-c9bed3a029e9
+		summarizeBy: none
+		sourceColumn: participants_source
+
+		annotation SummarizationSetBy = User
+
+	column avg_annualised_budget
+		dataType: double
+		formatString: $#,0
+		lineageTag: 9c70aa5d-7f7f-fa39-46a3-57f5f13164f1
+		summarizeBy: none
+		sourceColumn: avg_annualised_budget
+
+		annotation SummarizationSetBy = User
+
+	column committed_budget_est
+		dataType: double
+		formatString: $#,0
+		lineageTag: dde4c0bc-ec25-0489-bdd1-d5a3bd13e851
+		summarizeBy: none
+		sourceColumn: committed_budget_est
+
+		annotation SummarizationSetBy = User
+
+	column utilisation
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dec8892c-46d9-10c8-a9cf-54b9eed56256
+		summarizeBy: none
+		sourceColumn: utilisation
+
+		annotation SummarizationSetBy = User
+
+	column utilisation_suppressed
+		dataType: boolean
+		lineageTag: 080a192d-9ac8-4811-4258-b7d9f25f2e9e
+		summarizeBy: none
+		sourceColumn: utilisation_suppressed
+
+		annotation SummarizationSetBy = User
+
+	partition fact_funding_util_district = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_funding_util_district.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"report_date", type datetime}, {"state", type text}, {"district", type text}, {"district_key", type text}, {"support_class", type text}, {"participants", Int64.Type}, {"participants_source", type text}, {"avg_annualised_budget", type number}, {"committed_budget_est", type number}, {"utilisation", type number}, {"utilisation_suppressed", type logical}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

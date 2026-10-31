@@ -1,0 +1,208 @@
+table an_sda_persistence
+	lineageTag: c2ac0403-ac8a-9425-149f-5a10391da001
+
+	measure 'Districts persistently above national' = CALCULATE ( COUNTROWS ( an_sda_persistence ), an_sda_persistence[persistent_above_national] = TRUE () ) + 0
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: d527e985-6990-0e93-33b6-2e0752b521b9
+
+	measure 'Latest not using' = SUM ( an_sda_persistence[latest_not_using] )
+		formatString: #,0
+		displayFolder: Module B
+		lineageTag: 12b34b7d-17b1-cf08-ad11-6c3dd21f7f56
+
+	column district_key
+		dataType: string
+		lineageTag: 216086d5-f2d6-9efc-a106-3805df5d9d23
+		summarizeBy: none
+		sourceColumn: district_key
+
+		annotation SummarizationSetBy = User
+
+	column state
+		dataType: string
+		lineageTag: f4126811-9236-ac61-a3a1-ad8ee803409a
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column district
+		dataType: string
+		lineageTag: 2f2d3118-2f0f-2a83-8c92-ff35cf28610e
+		summarizeBy: none
+		sourceColumn: district
+
+		annotation SummarizationSetBy = User
+
+	column quarters_published
+		dataType: int64
+		formatString: 0
+		lineageTag: 77211847-9205-51a5-e79f-798367f38418
+		summarizeBy: none
+		sourceColumn: quarters_published
+
+		annotation SummarizationSetBy = User
+
+	column quarters_above_national
+		dataType: int64
+		formatString: 0
+		lineageTag: da472663-1de8-9c7b-f06d-920e33d3d045
+		summarizeBy: none
+		sourceColumn: quarters_above_national
+
+		annotation SummarizationSetBy = User
+
+	column mean_non_use_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e914d290-6a10-5017-923a-86dcace3c7d4
+		summarizeBy: none
+		sourceColumn: mean_non_use_share
+
+		annotation SummarizationSetBy = User
+
+	column mean_excess_pts
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: ebd6a0ce-d290-cf57-240b-b9f73bcf7daf
+		summarizeBy: none
+		sourceColumn: mean_excess_pts
+
+		annotation SummarizationSetBy = User
+
+	column mean_not_using
+		dataType: double
+		lineageTag: 70e177ec-429f-b527-c5d9-d62eae8e36e9
+		summarizeBy: none
+		sourceColumn: mean_not_using
+
+		annotation SummarizationSetBy = User
+
+	column latest_in_use
+		dataType: int64
+		formatString: 0
+		lineageTag: 14e23363-9460-742c-388d-ae3eded68328
+		summarizeBy: none
+		sourceColumn: latest_in_use
+
+		annotation SummarizationSetBy = User
+
+	column latest_not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 60aae40c-25c2-5d5a-6e9b-7a9c8de87179
+		summarizeBy: none
+		sourceColumn: latest_not_using
+
+		annotation SummarizationSetBy = User
+
+	column latest_eligible_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b061fae-1e92-b331-ebe6-e8b421cf1272
+		summarizeBy: none
+		sourceColumn: latest_eligible_total
+
+		annotation SummarizationSetBy = User
+
+	column latest_non_use_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7ad0765e-a87a-c700-c91f-c8be190d4a3e
+		summarizeBy: none
+		sourceColumn: latest_non_use_share
+
+		annotation SummarizationSetBy = User
+
+	column latest_non_use_share_min
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cd2db973-81dc-44e6-5b07-ad6a8f13439b
+		summarizeBy: none
+		sourceColumn: latest_non_use_share_min
+
+		annotation SummarizationSetBy = User
+
+	column latest_non_use_share_max
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f81871dc-aea0-04fa-766a-ef363bb08f73
+		summarizeBy: none
+		sourceColumn: latest_non_use_share_max
+
+		annotation SummarizationSetBy = User
+
+	column latest_any_masked
+		dataType: boolean
+		lineageTag: 2d59b27d-c8bd-a78f-5b10-00f55e6ff394
+		summarizeBy: none
+		sourceColumn: latest_any_masked
+
+		annotation SummarizationSetBy = User
+
+	column latest_not_using_per_1000_active
+		dataType: double
+		formatString: 0.0
+		lineageTag: 1d65ce1d-55fa-454d-c901-eda9bb888cf6
+		summarizeBy: none
+		sourceColumn: latest_not_using_per_1000_active
+
+		annotation SummarizationSetBy = User
+
+	column latest_active_participants
+		dataType: int64
+		formatString: 0
+		lineageTag: 49d64071-5a6b-8773-bf6b-b1ac2066cc8e
+		summarizeBy: none
+		sourceColumn: latest_active_participants
+
+		annotation SummarizationSetBy = User
+
+	column first_not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 772d1ec4-af9d-4a94-b2aa-42981004f973
+		summarizeBy: none
+		sourceColumn: first_not_using
+
+		annotation SummarizationSetBy = User
+
+	column change_not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f485b9d-3e63-7729-e84e-4787bafaeafb
+		summarizeBy: none
+		sourceColumn: change_not_using
+
+		annotation SummarizationSetBy = User
+
+	column change_share_pts
+		dataType: double
+		formatString: +0.0;-0.0;0.0
+		lineageTag: 13c0b3a8-db2e-ec0e-b3a2-5057c6bca3a9
+		summarizeBy: none
+		sourceColumn: change_share_pts
+
+		annotation SummarizationSetBy = User
+
+	column persistent_above_national
+		dataType: boolean
+		lineageTag: 5fec0e18-45cd-3e8e-2457-3cf04a4d84d7
+		summarizeBy: none
+		sourceColumn: persistent_above_national
+
+		annotation SummarizationSetBy = User
+
+	partition an_sda_persistence = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_sda_persistence.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"district_key", type text}, {"state", type text}, {"district", type text}, {"quarters_published", Int64.Type}, {"quarters_above_national", Int64.Type}, {"mean_non_use_share", type number}, {"mean_excess_pts", type number}, {"mean_not_using", type number}, {"latest_in_use", Int64.Type}, {"latest_not_using", Int64.Type}, {"latest_eligible_total", Int64.Type}, {"latest_non_use_share", type number}, {"latest_non_use_share_min", type number}, {"latest_non_use_share_max", type number}, {"latest_any_masked", type logical}, {"latest_not_using_per_1000_active", type number}, {"latest_active_participants", Int64.Type}, {"first_not_using", Int64.Type}, {"change_not_using", Int64.Type}, {"change_share_pts", type number}, {"persistent_above_national", type logical}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

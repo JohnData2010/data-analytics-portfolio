@@ -1,0 +1,56 @@
+relationship 38ca6d89-b49a-b55c-d1e1-2a407f25d1e3
+	fromColumn: kpi_summary.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 077f6ac1-faa2-76d2-9ea3-edd1fa2834f9
+	fromColumn: kpi_meaningfulness.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 552f62af-4a6e-3093-6c98-62a4f5cf7a74
+	fromColumn: kpi_cohort.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 058b5477-b6d1-0c9b-ad57-71dac115fb49
+	fromColumn: stress_kpi_values.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 486b3d01-c666-9155-476e-629924f2e3c2
+	fromColumn: stress_reversals.dataset
+	toColumn: dim_dataset.dataset
+
+relationship b1b91084-e9d8-2434-8eb6-8d7fc74a9f81
+	fromColumn: stress_rank_agreement.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 84ca46a7-0817-7f39-4340-0eb669d85ec1
+	fromColumn: km_curves.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 3a93f250-8161-354b-88b8-41156dedeee9
+	fromColumn: sensitivity_scenarios.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 7a44e518-8b93-0a95-433d-eeda7ed1791c
+	fromColumn: sensitivity_trend.dataset
+	toColumn: dim_dataset.dataset
+
+relationship a1447857-8e7b-7c84-050f-aaa349d09fcc
+	fromColumn: kpi_integrity_recompute.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 59cdc881-4eef-095d-3805-64bdfd8b3669
+	fromColumn: qa_dq_results.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 20ddfaf3-c393-9058-6bb4-00dc1b726e73
+	fromColumn: qa_row_lineage.dataset
+	toColumn: dim_dataset.dataset
+
+relationship 879d7245-410b-bcb0-35f6-4c4621b6987f
+	fromColumn: gov_source_manifest.dataset
+	toColumn: dim_dataset.dataset
+
+relationship e6ec0f84-db99-d85f-4eee-e277d7944368
+	fromColumn: backlog_reconstruction.dataset
+	toColumn: dim_dataset.dataset
+

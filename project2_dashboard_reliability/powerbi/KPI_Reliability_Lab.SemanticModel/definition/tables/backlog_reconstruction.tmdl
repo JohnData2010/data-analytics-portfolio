@@ -1,0 +1,65 @@
+table backlog_reconstruction
+	lineageTag: 3192b8f4-0bd5-c75b-4edf-18fdf5fef1a3
+
+	measure 'Reconstructed open requests' = SUM ( backlog_reconstruction[reconstructed_open] )
+		formatString: #,0
+		displayFolder: Coverage
+		lineageTag: 61e895f1-88fd-da4d-45f2-7228782fe712
+
+	column dataset
+		dataType: string
+		lineageTag: 370bfbbf-4f54-a364-aeb0-3caeb77d78c5
+		summarizeBy: none
+		sourceColumn: dataset
+
+		annotation SummarizationSetBy = User
+
+	column month_end
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 52318acd-eb0d-db55-c7cf-2b36b82859d2
+		summarizeBy: none
+		sourceColumn: month_end
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column reconstructed_open
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c927d20-3853-95c3-c36e-a88c01436021
+		summarizeBy: none
+		sourceColumn: reconstructed_open
+
+		annotation SummarizationSetBy = User
+
+	column reliable
+		dataType: boolean
+		lineageTag: c879ddbc-3354-c89d-4844-23c142f9ade5
+		summarizeBy: none
+		sourceColumn: reliable
+
+		annotation SummarizationSetBy = User
+
+	column reason
+		dataType: string
+		lineageTag: fe3b8c8d-ca1a-fc28-1e58-721aeca68ff4
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = User
+
+	partition backlog_reconstruction = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\backlog_reconstruction.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dataset", type text}, {"month_end", type datetime}, {"reconstructed_open", Int64.Type}, {"reliable", type logical}, {"reason", type text}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"month_end", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+

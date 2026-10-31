@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fe23d731af55e88f0ad6",
+  "position": {
+    "x": 650,
+    "y": 80,
+    "z": 4000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sda_persistence"
+                    }
+                  },
+                  "Property": "Districts persistently above national"
+                }
+              },
+              "queryRef": "an_sda_persistence.Districts persistently above national",
+              "nativeQueryRef": "Districts persistently above national",
+              "displayName": "Persistently above national"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

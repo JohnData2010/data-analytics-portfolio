@@ -1,0 +1,57 @@
+table an_sensitivity_overlap
+	lineageTag: 20c13d20-b67d-ddbf-6719-782867a77327
+
+	column module
+		dataType: string
+		lineageTag: a38b15de-2fb2-f9dc-d6ba-6900ffd68259
+		summarizeBy: none
+		sourceColumn: module
+
+		annotation SummarizationSetBy = User
+
+	column definition_a
+		dataType: string
+		lineageTag: 3e355412-d7a7-70d5-7b68-ae5a5533421e
+		summarizeBy: none
+		sourceColumn: definition_a
+
+		annotation SummarizationSetBy = User
+
+	column definition_b
+		dataType: string
+		lineageTag: 57743951-fa02-8fa5-d5c6-8da450f623b2
+		summarizeBy: none
+		sourceColumn: definition_b
+
+		annotation SummarizationSetBy = User
+
+	column shared
+		dataType: int64
+		formatString: 0
+		lineageTag: bd113a63-e111-8a29-6380-cb1f65e9c900
+		summarizeBy: none
+		sourceColumn: shared
+
+		annotation SummarizationSetBy = User
+
+	column jaccard
+		dataType: double
+		formatString: 0.00
+		lineageTag: 51e19899-66f7-5e1b-07d4-caf54160c883
+		summarizeBy: none
+		sourceColumn: jaccard
+
+		annotation SummarizationSetBy = User
+
+	partition an_sensitivity_overlap = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_sensitivity_overlap.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"module", type text}, {"definition_a", type text}, {"definition_b", type text}, {"shared", Int64.Type}, {"jaccard", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

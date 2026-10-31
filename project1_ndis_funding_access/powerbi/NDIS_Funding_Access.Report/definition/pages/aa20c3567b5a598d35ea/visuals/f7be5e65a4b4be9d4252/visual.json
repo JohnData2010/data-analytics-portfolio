@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f7be5e65a4b4be9d4252",
+  "position": {
+    "x": 335,
+    "y": 80,
+    "z": 3000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_sda_district"
+                    }
+                  },
+                  "Property": "Latest national non-use share %"
+                }
+              },
+              "queryRef": "fact_sda_district.Latest national non-use share %",
+              "nativeQueryRef": "Latest national non-use share %",
+              "displayName": "National non-use share, Jun-26"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

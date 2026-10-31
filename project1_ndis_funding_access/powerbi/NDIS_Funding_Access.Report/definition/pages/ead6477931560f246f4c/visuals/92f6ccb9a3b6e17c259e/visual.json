@@ -1,0 +1,210 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "92f6ccb9a3b6e17c259e",
+  "position": {
+    "x": 800,
+    "y": 80,
+    "z": 2000,
+    "height": 300,
+    "width": 460,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_overlap"
+                    }
+                  },
+                  "Property": "module"
+                }
+              },
+              "queryRef": "an_sensitivity_overlap.module",
+              "nativeQueryRef": "module",
+              "displayName": "Module"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_overlap"
+                    }
+                  },
+                  "Property": "definition_a"
+                }
+              },
+              "queryRef": "an_sensitivity_overlap.definition_a",
+              "nativeQueryRef": "definition_a",
+              "displayName": "Definition A"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_overlap"
+                    }
+                  },
+                  "Property": "definition_b"
+                }
+              },
+              "queryRef": "an_sensitivity_overlap.definition_b",
+              "nativeQueryRef": "definition_b",
+              "displayName": "Definition B"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_overlap"
+                    }
+                  },
+                  "Property": "shared"
+                }
+              },
+              "queryRef": "an_sensitivity_overlap.shared",
+              "nativeQueryRef": "shared",
+              "displayName": "Shared"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_sensitivity_overlap"
+                    }
+                  },
+                  "Property": "jaccard"
+                }
+              },
+              "queryRef": "an_sensitivity_overlap.jaccard",
+              "nativeQueryRef": "jaccard",
+              "displayName": "Jaccard"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Overlap between definitions (Jaccard)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cc87b7bb4d480e03545b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "an_sensitivity_overlap"
+              }
+            },
+            "Property": "jaccard"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "an_sensitivity_overlap",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "a"
+                              }
+                            },
+                            "Property": "jaccard"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "1.0D"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

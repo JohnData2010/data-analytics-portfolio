@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "KPI_Reliability_Lab"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0cef5862-b63b-8d4b-6236-506b9fb6c74a"
+  }
+}

@@ -1,0 +1,115 @@
+/// SA4 regions, 30 Jun 2026; context only, not related to service districts
+table fact_sda_sa4_context
+	lineageTag: cf43017b-2371-93bd-58fc-aed7170e7bee
+
+	column region
+		dataType: string
+		lineageTag: 23cdf45e-5e8e-7981-36eb-56bfaf399146
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = User
+
+	column state
+		dataType: string
+		lineageTag: 08bf40e4-056e-170d-1232-1794fa709d44
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = User
+
+	column is_sa4
+		dataType: boolean
+		lineageTag: 4b807aeb-3b8b-acd6-a649-b87bca9fd4e6
+		summarizeBy: none
+		sourceColumn: is_sa4
+
+		annotation SummarizationSetBy = User
+
+	column in_use
+		dataType: int64
+		formatString: 0
+		lineageTag: d66bf993-bd6c-5466-524b-b3a390804a4f
+		summarizeBy: none
+		sourceColumn: in_use
+
+		annotation SummarizationSetBy = User
+
+	column not_using
+		dataType: int64
+		formatString: 0
+		lineageTag: d75c1baa-b99c-a257-d65f-39a6af26c169
+		summarizeBy: none
+		sourceColumn: not_using
+
+		annotation SummarizationSetBy = User
+
+	column with_need
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e5deae4-2e46-8a4b-20b6-45a2b65f39ea
+		summarizeBy: none
+		sourceColumn: with_need
+
+		annotation SummarizationSetBy = User
+
+	column enrolled_dwellings
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f86a0fd-281a-e1b0-4e7d-03a9279614d1
+		summarizeBy: none
+		sourceColumn: enrolled_dwellings
+
+		annotation SummarizationSetBy = User
+
+	column resident_capacity_min
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a7bad94-e36d-2112-c801-b727428a3d82
+		summarizeBy: none
+		sourceColumn: resident_capacity_min
+
+		annotation SummarizationSetBy = User
+
+	column unfinished_new_build
+		dataType: int64
+		formatString: 0
+		lineageTag: b849594d-96e6-d8db-5702-fab40d203da0
+		summarizeBy: none
+		sourceColumn: unfinished_new_build
+
+		annotation SummarizationSetBy = User
+
+	column capacity_per_participant_with_need
+		dataType: double
+		formatString: 0.00
+		lineageTag: afbbe9aa-9630-e3cc-482e-de3cda949dac
+		summarizeBy: none
+		sourceColumn: capacity_per_participant_with_need
+
+		annotation SummarizationSetBy = User
+
+	column report_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: b152ef11-8bbf-1f09-d960-8456aed6dd10
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition fact_sda_sa4_context = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_sda_sa4_context.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"region", type text}, {"state", type text}, {"is_sa4", type logical}, {"in_use", Int64.Type}, {"not_using", Int64.Type}, {"with_need", Int64.Type}, {"enrolled_dwellings", Int64.Type}, {"resident_capacity_min", Int64.Type}, {"unfinished_new_build", Int64.Type}, {"capacity_per_participant_with_need", type number}, {"report_date", type datetime}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"report_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
+
