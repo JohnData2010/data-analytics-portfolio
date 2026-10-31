@@ -1,0 +1,63 @@
+dataset,faster_on_median,slower_on_median,kpi,kpi_label,faster_value,slower_value,median_faster,median_slower
+A,Asset maintenance,Graffiti,K02,P90 days (completed),63.0,28.0,9.0,10.0
+A,Asset maintenance,Graffiti,K03,"Closed within 30 days, intake cohort",0.7106033977738723,0.9124610232128422,9.0,10.0
+A,Asset maintenance,Graffiti,K04_median_age,Median age of open requests,82.0,14.0,9.0,10.0
+A,Asset maintenance,Graffiti,K05,Open share,0.03893905191873589,0.011009374318726837,9.0,10.0
+A,Parking,Asset maintenance,K02,P90 days (completed),170.8000000000004,63.0,1.0,9.0
+A,Parking,Asset maintenance,K04_median_age,Median age of open requests,228.5,82.0,1.0,9.0
+A,Parking,Asset maintenance,K05,Open share,0.08398707891093678,0.03893905191873589,1.0,9.0
+A,Parking,Graffiti,K02,P90 days (completed),170.8000000000004,28.0,1.0,10.0
+A,Parking,Graffiti,K03,"Closed within 30 days, intake cohort",0.7115942028985507,0.9124610232128422,1.0,10.0
+A,Parking,Graffiti,K04_median_age,Median age of open requests,228.5,14.0,1.0,10.0
+A,Parking,Graffiti,K05,Open share,0.08398707891093678,0.011009374318726837,1.0,10.0
+A,Parks and Trees,Graffiti,K02,P90 days (completed),42.0,28.0,8.0,10.0
+A,Parks and Trees,Graffiti,K03,"Closed within 30 days, intake cohort",0.8489960959286112,0.9124610232128422,8.0,10.0
+A,Roads and Traffic,Graffiti,K02,P90 days (completed),37.0,28.0,6.0,10.0
+A,Roads and Traffic,Graffiti,K03,"Closed within 30 days, intake cohort",0.8520637515324888,0.9124610232128422,6.0,10.0
+A,Roads and Traffic,Graffiti,K04_median_age,Median age of open requests,64.5,14.0,6.0,10.0
+A,Roads and Traffic,Graffiti,K05,Open share,0.03707951070336391,0.011009374318726837,6.0,10.0
+A,"Waste, Street Cleaning and Litter",Graffiti,K05,Open share,0.011069035828721235,0.011009374318726837,3.0,10.0
+A,Parking,Parks and Trees,K02,P90 days (completed),170.8000000000004,42.0,1.0,8.0
+A,Parking,Parks and Trees,K03,"Closed within 30 days, intake cohort",0.7115942028985507,0.8489960959286112,1.0,8.0
+A,Parking,Parks and Trees,K04_median_age,Median age of open requests,228.5,6.0,1.0,8.0
+A,Parking,Parks and Trees,K05,Open share,0.08398707891093678,0.009952229299363057,1.0,8.0
+A,Parking,Roads and Traffic,K02,P90 days (completed),170.8000000000004,37.0,1.0,6.0
+A,Parking,Roads and Traffic,K03,"Closed within 30 days, intake cohort",0.7115942028985507,0.8520637515324888,1.0,6.0
+A,Parking,Roads and Traffic,K04_median_age,Median age of open requests,228.5,64.5,1.0,6.0
+A,Parking,Roads and Traffic,K05,Open share,0.08398707891093678,0.03707951070336391,1.0,6.0
+A,Parking,"Waste, Street Cleaning and Litter",K02,P90 days (completed),170.8000000000004,13.0,1.0,3.0
+A,Parking,"Waste, Street Cleaning and Litter",K03,"Closed within 30 days, intake cohort",0.7115942028985507,0.9688696095942843,1.0,3.0
+A,Parking,"Waste, Street Cleaning and Litter",K04_median_age,Median age of open requests,228.5,11.0,1.0,3.0
+A,Parking,"Waste, Street Cleaning and Litter",K05,Open share,0.08398707891093678,0.011069035828721235,1.0,3.0
+A,Roads and Traffic,Parks and Trees,K04_median_age,Median age of open requests,64.5,6.0,6.0,8.0
+A,Roads and Traffic,Parks and Trees,K05,Open share,0.03707951070336391,0.009952229299363057,6.0,8.0
+A,"Waste, Street Cleaning and Litter",Parks and Trees,K04_median_age,Median age of open requests,11.0,6.0,3.0,8.0
+A,"Waste, Street Cleaning and Litter",Parks and Trees,K05,Open share,0.011069035828721235,0.009952229299363057,3.0,8.0
+B,Abandoned Vehicles,Infringement Review - Parking,K04_median_age,Median age of open requests,157.5,156.0,8.005555555555555,23.73159722222222
+B,Tree Maintenance Request,Abandoned Vehicles,K02,P90 days (completed),22.8538888888889,22.546875,6.745138888888889,8.005555555555555
+B,Tree Maintenance Request,Abandoned Vehicles,K04_median_age,Median age of open requests,167.5,157.5,6.745138888888889,8.005555555555555
+B,Illegally Dumped Rubbish,Graffiti Removal Request,K04_median_age,Median age of open requests,145.5,134.0,2.957638888888889,7.050694444444445
+B,Request for Parking Officer,Graffiti Removal Request,K04_median_age,Median age of open requests,151.0,134.0,0.034027777777777775,7.050694444444445
+B,Rough Sleeping,Graffiti Removal Request,K04_median_age,Median age of open requests,154.0,134.0,1.0979166666666669,7.050694444444445
+B,Tree Maintenance Request,Graffiti Removal Request,K02,P90 days (completed),22.8538888888889,20.778611111111115,6.745138888888889,7.050694444444445
+B,Tree Maintenance Request,Graffiti Removal Request,K03,"Closed within 30 days, intake cohort",0.7724922440537746,0.86,6.745138888888889,7.050694444444445
+B,Tree Maintenance Request,Graffiti Removal Request,K04_median_age,Median age of open requests,167.5,134.0,6.745138888888889,7.050694444444445
+B,Tree Maintenance Request,Graffiti Removal Request,K05,Open share,0.18886198547215496,0.10847058823529412,6.745138888888889,7.050694444444445
+B,Tree Maintenance Request,Graffiti Removal Request,K06,KM median days (open = censored),8.002777777777778,7.965277777777778,6.745138888888889,7.050694444444445
+B,Illegally Dumped Rubbish,Ratepayer waste,K02,P90 days (completed),9.046666666666667,7.2027777777777775,2.957638888888889,3.0479166666666666
+B,Illegally Dumped Rubbish,Ratepayer waste,K04_median_age,Median age of open requests,145.5,35.0,2.957638888888889,3.0479166666666666
+B,Illegally Dumped Rubbish,Ratepayer waste,K05,Open share,0.02926504822081809,0.015822784810126583,2.957638888888889,3.0479166666666666
+B,Request for Parking Officer,Illegally Dumped Rubbish,K04_median_age,Median age of open requests,151.0,145.5,0.034027777777777775,2.957638888888889
+B,Rough Sleeping,Illegally Dumped Rubbish,K04_median_age,Median age of open requests,154.0,145.5,1.0979166666666669,2.957638888888889
+B,Tree Maintenance Request,Infringement Review - Parking,K04_median_age,Median age of open requests,167.5,156.0,6.745138888888889,23.73159722222222
+B,Request for Parking Officer,Ratepayer waste,K04_median_age,Median age of open requests,151.0,35.0,0.034027777777777775,3.0479166666666666
+B,Rough Sleeping,Ratepayer waste,K02,P90 days (completed),7.280277777777779,7.2027777777777775,1.0979166666666669,3.0479166666666666
+B,Rough Sleeping,Ratepayer waste,K04_median_age,Median age of open requests,154.0,35.0,1.0979166666666669,3.0479166666666666
+B,Syringe Management,Ratepayer waste,K04_median_age,Median age of open requests,103.0,35.0,0.050347222222222224,3.0479166666666666
+B,Request for Parking Officer,Rough Sleeping,K03,"Closed within 30 days, intake cohort",0.981743934662503,0.9942748091603053,0.034027777777777775,1.0979166666666669
+B,Request for Parking Officer,Rough Sleeping,K05,Open share,0.015567962207429675,0.005081874647092038,0.034027777777777775,1.0979166666666669
+B,Request for Parking Officer,Syringe Management,K03,"Closed within 30 days, intake cohort",0.981743934662503,0.9858657243816255,0.034027777777777775,0.050347222222222224
+B,Request for Parking Officer,Syringe Management,K04_median_age,Median age of open requests,151.0,103.0,0.034027777777777775,0.050347222222222224
+B,Request for Parking Officer,Syringe Management,K05,Open share,0.015567962207429675,0.01282051282051282,0.034027777777777775,0.050347222222222224
+B,Syringe Management,Rough Sleeping,K03,"Closed within 30 days, intake cohort",0.9858657243816255,0.9942748091603053,0.050347222222222224,1.0979166666666669
+B,Syringe Management,Rough Sleeping,K05,Open share,0.01282051282051282,0.005081874647092038,0.050347222222222224,1.0979166666666669

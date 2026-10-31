@@ -1,0 +1,39 @@
+report_date,support_class,utilisation
+2024-09-30,ALL,0.78
+2024-09-30,Capacity Building,0.63
+2024-09-30,Capital,0.59
+2024-09-30,Core,0.83
+2024-09-30,SuppClass_Missing,1.0
+2025-03-31,ALL,0.76
+2025-03-31,Capacity Building,0.62
+2025-03-31,Capital,0.7
+2025-03-31,Core,0.81
+2025-03-31,SuppClass_Missing,1.0
+2025-06-30,ALL,0.75
+2025-06-30,Capacity Building,0.59
+2025-06-30,Capital,0.71
+2025-06-30,Core,0.8
+2025-06-30,SuppClass_Missing,1.0
+2025-09-30,ALL,0.75
+2025-09-30,Capacity Building,0.6
+2025-09-30,Capital,0.72
+2025-09-30,Core,0.8
+2025-09-30,SuppClass_Missing,1.0
+2025-12-31,ALL,0.75
+2025-12-31,Capacity Building,0.61
+2025-12-31,Capital,0.74
+2025-12-31,Core,0.8
+2025-12-31,SuppClass_Missing,1.0
+2026-03-31,ALL,0.74
+2026-03-31,Capacity Building,0.58
+2026-03-31,Capital,0.74
+2026-03-31,Core,0.79
+2026-06-30,ALL,0.74
+2026-06-30,Capacity Building,0.57
+2026-06-30,Capital,0.76
+2026-06-30,Core,0.79
+2024-12-31,ALL,0.78
+2024-12-31,Capacity Building,0.65
+2024-12-31,Capital,0.68
+2024-12-31,Core,0.82
+2024-12-31,SuppClass_Missing,1.0

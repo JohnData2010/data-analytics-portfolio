@@ -1,0 +1,10 @@
+dataset,slug,file,sha256,bytes,rows,portal_records_count,portal_modified,portal_data_processed,file_downloaded,publisher_description
+A,customer-service-requests-with-resolution-time,customer-service-requests-with-resolution-time.csv,2136223323f5cbfd6b60816a7ab14574603d15a17db6d4235ea22400d3136b49,3803603,46479,46479,2022-12-14T02:22:14+00:00,2022-11-13T10:21:35+00:00,2026-10-30T07:07:01+00:00,"Requests for service logged by members of the public relating to waste, graffiti, parking, 
+roads and traffic, parks and trees and assets in a public space. 
+ 
+REQUEST_STATUS - The current status of the request. This can be a combination of: CLOSED (completed/resolved), WIP (work in progress), REASSIGNED (This request has been moved to another work unit), NEW (This request has been logged and will be allocated to the appropriate officer), ACTIONED (The work has been assigned to a unit). 
+ 
+DATE_RECEIVED - The date that the customer service request was received. 
+ 
+DATE_COMPLETED - The d"
+B,customer-service-requests-with-digital-channel-information,customer-service-requests-with-digital-channel-information.csv,f339a9122d25212ab5c9d5dd130b5ba69a8e0646a18cc7cdb02fa254c2e6051a,3916815,42221,42221,2026-09-03T12:54:49+00:00,2022-11-13T10:19:14+00:00,2026-10-30T07:07:10+00:00,"This dataset contains service requests received from external customers. This data is collected through the council's Salesforce system. It contains information about the service type, status, and dates for received and closed. This dataset only contains a subset of the received requests as it is extracted from one of several customer requests systems."

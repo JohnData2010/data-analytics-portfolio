@@ -1,0 +1,20 @@
+Commonly used data terms
+Contents TOC \o "1-3" \h \z \u 
+Commonly used data terms PAGEREF _Toc25917010 \h 1
+Definitions PAGEREF _Toc25917011 \h 1
+Service District: PAGEREF _Toc25917012 \h 1
+Annualised committed supports: PAGEREF _Toc25917013 \h 1
+Trial participants: PAGEREF _Toc25917014 \h 1
+About this document PAGEREF _Toc25917015 \h 1
+Definitions
+The definitions listed in this document provide answers to commonly asked questions regarding data released on the NDIS website.
+Service District: 
+It is a geographical boundary that defines an area where the NDIA operates. It includes multiple Local Government Areas (LGA) based on LGA 2011 boundaries defined by the Australian Bureau of Statistics (ABS).
+e.g. Service district "Central Coast" includes LGAs "Gosford" and "Wyong".
+Annualised committed supports: 
+Expresses the value of committed supports in terms of its annual equivalent. For example; plans that are shorter or longer than 12 months are pro-rated to calculate their equivalent value if they were for 12 months.
+Trial participants: 
+Participants with initial plans approved prior to 1 July 2016.
+About this document
+Approved: December 2019
+Contact: scheme.actuary@ndis.gov.au

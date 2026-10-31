@@ -1,0 +1,34 @@
+dataset,month_end,reconstructed_open,reliable,reason
+A,2014-11-30 00:00:00,424,false,warm-up: requests received before 10 Nov 2014 are not in the extract; 99% of closed requests closed within 147 days (a lower bound)
+A,2014-12-31 00:00:00,564,false,warm-up: requests received before 10 Nov 2014 are not in the extract; 99% of closed requests closed within 147 days (a lower bound)
+A,2015-01-31 00:00:00,664,false,warm-up: requests received before 10 Nov 2014 are not in the extract; 99% of closed requests closed within 147 days (a lower bound)
+A,2015-02-28 00:00:00,734,false,warm-up: requests received before 10 Nov 2014 are not in the extract; 99% of closed requests closed within 147 days (a lower bound)
+A,2015-03-31 00:00:00,866,false,warm-up: requests received before 10 Nov 2014 are not in the extract; 99% of closed requests closed within 147 days (a lower bound)
+A,2015-04-30 00:00:00,780,true,""
+A,2015-05-31 00:00:00,836,true,""
+A,2015-06-30 00:00:00,848,true,""
+A,2015-07-31 00:00:00,1031,true,""
+A,2015-08-31 00:00:00,1083,true,""
+A,2015-09-30 00:00:00,914,true,""
+A,2015-10-31 00:00:00,1067,true,""
+A,2015-11-30 00:00:00,1166,true,""
+A,2015-12-31 00:00:00,906,true,""
+A,2016-01-31 00:00:00,1097,true,""
+A,2016-02-29 00:00:00,1072,true,""
+A,2016-03-31 00:00:00,1085,true,""
+A,2016-04-30 00:00:00,1278,true,""
+A,2016-05-31 00:00:00,1134,true,""
+A,2016-06-30 00:00:00,1064,true,""
+A,2016-07-31 00:00:00,1059,true,""
+A,2016-08-31 00:00:00,1007,true,""
+A,2016-09-30 00:00:00,1152,true,""
+A,2016-10-31 00:00:00,1022,true,""
+B,2018-01-31 00:00:00,1896,false,warm-up: requests received before 01 Jan 2018 are not in the extract; 99% of closed requests closed within 37 days (a lower bound)
+B,2018-02-28 00:00:00,2298,true,""
+B,2018-03-31 00:00:00,3317,true,""
+B,2018-04-30 00:00:00,4661,true,""
+B,2018-05-31 00:00:00,6261,true,""
+B,2018-06-30 00:00:00,8413,true,""
+B,2018-07-31 00:00:00,10006,true,""
+B,2018-08-31 00:00:00,10860,true,""
+B,2018-09-30 00:00:00,10947,true,""

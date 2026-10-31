@@ -1,0 +1,7 @@
+limitation,detail
+Left truncation,"Requests received before the first date in the extract, but still open, are absent; backlog is understated until the warm-up period ends."
+No status history,"Only the current status is published. Reassignments, reopenings and time spent in each status cannot be reconstructed."
+Removed records,Confidential requests were removed by the publisher (A); B is one system of several. Missing records cannot be counted.
+Completion definition,"A's metadata says days_to_complete excludes time referred to other authorities, but every closed row equals calendar days (same-day = 1); either no exclusion was applied or it is not visible. Paused time cannot be recovered."
+Single extract,"One snapshot per dataset. A month-end backlog derived from it is an estimate, not a recorded backlog; it cannot be reconciled to any operational backlog report."
+Accumulating open records (B),"Reconstructed open requests in B rise from 1,896 to 10,947 in nine months; 7,547 of 9,491 open records have status 'New'. The data cannot distinguish a genuine backlog from requests resolved elsewhere but never closed in Salesforce: requires investigation before any backlog KPI is published."

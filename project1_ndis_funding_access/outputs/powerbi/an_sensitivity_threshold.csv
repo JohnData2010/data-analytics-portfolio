@@ -1,0 +1,7 @@
+min_eligible,districts_ranked,overlap_with_base,top10
+0,69,9,NT | Central Australia ; NT | Darwin Urban ; NT | Katherine ; SA | Yorke and Mid North ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro ; WA | South West
+10,69,9,NT | Central Australia ; NT | Darwin Urban ; NT | Katherine ; SA | Yorke and Mid North ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro ; WA | South West
+20,69,9,NT | Central Australia ; NT | Darwin Urban ; NT | Katherine ; SA | Yorke and Mid North ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro ; WA | South West
+30,68,10,NSW | Mid North Coast ; NT | Central Australia ; NT | Darwin Urban ; SA | Yorke and Mid North ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro ; WA | South West
+50,66,9,NSW | Mid North Coast ; NSW | Sydney ; NT | Central Australia ; NT | Darwin Urban ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro ; WA | South West
+100,58,7,NSW | Mid North Coast ; NSW | South Western Sydney ; NSW | Sydney ; NT | Darwin Urban ; QLD | Rockhampton ; TAS | TAS North ; TAS | TAS North West ; TAS | TAS South East ; WA | Central North Metro ; WA | North East Metro

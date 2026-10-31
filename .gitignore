@@ -1,0 +1,12 @@
+# rebuilt by the pipelines
+*.duckdb
+*.duckdb.wal
+__pycache__/
+.pytest_cache/
+
+# large source extracts: fetch with scripts/download_data.py
+project1_ndis_funding_access/data/raw/PB_*.csv
+project1_ndis_funding_access/data/raw/UT_*.csv
+project1_ndis_funding_access/data/raw/UT_*.xlsx
+project1_ndis_funding_access/outputs/powerbi/fact_util_cells.csv
+project2_dashboard_reliability/outputs/powerbi/fact_requests_*.csv

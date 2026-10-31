@@ -1,0 +1,7 @@
+kpi,comparability_across_periods
+K01,biased for recent periods: slow requests not yet closed are missing
+K02,biased for recent periods: slow requests not yet closed are missing
+K03,"comparable: fixed 30-day window, only cohorts with full follow-up"
+K04_median_age,not comparable: older intake periods can only have older open requests
+K05,not comparable: recent intake has had less time to close
+K06,"comparable with assumption: censoring handled, assumes non-informative censoring"

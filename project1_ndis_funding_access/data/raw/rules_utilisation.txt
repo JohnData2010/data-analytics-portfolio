@@ -1,0 +1,100 @@
+Utilisation of plan budgets - data rules 
+Contents
+ TOC \o "1-3" \h \z \u Utilisation of plan budgets - data rules PAGEREF _Toc203657031 \h 1
+Utilisation of plan budgets possible values and rules PAGEREF _Toc203657032 \h 1
+How to use the data PAGEREF _Toc203657033 \h 3
+Example 1: How does utilisation vary across States/Territories for sensory/speech impairment in participants aged 0 to 8? PAGEREF _Toc203657034 \h 3
+Example 2: How does utilisation vary across NT for different disability groups in participants aged 0-8? PAGEREF _Toc203657035 \h 3
+About this document PAGEREF _Toc203657036 \h 3
+Utilisation of plan budgets possible values and rules
+This data table contains utilisation rates by State/Territory, service district, disability, age group and support class.
+Utilisation refers to the amount of the plan budget that a participant uses. This data considers payments made in a 6-month period ending 3 months prior to the reporting date to allow for payments for supports which have occurred in those 6 months to be included. For example, the data reported as at 30 June 2026 considers supports provided during 1 October 2025 to 31 March 2026 and paid for by 30 June 2026.
+Variable
+Description
+Rules
+Sample Possible Values
+RprtDt
+Reporting date
+The dates will align with quarter end dates
+The data set may have multiple dates
+30-Jun-26
+StateCd
+State/Territory where the participant resides
+ “ALL” denotes all the States/Territories in which the NDIA operates
+The State/Territory code OT (i.e. other) includes States/Territories from the Australian Standard Geographical Classification (ASGC) Digital Boundaries, Australia 2011 standard and also includes participants from Norfolk Island commencing from the December 2019 reporting date onwards. Prior to this, Norfolk Island participants were captured as ‘NSW’.
+ACT
+ALL
+NSW
+NT
+OT
+QLD
+SA
+TAS
+VIC
+WA
+SrvcDstrctNm
+Service district where the participant resides
+Each State/Territory is divided into service districts in which the NDIA operates
+“ALL” denotes all the service districts 
+The utilisation data considers a 6-month period with a 3 month lag at the time of reporting to allow for payments to be processed. Further, for reporting dates up to 31 December 2019, service districts are only shown separately in the results if the NDIS commenced in their area at least 12 months before the reporting date, otherwise the data for the service district is aggregated under the service district name “Other”. For example; if Western Melbourne started phasing into the Scheme on 01-Oct-2018, it will be merged under “Other” service districts for the 30-Jun-2019 data but will be reported separately for 30-Sep-2019 data.
+TAS North
+TAS North West
+TAS South East
+TAS South West
+Etc.
+DsbltyGrpNm
+Disability group name of the participants primary reported disability 
+Disabilities are grouped as part of the process to protect participants privacy
+Down syndrome is included under Intellectual disability group
+“Missing” disability is reported under “Other”
+Autism 
+Developmental delay 
+Intellectual Disability 
+Psychosocial disability 
+ALL 
+AgeBnd
+Age band
+“ALL” denotes all ages
+New Age Bands were introduced from Dec 24 (0 to 8 and 9 to 14 replacing 0 to 6 and 7 to 14)
+0 to 8
+9 to 14
+15 to 18
+19 to 24
+25 to 34
+35 to 44
+45 to 54
+55 to 64
+65+
+ALL
+SILorSDA
+SIL or SDA support
+Indicates that the participant’s plan includes Supported Independent Living (SIL) or Specialist Disability Accommodation (SDA) supports
+ALL
+Yes
+No
+SuppClass
+Support class
+NDIS plans have support classes under which a participant receives necessary and reasonable funding
+“ALL” denotes all the support  classes 
+ALL
+Capacity Building
+Capital
+Core
+Missing
+Utlstn
+Utilisation
+Utilisation refers to the amount of the plan budget that a participant uses
+This data considers a 6-month period ending one quarter prior to the balance date
+For rows with less than 11 participants, the utilisation rate has been removed. Due to the low number of participants, the rate is too volatile.
+Positive percentage values
+How to use the data
+Below are two examples of how to use the data.
+Example 1: How does utilisation vary across States/Territories for sensory/speech impairment in participants aged 0 to 8?
+To get the answer, apply the following filters to the data:
+RprtDt=Quarter end date , SrvcDstrctNm=”ALL”, DsbltyGrpNm=” Sensory/Speech”, AgeBnd=”0 to 8”, SILorSDA=”ALL”, SuppClass=“ALL”
+Example 2: How does utilisation vary across NT for different disability groups in participants aged 0-8?
+To get the answer, apply the following filters to the data: 
+RprtDt=Quarter end date, StateCd=”NT”, SrvcDstrctNm=”ALL”, NDIAAgeBnd=”0 to 8”, SILorSDA=”ALL”,SuppClass=“ALL”
+About this document
+Approved:  June 2026
+Contact: scheme.actuary@ndis.gov.au

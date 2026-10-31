@@ -1,0 +1,29 @@
+rule_id,dataset,check,severity,rows_flagged,rate,kpis_touched,kpi_impact_if_excluded,status
+DQ01,A,Date received missing or unparseable,critical,0,0.0,"K01, K03, K05",K01: 5 -> 5 (+0); K05: 0.0183 -> 0.0183 (+0),PASS
+DQ01,B,Date opened missing or unparseable,critical,0,0.0,"K01, K03, K05",K01: 4.97 -> 4.97 (+0); K05: 0.225 -> 0.225 (+0),PASS
+DQ02,A,Date completed present but unparseable,critical,0,0.0,"K01, K02",K01: 5 -> 5 (+0); K02: 28 -> 28 (+0),PASS
+DQ02,B,Date closed present but unparseable,critical,0,0.0,"K01, K02",K01: 4.97 -> 4.97 (+0); K02: 26.9 -> 26.9 (+0),PASS
+DQ03,A,Completed before received,critical,0,0.0,"K01, K02",K01: 5 -> 5 (+0); K02: 28 -> 28 (+0),PASS
+DQ03,B,Closed before opened,critical,0,0.0,"K01, K02",K01: 4.97 -> 4.97 (+0); K02: 26.9 -> 26.9 (+0),PASS
+DQ04,A,Date after the extract date,high,0,0.0,K04,K04: 29 -> 29 (+0),PASS
+DQ04,B,Date after the extract date,high,0,0.0,K04,K04: 155 -> 155 (+0),PASS
+DQ05,A,Status closed but no completion date,high,0,0.0,"K01, K02",K01: 5 -> 5 (+0); K02: 28 -> 28 (+0),PASS
+DQ05,B,Status closed but no close date,high,0,0.0,"K01, K02",K01: 4.97 -> 4.97 (+0); K02: 26.9 -> 26.9 (+0),PASS
+DQ06,A,Status open but has a completion date,medium,1,2.1515092837625594e-05,"K05, K04",K05: 0.0183 -> 0.0182 (-2.11e-05); K04: 29 -> 29 (+0),WARN
+DQ06,B,Status open but has a close date,medium,0,0.0,"K05, K04",K05: 0.225 -> 0.225 (+0); K04: 155 -> 155 (+0),PASS
+DQ07,A,"days_to_complete populated on open request (holds age, not completion time)",high,849,0.01826631381914413,K07,K07: 5 -> 5 (+0),WARN
+DQ08,A,days_to_complete differs from calendar days (same-day = 1 convention),medium,0,0.0,K01,K01: 5 -> 5 (+0),PASS
+DQ09,A,Suburb missing,medium,24894,0.5355967210998516,suburb KPIs,no numeric KPI impact,WARN
+DQ09,B,Suburb missing,medium,22618,0.5357049809336586,suburb KPIs,no numeric KPI impact,WARN
+DQ10,B,"Suburb spelling variant (e.g. 'Melb CBD', lower case)",low,67,0.001586888041495938,suburb KPIs,no numeric KPI impact,WARN
+DQ11,B,Suburb outside City of Melbourne municipality,low,35,0.0008289713649605647,suburb KPIs,no numeric KPI impact,WARN
+DQ12,B,Closed as Duplicate (not a resolved service request),medium,716,0.01695838563747898,"K01, K02, K05",K01: 4.97 -> 5.14 (+0.171); K02: 26.9 -> 26.9 (+0.0436); K05: 0.225 -> 0.229 (+0.00388),WARN
+DQ13,A,"Freshness: latest record 2016-11-08, 3643 days before this run",high,46479,1.0,all,"KPIs describe the past, not current service performance",WARN
+DQ14,A,Row count matches portal record count,critical,0,0.0,all,"",PASS
+DQ15,A,Exact duplicate rows (no request ID exists to test true duplicates),medium,0,0.0,counts,"",PASS
+DQ16,A,Partial months at the edges (< 50% of median monthly volume): 2016-11,medium,382,0.008218765463972977,monthly trend KPIs,exclude from month-on-month comparisons,WARN
+DQ13,B,"Freshness: latest record 2018-10-17, 2935 days before this run",high,42221,1.0,all,"KPIs describe the past, not current service performance",WARN
+DQ14,B,Row count matches portal record count,critical,0,0.0,all,"",PASS
+DQ15,B,Exact duplicate rows (no request ID exists to test true duplicates),medium,0,0.0,counts,"",PASS
+DQ16,B,Partial months at the edges (< 50% of median monthly volume): 2018-10,medium,34,0.0008052864688188342,monthly trend KPIs,exclude from month-on-month comparisons,WARN
+DQ17,B,Requests whose month differs between UTC and Melbourne time,low,551,0.013050377774093461,"monthly volumes, K03",handled: months assigned in local time,PASS

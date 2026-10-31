@@ -1,0 +1,102 @@
+Participant numbers and plan budgets - data rules
+Contents
+ TOC \o "1-3" \h \z \u Participant numbers and plan budgets - data rules PAGEREF _Toc203655961 \h 1
+Participant numbers and plan budgets possible values and rules PAGEREF _Toc203655962 \h 1
+How to use the data PAGEREF _Toc203655963 \h 4
+Example 1: Participants aged 25-34 in each State/Territory as at the end of a quarter PAGEREF _Toc203655964 \h 4
+Example 2: Participants aged 25-34 with Sensory/Speech Impairment in NSW as at the end of a quarter PAGEREF _Toc203655965 \h 4
+About this document PAGEREF _Toc203655966 \h 4
+Participant numbers and plan budgets possible values and rules
+Participants are considered active by the NDIA when they have current plans at the date of reporting. The table below outlines the possible values and rules in the ActivePlanParticipant.csv data file.
+Variable
+Description
+Rules
+Sample Possible Values
+Rprt Date
+Reporting date
+The dates will align with quarter end dates
+The data set contains multiple dates
+30-Jun-2026
+StateCd
+State/Territory where the participant resides
+“ALL” denotes all the States/Territories in which the NDIA operates
+The State/Territory code OT (i.e. other) includes States/Territories from the Australian Standard Geographical Classification (ASGC) Digital Boundaries, Australia 2011 standard and also includes participants from Norfolk Island commencing from the September 2019 reporting date onwards. Prior to this, Norfolk Island participants were captured as ‘NSW’
+“MIS” denotes the records where the state information is missing
+ACT
+ALL
+MIS
+NSW
+NT
+OT
+QLD
+SA
+TAS
+VIC
+WA
+SrvcDstrctNm
+Service district where the participant resides
+Each State/Territory is divided into service districts in which NDIA operates
+“ALL” denotes all the service districts
+“Unincorporated” and “Unspecified” are reported under “Other” commencing from 30-September-2020 reporting date
+TAS North
+TAS North West
+TAS South East
+TAS South West
+….
+ALL
+DsbltyGrpNm
+Disability group name of the participants primary reported disability
+The values of this field reflect the disability groups included in the quarterly reports published by the NDIA
+Down syndrome is included under Intellectual disability group
+“Missing” disability is reported under “Other”
+Autism
+Developmental delay
+Intellectual Disability
+Psychosocial disability
+…
+ALL
+AgeBnd
+Age band
+“ALL” denotes all ages
+New Age Bands were introduced from Dec 24 (0 to 8 and 9 to 14 replacing 0 to 6 and 7 to 14)
+0 to 8
+9 to 14
+15 to 18
+19 to 24
+25 to 34
+35 to 44
+45 to 54
+55 to 64
+65+
+ALL
+SuppClass
+Support class
+NDIS plans have support classes under which a participant receives necessary and reasonable funding
+“ALL” denotes all the support classes
+ALL
+Capacity Building
+Capital
+Core
+ActvPrtcpnt
+Participant count
+Count of participants in each combination of categories
+Low participant counts have been modified along with any related data to protect the privacy of the participants. The aggregated totals have not been modified
+Numerical values greater than zero
+AvgAnlsdCmtdSuppBdgt
+Average annualised committed support 
+Participants have committed support in their plans. The committed support in plans is annualised to compare like-for-like values 
+The value represents the average of the annualised amounts in the participants’ active plans (Total Annualised Budget divided by Participant Count)
+The amounts are rounded to the nearest thousand dollars
+For rows with 11 or fewer participants, the average annualised committed support budget has been removed, as the low participant count results in an average which is too volatile.
+Numerical values greater than or equal to zero 
+How to use the data
+Below are two examples of how to use the data.
+Example 1: Participants aged 25-34 in each State/Territory as at the end of a quarter
+To get the number and average budget of participants in each State/Territory, regardless of support and entity type, apply the following filters to the data: 
+RprtDt= Quarter end date, StateCd≠(unselect)“ALL”, SrvcDstrctNm=”ALL”, DsbltyGrpNm=”ALL”, NDIAAgeBnd=”25-34”, SuppClass=“ALL”
+Example 2: Participants aged 25-34 with Sensory/Speech Impairment in NSW as at the end of a quarter
+To get the count of all the participants with sensory/speech impairment in Australia, apply the following filters to the data:
+RprtDt=Quarter end date, StateCd=“NSW”, SrvcDstrctNm=”ALL”, DsbltyGrpNm=” Sensory/Speech”, NDIAAgeBnd=”25-34”, SuppClass=“ALL”
+About this document
+Approved: June 2026
+Contact: scheme.actuary@ndis.gov.au

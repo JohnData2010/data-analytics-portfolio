@@ -1,0 +1,11 @@
+dataset,step,rows
+A,raw,46479
+A,staging,46479
+A,analysis view,46479
+A,KPI population closed+open,46479
+A,cohort table,46479
+B,raw,42221
+B,staging,42221
+B,analysis view,42221
+B,KPI population closed+open,42221
+B,cohort table,42221

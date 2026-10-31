@@ -1,0 +1,66 @@
+table,column,type,description
+stg_requests_a,source_row,BIGINT,Row number in the source file (no request ID is published)
+stg_requests_a,status_raw,VARCHAR,Status as published
+stg_requests_a,date_received_raw,VARCHAR,
+stg_requests_a,date_completed_raw,VARCHAR,
+stg_requests_a,date_received,DATE,A: date request received
+stg_requests_a,date_completed,DATE,A: date finalised
+stg_requests_a,suburb,VARCHAR,Suburb (B: normalised spelling)
+stg_requests_a,category,VARCHAR,A: high-level category
+stg_requests_a,service_desc,VARCHAR,A: detailed service
+stg_requests_a,days_field,INTEGER,"A: published days_to_complete (closed: completion days, same-day = 1; open: age at extract)"
+stg_requests_a,status_group,VARCHAR,Closed / Open (derived)
+stg_requests_a,is_closed,BOOLEAN,Closed status (A: CLOSED; B: Closed or Closed as Duplicate)
+stg_requests_a,days_calendar,BIGINT,A: date_completed - date_received
+stg_requests_a,days_calendar_min1,BIGINT,"A: calendar days, minimum 1"
+stg_requests_a,extract_date,DATE,Assumed extract date (AS01)
+stg_requests_a,age_at_extract,BIGINT,Open requests: extract date - date received
+stg_requests_a,intake_month,DATE,Month received (B: Melbourne time)
+stg_requests_a,dq_invalid_received,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_invalid_completed,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_completed_before_received,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_future_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_closed_no_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_open_with_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_missing_suburb,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_days_field_mismatch,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_a,dq_days_field_on_open,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,source_row,BIGINT,Row number in the source file (no request ID is published)
+stg_requests_b,service_type,VARCHAR,B: service type
+stg_requests_b,status_raw,VARCHAR,Status as published
+stg_requests_b,case_origin,VARCHAR,B: intake channel
+stg_requests_b,suburb_raw,VARCHAR,B: suburb as published
+stg_requests_b,opened_utc,TIMESTAMP WITH TIME ZONE,B: date_opened as published (UTC)
+stg_requests_b,closed_utc,TIMESTAMP WITH TIME ZONE,B: date_closed as published (UTC)
+stg_requests_b,date_opened_raw,VARCHAR,
+stg_requests_b,date_closed_raw,VARCHAR,
+stg_requests_b,opened_local,TIMESTAMP,"B: opened, Australia/Melbourne"
+stg_requests_b,closed_local,TIMESTAMP,"B: closed, Australia/Melbourne"
+stg_requests_b,date_opened,DATE,B: local business date opened
+stg_requests_b,date_closed,DATE,B: local business date closed
+stg_requests_b,status_group,VARCHAR,Closed / Open (derived)
+stg_requests_b,is_closed,BOOLEAN,Closed status (A: CLOSED; B: Closed or Closed as Duplicate)
+stg_requests_b,is_duplicate,BOOLEAN,B: status 'Closed as Duplicate'
+stg_requests_b,channel_group,VARCHAR,B: Digital / Assisted / Council-initiated
+stg_requests_b,suburb,VARCHAR,Suburb (B: normalised spelling)
+stg_requests_b,days_to_close,DOUBLE,B: closed - opened in days (fractional)
+stg_requests_b,extract_date,DATE,Assumed extract date (AS01)
+stg_requests_b,age_at_extract,BIGINT,Open requests: extract date - date received
+stg_requests_b,intake_month,DATE,Month received (B: Melbourne time)
+stg_requests_b,intake_month_utc,DATE,B: month opened in UTC (for sensitivity only)
+stg_requests_b,dq_invalid_received,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_invalid_completed,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_completed_before_received,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_future_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_closed_no_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_open_with_date,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_missing_suburb,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_suburb_variant,BOOLEAN,Record-level QA flag (see qa_dq_results)
+stg_requests_b,dq_suburb_outside_com,BOOLEAN,Record-level QA flag (see qa_dq_results)
+KPI,K01,measure,"Median days to completion: median(completion days) over closed requests | population: closed requests | blind spot: Excludes every open request, so the slowest cases are invisible (selection bias / right-censoring)."
+KPI,K02,measure,90th percentile days to completion: p90(completion days) over closed requests | population: closed requests | blind spot: Still closed-only; a backlog of very old open requests is not reflected.
+KPI,K03,measure,Closure rate within 30 days by intake cohort: count(closed within 30 days) / count(received) | population: all requests received in cohorts with >= 30 days of follow-up before extract | blind spot: Says nothing about how late the remainder are.
+KPI,K04,measure,Open-case ageing: median and share > 90 days of (extract date - date received) | population: open requests at extract | blind spot: Snapshot at one date; cannot show how the backlog evolved.
+KPI,K05,measure,Open share: count(open) / count(all) | population: all requests | blind spot: Recent intake is naturally open; compare like-aged cohorts.
+KPI,K06,measure,Kaplan-Meier median days to completion: time where KM survival S(t) first <= 0.5; open requests censored at age at extract | population: all requests | blind spot: Assumes open requests behave like closed requests of the same age (non-informative censoring).
+KPI,K07,measure,"Naive median of days_to_complete (anti-pattern): median(days_to_complete) over every row | population: all rows in dataset A | blind spot: Mixes completion times (closed) with ages (open). Technically computable, conceptually wrong. Kept only to demonstrate the error."

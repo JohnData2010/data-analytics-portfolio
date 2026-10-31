@@ -1,0 +1,13 @@
+dataset,kpi,kpi_label,period_from,period_to,value_from,value_to,change,direction
+A,K01,Median days (completed),CY2015,Jan-Oct 2016,5.0,6.0,1.0,worsened
+A,K02,P90 days (completed),CY2015,Jan-Oct 2016,32.0,26.0,-6.0,improved
+A,K03,"Closed within 30 days, intake cohort",CY2015,Jan-Oct 2016,0.892619926199262,0.9168404455521082,0.024220519352846193,improved
+A,K04_median_age,Median age of open requests,CY2015,Jan-Oct 2016,442.5,49.0,-393.5,improved
+A,K05,Open share,CY2015,Jan-Oct 2016,0.004059040590405904,0.025114260652786113,0.021055220062380208,worsened
+A,K06,KM median days (open = censored),CY2015,Jan-Oct 2016,5.0,6.0,1.0,worsened
+B,K01,Median days (completed),Q1 2018,Q3 2018,6.216666666666667,7.168055555555555,0.9513888888888884,worsened
+B,K02,P90 days (completed),Q1 2018,Q3 2018,27.916249999999998,25.85638888888889,-2.0598611111111076,improved
+B,K03,"Closed within 30 days, intake cohort",Q1 2018,Q3 2018,0.7883091856398544,0.8351007423117709,0.04679155667191648,improved
+B,K04_median_age,Median age of open requests,Q1 2018,Q3 2018,216.0,80.0,-136.0,improved
+B,K05,Open share,Q1 2018,Q3 2018,0.15659124973235314,0.128943661971831,-0.027647587760522147,improved
+B,K06,KM median days (open = censored),Q1 2018,Q3 2018,14.220138888888888,14.013194444444444,-0.20694444444444393,improved

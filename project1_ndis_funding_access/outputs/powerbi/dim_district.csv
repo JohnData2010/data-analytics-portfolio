@@ -1,0 +1,101 @@
+state,district,district_key
+NSW,Other,NSW | Other
+NT,Barkly,NT | Barkly
+VIC,Brimbank Melton,VIC | Brimbank Melton
+SA,Eyre and Western,SA | Eyre and Western
+State_Missing,Missing,State_Missing | Missing
+VIC,Western District,VIC | Western District
+WA,Kimberley-Pilbara,WA | Kimberley-Pilbara
+WA,South East Metro,WA | South East Metro
+VIC,Western Melbourne,VIC | Western Melbourne
+NSW,South Eastern Sydney,NSW | South Eastern Sydney
+SA,Adelaide Hills,SA | Adelaide Hills
+VIC,Loddon,VIC | Loddon
+WA,Great Southern,WA | Great Southern
+TAS,TAS North,TAS | TAS North
+SA,Northern Adelaide,SA | Northern Adelaide
+VIC,Outer East Melbourne,VIC | Outer East Melbourne
+NSW,Western Sydney,NSW | Western Sydney
+WA,Wheat Belt,WA | Wheat Belt
+ACT,Other,ACT | Other
+NSW,Hunter New England,NSW | Hunter New England
+QLD,Maroochydore,QLD | Maroochydore
+QLD,Rockhampton,QLD | Rockhampton
+NSW,Northern NSW,NSW | Northern NSW
+SA,Yorke and Mid North,SA | Yorke and Mid North
+VIC,Central Highlands,VIC | Central Highlands
+SA,Southern Adelaide,SA | Southern Adelaide
+TAS,TAS North West,TAS | TAS North West
+WA,Midwest-Gascoyne,WA | Midwest-Gascoyne
+NSW,North Sydney,NSW | North Sydney
+NSW,South Western Sydney,NSW | South Western Sydney
+QLD,Caboolture/Strathpine,QLD | Caboolture/Strathpine
+VIC,North East Melbourne,VIC | North East Melbourne
+NT,Other,NT | Other
+MIS,Other,MIS | Other
+VIC,Inner East Melbourne,VIC | Inner East Melbourne
+NSW,Goulburn,NSW | Goulburn
+QLD,Toowoomba,QLD | Toowoomba
+VIC,Goulburn,VIC | Goulburn
+NSW,Western NSW,NSW | Western NSW
+NT,Far North (SA),NT | Far North (SA)
+NSW,Illawarra Shoalhaven,NSW | Illawarra Shoalhaven
+NSW,Murrumbidgee,NSW | Murrumbidgee
+NSW,Southern NSW,NSW | Southern NSW
+NT,Darwin Remote,NT | Darwin Remote
+State_Missing,Region_Missing,State_Missing | Region_Missing
+WA,North Metro,WA | North Metro
+VIC,Mallee,VIC | Mallee
+QLD,Cairns,QLD | Cairns
+TAS,Other,TAS | Other
+SA,Murray and Mallee,SA | Murray and Mallee
+SA,Other,SA | Other
+VIC,Inner Gippsland,VIC | Inner Gippsland
+VIC,Ovens Murray,VIC | Ovens Murray
+WA,Goldfields-Esperance,WA | Goldfields-Esperance
+WA,Central South Metro,WA | Central South Metro
+TAS,TAS South East,TAS | TAS South East
+WA,South West,WA | South West
+NSW,Nepean Blue Mountains,NSW | Nepean Blue Mountains
+QLD,Mackay,QLD | Mackay
+QLD,Maryborough,QLD | Maryborough
+QLD,Robina,QLD | Robina
+WA,Central North Metro,WA | Central North Metro
+WA,Other,WA | Other
+VIC,Barwon,VIC | Barwon
+VIC,Other,VIC | Other
+NT,Darwin Urban,NT | Darwin Urban
+QLD,Townsville,QLD | Townsville
+NSW,Central Coast,NSW | Central Coast
+NSW,Far West,NSW | Far West
+NT,Townsville,NT | Townsville
+NT,Central Australia,NT | Central Australia
+TAS,TAS South West,TAS | TAS South West
+WA,South Metro,WA | South Metro
+NT,East Arnhem,NT | East Arnhem
+VIC,Hume Moreland,VIC | Hume Moreland
+State_Missing,Other,State_Missing | Other
+SA,Eastern Adelaide,SA | Eastern Adelaide
+QLD,Ipswich,QLD | Ipswich
+SA,Far North (SA),SA | Far North (SA)
+VIC,Southern Melbourne,VIC | Southern Melbourne
+NT,Goldfields-Esperance,NT | Goldfields-Esperance
+SA,Limestone Coast,SA | Limestone Coast
+NSW,Mid North Coast,NSW | Mid North Coast
+NSW,Sydney,NSW | Sydney
+NSW,ACT,NSW | ACT
+QLD,Bundaberg,QLD | Bundaberg
+QLD,Brisbane,QLD | Brisbane
+VIC,Outer Gippsland,VIC | Outer Gippsland
+ACT,ACT,ACT | ACT
+VIC,Bayside Peninsula,VIC | Bayside Peninsula
+WA,North East Metro,WA | North East Metro
+OT,Other,OT | Other
+WA,Barkly,WA | Barkly
+QLD,Other,QLD | Other
+SA,Fleurieu and Kangaroo Island,SA | Fleurieu and Kangaroo Island
+SA,Western Adelaide,SA | Western Adelaide
+WA,Central Australia,WA | Central Australia
+SA,"Barossa, Light and Lower North","SA | Barossa, Light and Lower North"
+NT,Katherine,NT | Katherine
+QLD,Beenleigh,QLD | Beenleigh

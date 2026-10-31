@@ -1,0 +1,123 @@
+check_id,kind,description,expected,actual,difference,tolerance,status,note
+L-PB_2025Q1_Sep24,load,rows loaded from PB_2025Q1_Sep24.csv,101269,101269,0,0,PASS,
+L-PB_2025Q2_Dec24,load,rows loaded from PB_2025Q2_Dec24.csv,101690,101690,0,0,PASS,
+L-PB_2025Q3_Mar25,load,rows loaded from PB_2025Q3_Mar25.csv,102051,102051,0,0,PASS,
+L-PB_2025Q4_Jun25,load,rows loaded from PB_2025Q4_Jun25.csv,102397,102397,0,0,PASS,
+L-PB_2026Q1_Sep25,load,rows loaded from PB_2026Q1_Sep25.csv,100243,100243,0,0,PASS,
+L-PB_2026Q2_Dec25,load,rows loaded from PB_2026Q2_Dec25.csv,100311,100311,0,0,PASS,
+L-PB_2026Q3_Mar26,load,rows loaded from PB_2026Q3_Mar26.csv,100215,100215,0,0,PASS,
+L-PB_2026Q4_Jun26,load,rows loaded from PB_2026Q4_Jun26.csv,100395,100395,0,0,PASS,
+L-UT_2025Q1_Sep24,load,rows loaded from UT_2025Q1_Sep24.csv,141005,141005,0,0,PASS,
+L-UT_2025Q2_Dec24,load,rows loaded from UT_2025Q2_Dec24.xlsx,142480,142480,0,0,PASS,
+L-UT_2025Q3_Mar25,load,rows loaded from UT_2025Q3_Mar25.csv,143353,143353,0,0,PASS,
+L-UT_2025Q4_Jun25,load,rows loaded from UT_2025Q4_Jun25.csv,143912,143912,0,0,PASS,
+L-UT_2026Q1_Sep25,load,rows loaded from UT_2026Q1_Sep25.csv,144896,144896,0,0,PASS,
+L-UT_2026Q2_Dec25,load,rows loaded from UT_2026Q2_Dec25.csv,143987,143987,0,0,PASS,
+L-UT_2026Q3_Mar26,load,rows loaded from UT_2026Q3_Mar26.csv,144713,144713,0,0,PASS,
+L-UT_2026Q4_Jun26,load,rows loaded from UT_2026Q4_Jun26.csv,145097,145097,0,0,PASS,
+L-SDA,load,rows loaded from SDA_participants.csv,1284,1284,0,0,PASS,
+I-PB-states-2024-09-30,internal,2024-09-30: sum of state active participants = national,680123,680123,0,0,PASS,
+I-PB-states-2024-12-31,internal,2024-12-31: sum of state active participants = national,692822,692822,0,0,PASS,
+I-PB-states-2025-03-31,internal,2025-03-31: sum of state active participants = national,716998,716998,0,0,PASS,
+I-PB-states-2025-06-30,internal,2025-06-30: sum of state active participants = national,739414,739414,0,0,PASS,
+I-PB-states-2025-09-30,internal,2025-09-30: sum of state active participants = national,751446,751446,0,0,PASS,
+I-PB-states-2025-12-31,internal,2025-12-31: sum of state active participants = national,761442,761442,0,0,PASS,
+I-PB-states-2026-03-31,internal,2026-03-31: sum of state active participants = national,774456,774456,0,0,PASS,
+I-PB-states-2026-06-30,internal,2026-06-30: sum of state active participants = national,782013,782013,0,0,PASS,
+I-PB-districts-ACT-2024-09-30,internal,2024-09-30 ACT: sum of district participants = state total,11141,11143,2,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2024-09-30,internal,2024-09-30 NSW: sum of district participants = state total,202154,202150,-4,20,PASS,"2 masked district cell(s), bound 20; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2024-09-30,internal,2024-09-30 NT: sum of district participants = state total,6181,6031,-150,161,PASS,"2 masked district cell(s), bound 161; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2024-09-30,internal,2024-09-30 QLD: sum of district participants = state total,146354,146344,-10,19,PASS,"1 masked district cell(s), bound 19; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2024-09-30,internal,2024-09-30 SA: sum of district participants = state total,58135,58135,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2024-09-30,internal,2024-09-30 TAS: sum of district participants = state total,14514,11342,-3172,3183,PASS,"2 masked district cell(s), bound 3183; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2024-09-30,internal,2024-09-30 VIC: sum of district participants = state total,182330,182316,-14,19,PASS,"1 masked district cell(s), bound 19; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2024-09-30,internal,2024-09-30 WA: sum of district participants = state total,59224,59194,-30,39,PASS,"2 masked district cell(s), bound 39; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2024-12-31,internal,2024-12-31 ACT: sum of district participants = state total,11300,0,-11300,11310,PASS,"2 masked district cell(s), bound 11310; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2024-12-31,internal,2024-12-31 NSW: sum of district participants = state total,205597,205564,-33,39,PASS,"2 masked district cell(s), bound 39; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2024-12-31,internal,2024-12-31 NT: sum of district participants = state total,6270,6271,1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2024-12-31,internal,2024-12-31 QLD: sum of district participants = state total,149150,149139,-11,21,PASS,"1 masked district cell(s), bound 21; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2024-12-31,internal,2024-12-31 SA: sum of district participants = state total,59024,59024,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2024-12-31,internal,2024-12-31 TAS: sum of district participants = state total,14793,14793,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2024-12-31,internal,2024-12-31 VIC: sum of district participants = state total,185989,185989,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2024-12-31,internal,2024-12-31 WA: sum of district participants = state total,60608,60576,-32,46,PASS,"2 masked district cell(s), bound 46; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2025-03-31,internal,2025-03-31 ACT: sum of district participants = state total,11693,0,-11693,11705,PASS,"2 masked district cell(s), bound 11705; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2025-03-31,internal,2025-03-31 NSW: sum of district participants = state total,211994,211956,-38,46,PASS,"2 masked district cell(s), bound 46; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2025-03-31,internal,2025-03-31 NT: sum of district participants = state total,6410,6255,-155,164,PASS,"2 masked district cell(s), bound 164; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2025-03-31,internal,2025-03-31 QLD: sum of district participants = state total,154686,154678,-8,12,PASS,"1 masked district cell(s), bound 12; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2025-03-31,internal,2025-03-31 SA: sum of district participants = state total,60859,60859,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2025-03-31,internal,2025-03-31 TAS: sum of district participants = state total,15332,15332,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2025-03-31,internal,2025-03-31 VIC: sum of district participants = state total,192973,192973,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2025-03-31,internal,2025-03-31 WA: sum of district participants = state total,62955,62920,-35,50,PASS,"2 masked district cell(s), bound 50; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2025-06-30,internal,2025-06-30 ACT: sum of district participants = state total,12035,12034,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2025-06-30,internal,2025-06-30 NSW: sum of district participants = state total,217918,217918,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2025-06-30,internal,2025-06-30 NT: sum of district participants = state total,6537,6537,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2025-06-30,internal,2025-06-30 QLD: sum of district participants = state total,159258,159248,-10,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2025-06-30,internal,2025-06-30 SA: sum of district participants = state total,62763,62763,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2025-06-30,internal,2025-06-30 TAS: sum of district participants = state total,15831,15831,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2025-06-30,internal,2025-06-30 VIC: sum of district participants = state total,199577,199577,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2025-06-30,internal,2025-06-30 WA: sum of district participants = state total,65083,65083,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2025-09-30,internal,2025-09-30 ACT: sum of district participants = state total,12260,12259,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2025-09-30,internal,2025-09-30 NSW: sum of district participants = state total,221320,221320,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2025-09-30,internal,2025-09-30 NT: sum of district participants = state total,6647,6647,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2025-09-30,internal,2025-09-30 QLD: sum of district participants = state total,161575,161575,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2025-09-30,internal,2025-09-30 SA: sum of district participants = state total,64046,64046,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2025-09-30,internal,2025-09-30 TAS: sum of district participants = state total,16223,16220,-3,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2025-09-30,internal,2025-09-30 VIC: sum of district participants = state total,202704,202704,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2025-09-30,internal,2025-09-30 WA: sum of district participants = state total,66569,66569,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2025-12-31,internal,2025-12-31 ACT: sum of district participants = state total,12431,12430,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2025-12-31,internal,2025-12-31 NSW: sum of district participants = state total,224537,224537,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2025-12-31,internal,2025-12-31 NT: sum of district participants = state total,6741,6741,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2025-12-31,internal,2025-12-31 QLD: sum of district participants = state total,163122,163119,-3,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2025-12-31,internal,2025-12-31 SA: sum of district participants = state total,65233,65233,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2025-12-31,internal,2025-12-31 TAS: sum of district participants = state total,16439,16439,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2025-12-31,internal,2025-12-31 VIC: sum of district participants = state total,205144,205144,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2025-12-31,internal,2025-12-31 WA: sum of district participants = state total,67695,67695,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2026-03-31,internal,2026-03-31 ACT: sum of district participants = state total,12597,12596,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2026-03-31,internal,2026-03-31 NSW: sum of district participants = state total,228184,228184,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2026-03-31,internal,2026-03-31 NT: sum of district participants = state total,6819,6819,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2026-03-31,internal,2026-03-31 QLD: sum of district participants = state total,165611,165609,-2,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2026-03-31,internal,2026-03-31 SA: sum of district participants = state total,66339,66339,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2026-03-31,internal,2026-03-31 TAS: sum of district participants = state total,16723,16723,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2026-03-31,internal,2026-03-31 VIC: sum of district participants = state total,208851,208851,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2026-03-31,internal,2026-03-31 WA: sum of district participants = state total,69231,69231,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-ACT-2026-06-30,internal,2026-06-30 ACT: sum of district participants = state total,12695,12694,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NSW-2026-06-30,internal,2026-06-30 NSW: sum of district participants = state total,230427,230427,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-NT-2026-06-30,internal,2026-06-30 NT: sum of district participants = state total,6894,6894,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-QLD-2026-06-30,internal,2026-06-30 QLD: sum of district participants = state total,166633,166630,-3,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-SA-2026-06-30,internal,2026-06-30 SA: sum of district participants = state total,67270,67270,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-TAS-2026-06-30,internal,2026-06-30 TAS: sum of district participants = state total,16896,16895,-1,10,PASS,"1 masked district cell(s), bound 10; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-VIC-2026-06-30,internal,2026-06-30 VIC: sum of district participants = state total,210846,210846,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-districts-WA-2026-06-30,internal,2026-06-30 WA: sum of district participants = state total,70243,70243,0,0,PASS,"0 masked district cell(s), bound 0; filled cells use the district total (state=ALL), which can include a few cross-border participants"
+I-PB-complementary-mask,internal,complementary-mask fallback never exceeds the published mask bound,0,0,0,0,PASS,
+I-UT-national-2024-09-30,internal,2024-09-30: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2024-12-31,internal,2024-12-31: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2025-03-31,internal,2025-03-31: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2025-06-30,internal,2025-06-30: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2025-09-30,internal,2025-09-30: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2025-12-31,internal,2025-12-31: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2026-03-31,internal,2026-03-31: national utilisation row present,1,1,0,0,PASS,
+I-UT-national-2026-06-30,internal,2026-06-30: national utilisation row present,1,1,0,0,PASS,
+I-UT-range,internal,"utilisation rates within [0, 1.5]",0,0,0,0,PASS,
+I-SDA-unique,internal,SDA rows unique on date x state x district x status,0,0,0,0,PASS,
+I-SDA-quarters,internal,SDA file covers the same 8 quarters as budgets,8,8,0,0,PASS,
+X-SDA-national-in_use,cross-source,30-Jun-2026 national 'SDA in use': CSV published cells vs supplement Table P.1 total,16644,16596,-48,80,PASS,CSV masks small districts ('<11'); tolerance = 10 x masked cells
+X-SDA-national-not_using,cross-source,30-Jun-2026 national 'SDA eligible - not yet using': CSV published cells vs supplement Table P.1 total,9014,8985,-29,60,PASS,CSV masks small districts ('<11'); tolerance = 10 x masked cells
+X-SDA-district-values,cross-source,30-Jun-2026 district SDA counts: CSV vs supplement Table P.1 (140 cells both unmasked),0,1,1,0,WARN,max absolute difference 1; separate extracts
+X-SDA-district-coverage,cross-source,every CSV district exists in supplement Table P.1,0,0,0,0,PASS,12 supplement-only rows are zero/masked districts the CSV omits
+X-active-NSW,cross-source,30-Jun-2026 NSW active participants: budgets CSV vs SDA supplement P.1,230427,230427,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-VIC,cross-source,30-Jun-2026 VIC active participants: budgets CSV vs SDA supplement P.1,210846,210846,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-QLD,cross-source,30-Jun-2026 QLD active participants: budgets CSV vs SDA supplement P.1,166633,166633,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-WA,cross-source,30-Jun-2026 WA active participants: budgets CSV vs SDA supplement P.1,70243,70243,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-SA,cross-source,30-Jun-2026 SA active participants: budgets CSV vs SDA supplement P.1,67270,67270,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-TAS,cross-source,30-Jun-2026 TAS active participants: budgets CSV vs SDA supplement P.1,16896,16896,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-ACT,cross-source,30-Jun-2026 ACT active participants: budgets CSV vs SDA supplement P.1,12695,12695,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-ACT,cross-source,30-Jun-2026 ACT active participants: budgets CSV vs SDA supplement P.1,12694,12695,1,0,WARN,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+X-active-NT,cross-source,30-Jun-2026 NT active participants: budgets CSV vs SDA supplement P.1,6894,6894,0,0,PASS,supplement and CSV are separate NDIA extracts; differences of a few participants are WARN
+I-SA4-ACT,internal,Table P.9: SA4 participants with SDA need sum to ACT,354,354,0,0,PASS,
+I-SA4-NSW,internal,Table P.9: SA4 participants with SDA need sum to NSW,8102,8102,0,0,PASS,
+I-SA4-NT,internal,Table P.9: SA4 participants with SDA need sum to NT,315,315,0,0,PASS,
+I-SA4-QLD,internal,Table P.9: SA4 participants with SDA need sum to QLD,4566,4566,0,0,PASS,
+I-SA4-SA,internal,Table P.9: SA4 participants with SDA need sum to SA,2557,2557,0,0,PASS,
+I-SA4-TAS,internal,Table P.9: SA4 participants with SDA need sum to TAS,516,516,0,0,PASS,
+I-SA4-VIC,internal,Table P.9: SA4 participants with SDA need sum to VIC,7367,7367,0,0,PASS,
+I-SA4-WA,internal,Table P.9: SA4 participants with SDA need sum to WA,1881,1881,0,0,PASS,

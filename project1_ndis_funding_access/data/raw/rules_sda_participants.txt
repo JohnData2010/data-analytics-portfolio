@@ -1,0 +1,64 @@
+Specialist Disability Accommodation (SDA) participants - data rules 
+Contents
+ TOC \o "1-3" \h \z \u Specialist Disability Accommodation (SDA) participants - data rules PAGEREF _Toc203656867 \h 1
+Participants by SDA possible values and rules PAGEREF _Toc203656868 \h 1
+How to use the data PAGEREF _Toc203656869 \h 2
+Example 1: Count of participants in NSW as at the end of a quarter PAGEREF _Toc203656870 \h 2
+Example 2: Count of participants in Brisbane by service district as at the end of a quarter PAGEREF _Toc203656871 \h 2
+About this document PAGEREF _Toc203656872 \h 2
+Participants by SDA possible values and rules
+The table below outlines the possible values and rules in the SDAParticipants.csv data file.
+Variable
+Description
+Rules
+Sample Possible Values
+Rprt Date
+Reporting date
+The dates will align with quarter end dates
+The data set contains multiple dates
+30Jun2026
+31Mar2026
+31Dec2025
+30Sep2025
+30Jun2025
+31Mar2025
+31Dec2024
+Etc.
+StateCd
+State/Territory code for the State/Territory in which the participant resides at the reporting date.
+ACT
+NSW
+NT
+QLD
+SA
+TAS
+VIC
+WA
+MIS
+SDAStatus
+SDA Usage Status
+Participants with SDA in use are participants that have SDA funding in their latest plan and evidence of using SDA. Participants who are SDA eligible (SDA funding not yet in use) are either participants that have SDA in their latest plan and don’t have evidence of using it, or participants who have been found eligible for SDA through the home and living application process who don't yet have SDA funding in their plan.  Evidence of SDA funding in use is estimated based on SDA payments, SDA service bookings and address matching to an enrolled SDA dwelling. Future enhancements to the PACE system will allow for better tracking and an ability to better understand why participants may not be using SDA funding. There are a number of participants who were found eligible through the legacy CRM process that require further investigation.
+SDA eligible - not yet using
+SDA in use
+SrvcDstrctNm
+Service District
+Each State/Territory is divided into service districts in which the NDIA operates
+TAS North
+TAS North West
+TAS South East
+TAS South West
+PrtcpntCnt
+Participant Count
+Count of participants in each combination based on the selection of variables in the same row
+Numerical values greater than zero
+How to use the data
+Below are two examples of how to use the data.
+Example 1: Count of participants using SDA in NSW as at the end of a quarter
+To get the number of participants in NSW, apply the following filters to the data: 
+RprtDt=Quarter end date, StateCd=“NSW”, SDAStatus = "SDA in use"
+Example 2: Count of participants in Brisbane eligible for but not using SDA by service district as at the end of a quarter
+To get the count of participants in Brisbane, apply the following filters to the data:
+RprtDt= Quarter end date, SrvcDstrctNm = “Brisbane”, SDAStatus = "SDA eligible - not yet using"
+About this document
+Approved: Jun 2026
+Contact: scheme.actuary@ndis.gov.au

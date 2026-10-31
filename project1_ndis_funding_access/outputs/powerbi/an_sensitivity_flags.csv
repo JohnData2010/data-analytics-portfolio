@@ -1,0 +1,43 @@
+module,district_key,definitions_flagging,definitions,robustness
+SDA non-use,NSW | Hunter New England,1,S1 latest count not using,single definition
+SDA non-use,NSW | Mid North Coast,1,S2 latest non-use share (eligible>=30),single definition
+SDA non-use,NSW | North Sydney,1,S1 latest count not using,single definition
+SDA non-use,NSW | South Eastern Sydney,1,S1 latest count not using,single definition
+SDA non-use,NSW | South Western Sydney,1,S1 latest count not using,single definition
+SDA non-use,NSW | Western Sydney,1,S1 latest count not using,single definition
+SDA non-use,NT | Central Australia,2,"S2 latest non-use share (eligible>=30) ; S4 latest not-using per 1,000 active",definition-dependent
+SDA non-use,NT | Darwin Urban,4,"S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S4 latest not-using per 1,000 active ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,NT | Katherine,1,"S4 latest not-using per 1,000 active",single definition
+SDA non-use,QLD | Brisbane,1,S1 latest count not using,single definition
+SDA non-use,SA | Northern Adelaide,1,S1 latest count not using,single definition
+SDA non-use,SA | Southern Adelaide,1,S1 latest count not using,single definition
+SDA non-use,SA | Yorke and Mid North,1,S2 latest non-use share (eligible>=30),single definition
+SDA non-use,TAS | TAS North,3,"S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,TAS | TAS North West,4,"S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S4 latest not-using per 1,000 active ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,TAS | TAS South East,2,"S2 latest non-use share (eligible>=30) ; S4 latest not-using per 1,000 active",definition-dependent
+SDA non-use,TAS | TAS South West,1,"S4 latest not-using per 1,000 active",single definition
+SDA non-use,VIC | Bayside Peninsula,1,S1 latest count not using,single definition
+SDA non-use,WA | Central North Metro,4,"S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S4 latest not-using per 1,000 active ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,WA | Central South Metro,2,"S3 8-quarter mean share (>=6 qtrs) ; S5 above national >=6 qtrs, top mean excess",definition-dependent
+SDA non-use,WA | Goldfields-Esperance,1,"S4 latest not-using per 1,000 active",single definition
+SDA non-use,WA | North East Metro,5,"S1 latest count not using ; S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S4 latest not-using per 1,000 active ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,WA | North Metro,2,"S3 8-quarter mean share (>=6 qtrs) ; S5 above national >=6 qtrs, top mean excess",definition-dependent
+SDA non-use,WA | South East Metro,3,"S3 8-quarter mean share (>=6 qtrs) ; S4 latest not-using per 1,000 active ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+SDA non-use,WA | South Metro,2,"S3 8-quarter mean share (>=6 qtrs) ; S5 above national >=6 qtrs, top mean excess",definition-dependent
+SDA non-use,WA | South West,3,"S2 latest non-use share (eligible>=30) ; S3 8-quarter mean share (>=6 qtrs) ; S5 above national >=6 qtrs, top mean excess",robust (>=3 of 5)
+Utilisation,NSW | Far West,3,U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,NSW | Western NSW,1,U5 bottom quintile adjusted >=6 qtrs,single definition
+Utilisation,NT | Barkly,1,U2 latest mix-adjusted gap (lowest),single definition
+Utilisation,NT | Darwin Remote,5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,NT | East Arnhem,5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,QLD | Rockhampton,2,U1 latest raw rate (lowest) ; U5 bottom quintile adjusted >=6 qtrs,definition-dependent
+Utilisation,SA | Eyre and Western,5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,SA | Far North (SA),5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,SA | Murray and Mallee,2,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest),definition-dependent
+Utilisation,SA | Yorke and Mid North,4,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,VIC | Western District,1,U5 bottom quintile adjusted >=6 qtrs,single definition
+Utilisation,WA | Central Australia,2,U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest),definition-dependent
+Utilisation,WA | Goldfields-Esperance,3,U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,WA | Great Southern,4,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,WA | Midwest-Gascoyne,5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)
+Utilisation,WA | Wheat Belt,5,U1 latest raw rate (lowest) ; U2 latest mix-adjusted gap (lowest) ; U3 8-quarter mean raw rate (lowest) ; U4 8-quarter mean adjusted gap (lowest) ; U5 bottom quintile adjusted >=6 qtrs,robust (>=3 of 5)

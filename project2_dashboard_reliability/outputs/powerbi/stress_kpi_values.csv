@@ -1,0 +1,97 @@
+dataset,service_group,requests,kpi,kpi_label,value,higher_is_better,rank,groups_ranked
+A,"Waste, Street Cleaning and Litter",20598,K01,Median days (completed),3.0,false,2.0,6
+A,"Waste, Street Cleaning and Litter",20598,K02,P90 days (completed),13.0,false,1.0,6
+A,"Waste, Street Cleaning and Litter",20598,K03,"Closed within 30 days, intake cohort",0.9688696095942843,true,1.0,6
+A,"Waste, Street Cleaning and Litter",20598,K04_median_age,Median age of open requests,11.0,false,2.0,6
+A,"Waste, Street Cleaning and Litter",20598,K05,Open share,0.011069035828721235,false,3.0,6
+A,"Waste, Street Cleaning and Litter",20598,K06,KM median days (open = censored),3.0,false,2.0,6
+A,Graffiti,9174,K01,Median days (completed),10.0,false,6.0,6
+A,Graffiti,9174,K02,P90 days (completed),28.0,false,2.0,6
+A,Graffiti,9174,K03,"Closed within 30 days, intake cohort",0.9124610232128422,true,2.0,6
+A,Graffiti,9174,K04_median_age,Median age of open requests,14.0,false,3.0,6
+A,Graffiti,9174,K05,Open share,0.011009374318726837,false,2.0,6
+A,Graffiti,9174,K06,KM median days (open = censored),10.0,false,5.0,6
+A,Parks and Trees,7536,K01,Median days (completed),8.0,false,4.0,6
+A,Parks and Trees,7536,K02,P90 days (completed),42.0,false,4.0,6
+A,Parks and Trees,7536,K03,"Closed within 30 days, intake cohort",0.8489960959286112,true,4.0,6
+A,Parks and Trees,7536,K04_median_age,Median age of open requests,6.0,false,1.0,6
+A,Parks and Trees,7536,K05,Open share,0.009952229299363057,false,1.0,6
+A,Parks and Trees,7536,K06,KM median days (open = censored),9.0,false,4.0,6
+A,Roads and Traffic,5232,K01,Median days (completed),6.0,false,3.0,6
+A,Roads and Traffic,5232,K02,P90 days (completed),37.0,false,3.0,6
+A,Roads and Traffic,5232,K03,"Closed within 30 days, intake cohort",0.8520637515324888,true,3.0,6
+A,Roads and Traffic,5232,K04_median_age,Median age of open requests,64.5,false,4.0,6
+A,Roads and Traffic,5232,K05,Open share,0.03707951070336391,false,4.0,6
+A,Roads and Traffic,5232,K06,KM median days (open = censored),7.0,false,3.0,6
+A,Parking,2167,K01,Median days (completed),1.0,false,1.0,6
+A,Parking,2167,K02,P90 days (completed),170.8000000000004,false,6.0,6
+A,Parking,2167,K03,"Closed within 30 days, intake cohort",0.7115942028985507,true,5.0,6
+A,Parking,2167,K04_median_age,Median age of open requests,228.5,false,6.0,6
+A,Parking,2167,K05,Open share,0.08398707891093678,false,6.0,6
+A,Parking,2167,K06,KM median days (open = censored),1.0,false,1.0,6
+A,Asset maintenance,1772,K01,Median days (completed),9.0,false,5.0,6
+A,Asset maintenance,1772,K02,P90 days (completed),63.0,false,5.0,6
+A,Asset maintenance,1772,K03,"Closed within 30 days, intake cohort",0.7106033977738723,true,6.0,6
+A,Asset maintenance,1772,K04_median_age,Median age of open requests,82.0,false,5.0,6
+A,Asset maintenance,1772,K05,Open share,0.03893905191873589,false,5.0,6
+A,Asset maintenance,1772,K06,KM median days (open = censored),10.0,false,5.0,6
+B,Infringement Review - Parking,20133,K01,Median days (completed),23.73159722222222,false,10.0,10
+B,Infringement Review - Parking,20133,K02,P90 days (completed),29.941041666666667,false,10.0,10
+B,Infringement Review - Parking,20133,K03,"Closed within 30 days, intake cohort",0.5153411273944782,true,8.0,8
+B,Infringement Review - Parking,20133,K04_median_age,Median age of open requests,156.0,false,7.0,9
+B,Infringement Review - Parking,20133,K05,Open share,0.4072418417523469,false,10.0,10
+B,Infringement Review - Parking,20133,K06,KM median days (open = censored),28.025,false,10.0,10
+B,Request for Parking Officer,9314,K01,Median days (completed),0.034027777777777775,false,2.0,10
+B,Request for Parking Officer,9314,K02,P90 days (completed),0.14930555555555555,false,2.0,10
+B,Request for Parking Officer,9314,K03,"Closed within 30 days, intake cohort",0.981743934662503,true,3.0,8
+B,Request for Parking Officer,9314,K04_median_age,Median age of open requests,151.0,false,5.0,9
+B,Request for Parking Officer,9314,K05,Open share,0.015567962207429675,false,4.0,10
+B,Request for Parking Officer,9314,K06,KM median days (open = censored),0.034722222222222224,false,2.0,10
+B,Graffiti Removal Request,4250,K01,Median days (completed),7.050694444444445,false,8.0,10
+B,Graffiti Removal Request,4250,K02,P90 days (completed),20.778611111111115,false,7.0,10
+B,Graffiti Removal Request,4250,K03,"Closed within 30 days, intake cohort",0.86,true,5.0,8
+B,Graffiti Removal Request,4250,K04_median_age,Median age of open requests,134.0,false,3.0,9
+B,Graffiti Removal Request,4250,K05,Open share,0.10847058823529412,false,7.0,10
+B,Graffiti Removal Request,4250,K06,KM median days (open = censored),7.965277777777778,false,7.0,10
+B,Illegally Dumped Rubbish,3007,K01,Median days (completed),2.957638888888889,false,5.0,10
+B,Illegally Dumped Rubbish,3007,K02,P90 days (completed),9.046666666666667,false,6.0,10
+B,Illegally Dumped Rubbish,3007,K03,"Closed within 30 days, intake cohort",0.9665564130834252,true,4.0,8
+B,Illegally Dumped Rubbish,3007,K04_median_age,Median age of open requests,145.5,false,4.0,9
+B,Illegally Dumped Rubbish,3007,K05,Open share,0.02926504822081809,false,6.0,10
+B,Illegally Dumped Rubbish,3007,K06,KM median days (open = censored),2.9965277777777777,false,5.0,10
+B,Tree Maintenance Request,2065,K01,Median days (completed),6.745138888888889,false,7.0,10
+B,Tree Maintenance Request,2065,K02,P90 days (completed),22.8538888888889,false,9.0,10
+B,Tree Maintenance Request,2065,K03,"Closed within 30 days, intake cohort",0.7724922440537746,true,6.0,8
+B,Tree Maintenance Request,2065,K04_median_age,Median age of open requests,167.5,false,9.0,9
+B,Tree Maintenance Request,2065,K05,Open share,0.18886198547215496,false,8.0,10
+B,Tree Maintenance Request,2065,K06,KM median days (open = censored),8.002777777777778,false,8.0,10
+B,Rough Sleeping,1771,K01,Median days (completed),1.0979166666666669,false,4.0,10
+B,Rough Sleeping,1771,K02,P90 days (completed),7.280277777777779,false,5.0,10
+B,Rough Sleeping,1771,K03,"Closed within 30 days, intake cohort",0.9942748091603053,true,1.0,8
+B,Rough Sleeping,1771,K04_median_age,Median age of open requests,154.0,false,6.0,9
+B,Rough Sleeping,1771,K05,Open share,0.005081874647092038,false,2.0,10
+B,Rough Sleeping,1771,K06,KM median days (open = censored),1.1069444444444445,false,4.0,10
+B,Abandoned Vehicles,586,K01,Median days (completed),8.005555555555555,false,9.0,10
+B,Abandoned Vehicles,586,K02,P90 days (completed),22.546875,false,8.0,10
+B,Abandoned Vehicles,586,K03,"Closed within 30 days, intake cohort",0.7524752475247525,true,7.0,8
+B,Abandoned Vehicles,586,K04_median_age,Median age of open requests,157.5,false,8.0,9
+B,Abandoned Vehicles,586,K05,Open share,0.20477815699658702,false,9.0,10
+B,Abandoned Vehicles,586,K06,KM median days (open = censored),11.158333333333333,false,9.0,10
+B,Ratepayer waste,316,K01,Median days (completed),3.0479166666666666,false,6.0,10
+B,Ratepayer waste,316,K02,P90 days (completed),7.2027777777777775,false,4.0,10
+B,Ratepayer waste,316,K03,"Closed within 30 days, intake cohort",,true,,8
+B,Ratepayer waste,316,K04_median_age,Median age of open requests,35.0,false,1.0,9
+B,Ratepayer waste,316,K05,Open share,0.015822784810126583,false,5.0,10
+B,Ratepayer waste,316,K06,KM median days (open = censored),3.0944444444444446,false,6.0,10
+B,Syringe Management,312,K01,Median days (completed),0.050347222222222224,false,3.0,10
+B,Syringe Management,312,K02,P90 days (completed),1.843055555555556,false,3.0,10
+B,Syringe Management,312,K03,"Closed within 30 days, intake cohort",0.9858657243816255,true,2.0,8
+B,Syringe Management,312,K04_median_age,Median age of open requests,103.0,false,2.0,9
+B,Syringe Management,312,K05,Open share,0.01282051282051282,false,3.0,10
+B,Syringe Management,312,K06,KM median days (open = censored),0.05486111111111111,false,3.0,10
+B,Infringement Review,251,K01,Median days (completed),0.0,false,1.0,10
+B,Infringement Review,251,K02,P90 days (completed),0.016666666666666666,false,1.0,10
+B,Infringement Review,251,K03,"Closed within 30 days, intake cohort",,true,,8
+B,Infringement Review,251,K04_median_age,Median age of open requests,,false,,9
+B,Infringement Review,251,K05,Open share,0.0,false,1.0,10
+B,Infringement Review,251,K06,KM median days (open = censored),0.0,false,1.0,10

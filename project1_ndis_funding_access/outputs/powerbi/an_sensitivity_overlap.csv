@@ -1,0 +1,51 @@
+module,definition_a,definition_b,shared,jaccard
+SDA non-use,S1 latest count not using,S1 latest count not using,10,1.0
+SDA non-use,S1 latest count not using,S2 latest non-use share (eligible>=30),1,0.05263157894736842
+SDA non-use,S1 latest count not using,S3 8-quarter mean share (>=6 qtrs),1,0.05263157894736842
+SDA non-use,S1 latest count not using,"S4 latest not-using per 1,000 active",1,0.05263157894736842
+SDA non-use,S1 latest count not using,"S5 above national >=6 qtrs, top mean excess",1,0.05263157894736842
+SDA non-use,S2 latest non-use share (eligible>=30),S1 latest count not using,1,0.05263157894736842
+SDA non-use,S2 latest non-use share (eligible>=30),S2 latest non-use share (eligible>=30),10,1.0
+SDA non-use,S2 latest non-use share (eligible>=30),S3 8-quarter mean share (>=6 qtrs),6,0.42857142857142855
+SDA non-use,S2 latest non-use share (eligible>=30),"S4 latest not-using per 1,000 active",6,0.42857142857142855
+SDA non-use,S2 latest non-use share (eligible>=30),"S5 above national >=6 qtrs, top mean excess",6,0.42857142857142855
+SDA non-use,S3 8-quarter mean share (>=6 qtrs),S1 latest count not using,1,0.05263157894736842
+SDA non-use,S3 8-quarter mean share (>=6 qtrs),S2 latest non-use share (eligible>=30),6,0.42857142857142855
+SDA non-use,S3 8-quarter mean share (>=6 qtrs),S3 8-quarter mean share (>=6 qtrs),10,1.0
+SDA non-use,S3 8-quarter mean share (>=6 qtrs),"S4 latest not-using per 1,000 active",5,0.3333333333333333
+SDA non-use,S3 8-quarter mean share (>=6 qtrs),"S5 above national >=6 qtrs, top mean excess",10,1.0
+SDA non-use,"S4 latest not-using per 1,000 active",S1 latest count not using,1,0.05263157894736842
+SDA non-use,"S4 latest not-using per 1,000 active",S2 latest non-use share (eligible>=30),6,0.42857142857142855
+SDA non-use,"S4 latest not-using per 1,000 active",S3 8-quarter mean share (>=6 qtrs),5,0.3333333333333333
+SDA non-use,"S4 latest not-using per 1,000 active","S4 latest not-using per 1,000 active",10,1.0
+SDA non-use,"S4 latest not-using per 1,000 active","S5 above national >=6 qtrs, top mean excess",5,0.3333333333333333
+SDA non-use,"S5 above national >=6 qtrs, top mean excess",S1 latest count not using,1,0.05263157894736842
+SDA non-use,"S5 above national >=6 qtrs, top mean excess",S2 latest non-use share (eligible>=30),6,0.42857142857142855
+SDA non-use,"S5 above national >=6 qtrs, top mean excess",S3 8-quarter mean share (>=6 qtrs),10,1.0
+SDA non-use,"S5 above national >=6 qtrs, top mean excess","S4 latest not-using per 1,000 active",5,0.3333333333333333
+SDA non-use,"S5 above national >=6 qtrs, top mean excess","S5 above national >=6 qtrs, top mean excess",10,1.0
+Utilisation,U1 latest raw rate (lowest),U1 latest raw rate (lowest),10,1.0
+Utilisation,U1 latest raw rate (lowest),U2 latest mix-adjusted gap (lowest),9,0.8181818181818182
+Utilisation,U1 latest raw rate (lowest),U3 8-quarter mean raw rate (lowest),7,0.5384615384615384
+Utilisation,U1 latest raw rate (lowest),U4 8-quarter mean adjusted gap (lowest),7,0.5384615384615384
+Utilisation,U1 latest raw rate (lowest),U5 bottom quintile adjusted >=6 qtrs,9,0.6428571428571429
+Utilisation,U2 latest mix-adjusted gap (lowest),U1 latest raw rate (lowest),9,0.8181818181818182
+Utilisation,U2 latest mix-adjusted gap (lowest),U2 latest mix-adjusted gap (lowest),10,1.0
+Utilisation,U2 latest mix-adjusted gap (lowest),U3 8-quarter mean raw rate (lowest),7,0.5384615384615384
+Utilisation,U2 latest mix-adjusted gap (lowest),U4 8-quarter mean adjusted gap (lowest),7,0.5384615384615384
+Utilisation,U2 latest mix-adjusted gap (lowest),U5 bottom quintile adjusted >=6 qtrs,8,0.5333333333333333
+Utilisation,U3 8-quarter mean raw rate (lowest),U1 latest raw rate (lowest),7,0.5384615384615384
+Utilisation,U3 8-quarter mean raw rate (lowest),U2 latest mix-adjusted gap (lowest),7,0.5384615384615384
+Utilisation,U3 8-quarter mean raw rate (lowest),U3 8-quarter mean raw rate (lowest),10,1.0
+Utilisation,U3 8-quarter mean raw rate (lowest),U4 8-quarter mean adjusted gap (lowest),9,0.8181818181818182
+Utilisation,U3 8-quarter mean raw rate (lowest),U5 bottom quintile adjusted >=6 qtrs,9,0.6428571428571429
+Utilisation,U4 8-quarter mean adjusted gap (lowest),U1 latest raw rate (lowest),7,0.5384615384615384
+Utilisation,U4 8-quarter mean adjusted gap (lowest),U2 latest mix-adjusted gap (lowest),7,0.5384615384615384
+Utilisation,U4 8-quarter mean adjusted gap (lowest),U3 8-quarter mean raw rate (lowest),9,0.8181818181818182
+Utilisation,U4 8-quarter mean adjusted gap (lowest),U4 8-quarter mean adjusted gap (lowest),10,1.0
+Utilisation,U4 8-quarter mean adjusted gap (lowest),U5 bottom quintile adjusted >=6 qtrs,9,0.6428571428571429
+Utilisation,U5 bottom quintile adjusted >=6 qtrs,U1 latest raw rate (lowest),9,0.6428571428571429
+Utilisation,U5 bottom quintile adjusted >=6 qtrs,U2 latest mix-adjusted gap (lowest),8,0.5333333333333333
+Utilisation,U5 bottom quintile adjusted >=6 qtrs,U3 8-quarter mean raw rate (lowest),9,0.6428571428571429
+Utilisation,U5 bottom quintile adjusted >=6 qtrs,U4 8-quarter mean adjusted gap (lowest),9,0.6428571428571429
+Utilisation,U5 bottom quintile adjusted >=6 qtrs,U5 bottom quintile adjusted >=6 qtrs,13,1.0

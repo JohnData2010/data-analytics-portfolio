@@ -1,0 +1,47 @@
+{
+  "version": "1.1.0",
+  "effective_date": "2026-10-30",
+  "owner": "Information Management & Analytics",
+  "change_log": [
+    {"version": "1.0.0", "date": "2026-10-30", "change": "Initial KPI set: K01-K07."},
+    {"version": "1.1.0", "date": "2026-10-30", "change": "K03 restricted to intake cohorts with a full 30-day follow-up window before the extract date (right-censoring). Dataset B months assigned in Australia/Melbourne time, not UTC."}
+  ],
+  "assumptions": [
+    {"id": "AS01", "text": "Extract date is not published; it is taken as the latest date present in each file (A: 2016-11-08, B: 2018-10-17).", "impact": "Ages of open requests and cohort follow-up windows depend on it."},
+    {"id": "AS02", "text": "Dataset A 'days_to_complete' for CLOSED rows equals calendar days with same-day completions recorded as 1. For open rows the field holds the age at extract, not a completion time.", "impact": "A naive median over the whole column mixes completion times with open-case ages (K07)."},
+    {"id": "AS03", "text": "Dataset B status 'Closed as Duplicate' is closed; all other non-'Closed' statuses are open.", "impact": "Duplicates close fast and pull B's completion KPIs down; tested in sensitivity."},
+    {"id": "AS04", "text": "Dataset B timestamps are UTC; business dates and months use Australia/Melbourne local time.", "impact": "Requests opened near midnight move day/month."},
+    {"id": "AS05", "text": "Datasets A and B are never combined: different systems, periods, taxonomies and status vocabularies; B is a subset of council requests.", "impact": "No KPI spans both."}
+  ],
+  "kpis": [
+    {"id": "K01", "name": "Median days to completion", "question": "How long does a typical completed request take?",
+     "population": "closed requests", "formula": "median(completion days) over closed requests",
+     "blind_spot": "Excludes every open request, so the slowest cases are invisible (selection bias / right-censoring).",
+     "direction": "lower is better"},
+    {"id": "K02", "name": "90th percentile days to completion", "question": "How slow are the slowest completed requests?",
+     "population": "closed requests", "formula": "p90(completion days) over closed requests",
+     "blind_spot": "Still closed-only; a backlog of very old open requests is not reflected.",
+     "direction": "lower is better"},
+    {"id": "K03", "name": "Closure rate within 30 days by intake cohort", "question": "Of requests received in a period, what share was finished within 30 days?",
+     "population": "all requests received in cohorts with >= 30 days of follow-up before extract",
+     "formula": "count(closed within 30 days) / count(received)",
+     "blind_spot": "Says nothing about how late the remainder are.",
+     "direction": "higher is better"},
+    {"id": "K04", "name": "Open-case ageing", "question": "How old are the requests that are still open?",
+     "population": "open requests at extract", "formula": "median and share > 90 days of (extract date - date received)",
+     "blind_spot": "Snapshot at one date; cannot show how the backlog evolved.",
+     "direction": "lower is better"},
+    {"id": "K05", "name": "Open share", "question": "What share of requests remains open at extract?",
+     "population": "all requests", "formula": "count(open) / count(all)",
+     "blind_spot": "Recent intake is naturally open; compare like-aged cohorts.",
+     "direction": "lower is better"},
+    {"id": "K06", "name": "Kaplan-Meier median days to completion", "question": "Typical time to completion counting open requests as censored, not excluded.",
+     "population": "all requests", "formula": "time where KM survival S(t) first <= 0.5; open requests censored at age at extract",
+     "blind_spot": "Assumes open requests behave like closed requests of the same age (non-informative censoring).",
+     "direction": "lower is better"},
+    {"id": "K07", "name": "Naive median of days_to_complete (anti-pattern)", "question": "What a dashboard shows if it takes the median of the published column.",
+     "population": "all rows in dataset A", "formula": "median(days_to_complete) over every row",
+     "blind_spot": "Mixes completion times (closed) with ages (open). Technically computable, conceptually wrong. Kept only to demonstrate the error.",
+     "direction": "n/a"}
+  ]
+}
