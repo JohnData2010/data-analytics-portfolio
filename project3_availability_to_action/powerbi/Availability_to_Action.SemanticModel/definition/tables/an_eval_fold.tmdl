@@ -68,14 +68,23 @@ table an_eval_fold
 
 		annotation SummarizationSetBy = User
 
+	column decision_day
+		dataType: string
+		lineageTag: 6d3d8bd3-182c-a6cd-4fdc-43cc46df3a89
+		summarizeBy: none
+		sourceColumn: decision_day
+
+		annotation SummarizationSetBy = User
+
 	partition an_eval_fold = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataFolder & "\an_eval_fold.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"fold", Int64.Type}, {"role", type text}, {"method", type text}, {"store_top10_lost_capture", type number}, {"store_top10_hours_capture", type number}, {"global_top10pct_lost_capture", type number}, {"store_top10_unavailable_capture", type number}}, "en-US")
+				    Typed = Table.TransformColumnTypes(Promoted, {{"fold", Int64.Type}, {"role", type text}, {"method", type text}, {"store_top10_lost_capture", type number}, {"store_top10_hours_capture", type number}, {"global_top10pct_lost_capture", type number}, {"store_top10_unavailable_capture", type number}, {"decision_day", type text}}, "en-US")
 				in
 				    Typed
 
 	annotation PBI_ResultType = Table
+

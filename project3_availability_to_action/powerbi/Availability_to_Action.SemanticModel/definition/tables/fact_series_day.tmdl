@@ -19,9 +19,28 @@ table fact_series_day
 
 	column series_id
 		dataType: double
+		formatString: 0
 		lineageTag: 6e75b14f-23ed-e3f7-b6c1-eb7d826fb550
 		summarizeBy: none
 		sourceColumn: series_id
+
+		annotation SummarizationSetBy = User
+
+	column product_id
+		dataType: double
+		formatString: 0
+		lineageTag: 4c513b2a-38f2-af2e-8e46-d6b4c0df11e4
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = User
+
+	column store_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f0de55b-aa60-692c-7123-80a40ad887bc
+		summarizeBy: none
+		sourceColumn: store_rank
 
 		annotation SummarizationSetBy = User
 
@@ -42,6 +61,7 @@ table fact_series_day
 		sourceColumn: dt
 
 		annotation SummarizationSetBy = User
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column is_outcome
@@ -108,9 +128,10 @@ table fact_series_day
 				let
 				    Source = Csv.Document(File.Contents(DataFolder & "\fact_series_day.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"series_id", type number}, {"day_idx", Int64.Type}, {"dt", type datetime}, {"is_outcome", type logical}, {"method", type text}, {"oos_hours", Int64.Type}, {"first_oos_hour", Int64.Type}, {"recorded", type number}, {"recovered", type number}, {"lost", type number}}, "en-US"),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"series_id", type number}, {"product_id", type number}, {"store_rank", Int64.Type}, {"day_idx", Int64.Type}, {"dt", type datetime}, {"is_outcome", type logical}, {"method", type text}, {"oos_hours", Int64.Type}, {"first_oos_hour", Int64.Type}, {"recorded", type number}, {"recovered", type number}, {"lost", type number}}, "en-US"),
 				    Dated = Table.TransformColumnTypes(Typed, {{"dt", type date}})
 				in
 				    Dated
 
 	annotation PBI_ResultType = Table
+

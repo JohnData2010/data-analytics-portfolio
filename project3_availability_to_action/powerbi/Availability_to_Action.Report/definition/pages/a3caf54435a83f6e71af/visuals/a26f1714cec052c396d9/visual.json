@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "a1dfb949758a2f7a2b7e",
+  "name": "a26f1714cec052c396d9",
   "position": {
     "x": 740,
     "y": 2,
@@ -20,14 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_series"
+                      "Entity": "fact_series_day"
                     }
                   },
-                  "Property": "product_id"
+                  "Property": "store_rank"
                 }
               },
-              "queryRef": "dim_series.product_id",
-              "nativeQueryRef": "product_id"
+              "queryRef": "fact_series_day.store_rank",
+              "nativeQueryRef": "store_rank",
+              "active": true
             }
           ]
         }
@@ -67,6 +68,53 @@
           }
         }
       ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "f",
+                    "Entity": "fact_series_day",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "f"
+                                }
+                              },
+                              "Property": "store_rank"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
       "header": [
         {
           "properties": {
@@ -95,7 +143,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Product'"
+                  "Value": "'Rank on the store''s list'"
                 }
               }
             }

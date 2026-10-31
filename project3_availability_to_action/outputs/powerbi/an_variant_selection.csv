@@ -1,9 +1,9 @@
 method,dev_mean,chosen
-P hl=14 m=7,0.4785090021227615,true
-P hl=14 m=0,0.47812186761946496,false
-P hl=7 m=7,0.4775556007355445,false
-P hl=1000 m=7,0.47637844237198185,false
-P hl=1000 m=0,0.4758771001840012,false
-P hl=7 m=0,0.47546888502127377,false
-P hl=3.5 m=7,0.4711538682255341,false
-P hl=3.5 m=0,0.4655748882103269,false
+P hl=1000 m=0,0.4758771,false
+P hl=1000 m=7,0.47637844,false
+P hl=14 m=0,0.47812187,false
+P hl=14 m=7,0.478509,true
+P hl=3.5 m=0,0.46557489,false
+P hl=3.5 m=7,0.47115387,false
+P hl=7 m=0,0.47546889,false
+P hl=7 m=7,0.4775556,false

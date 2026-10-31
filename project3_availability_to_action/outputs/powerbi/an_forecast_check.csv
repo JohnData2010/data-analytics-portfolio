@@ -1,5 +1,5 @@
 role,forecast,days,wape,bias
-development,Mean of recorded sales,1426597,0.380648004116945,-0.029006196919048637
-development,Mean of recovered demand,1426597,0.3925171260512728,0.12278200896611102
-holdout,Mean of recorded sales,206562,0.36019285549658153,-0.10743841303019033
-holdout,Mean of recovered demand,206562,0.34563106399355564,0.00832070650386187
+development,Mean of recorded sales,1426597,0.380648,-0.0290062
+development,Mean of recovered demand,1426597,0.39251713,0.12278201
+holdout,Mean of recorded sales,206562,0.36019286,-0.10743841
+holdout,Mean of recovered demand,206562,0.34563106,0.00832071

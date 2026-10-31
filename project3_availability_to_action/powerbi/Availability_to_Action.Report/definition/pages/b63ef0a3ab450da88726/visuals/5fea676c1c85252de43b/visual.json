@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "39ef8d6f0532bffbe545",
+  "name": "5fea676c1c85252de43b",
   "position": {
     "x": 860,
     "y": 198,
@@ -10,7 +10,7 @@
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "an_hour_profile.hour",
               "nativeQueryRef": "hour",
+              "active": true,
               "displayName": "Hour"
             }
           ]
@@ -65,21 +66,6 @@
           ]
         }
       }
-    },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "visualContainerObjects": {
       "title": [

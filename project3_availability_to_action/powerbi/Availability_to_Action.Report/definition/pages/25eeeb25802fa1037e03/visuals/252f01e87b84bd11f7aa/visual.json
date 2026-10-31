@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Top 10 series per store, ranked by expected lost demand next week. A review list, not an order: check stock, open orders and lead time first.",
+                    "value": "Top 10 series per store by expected lost demand next week: a review list, not an order. Cards show (Blank)? Press Refresh to load outputs/powerbi.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#52514e"

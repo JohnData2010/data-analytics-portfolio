@@ -58,6 +58,8 @@ fact_store_day,unavailable_series_days,BIGINT,
 fact_store_day,oos_hours,HUGEINT,
 fact_store_day,series_days_with_stockout,BIGINT,
 fact_series_day,series_id,BIGINT,store_id * 10000 + product_id: one store-product time series
+fact_series_day,product_id,BIGINT,
+fact_series_day,store_rank,BIGINT,Rank within the store by the proposed score (1 = review first)
 fact_series_day,day_idx,INTEGER,
 fact_series_day,dt,DATE,
 fact_series_day,is_outcome,BOOLEAN,Day falls in the holdout outcome week (26-Jun to 02-Jul-2024)
@@ -83,6 +85,7 @@ an_eval_fold,store_top10_lost_capture,DOUBLE,
 an_eval_fold,store_top10_hours_capture,DOUBLE,
 an_eval_fold,global_top10pct_lost_capture,DOUBLE,
 an_eval_fold,store_top10_unavailable_capture,DOUBLE,
+an_eval_fold,decision_day,VARCHAR,
 an_bootstrap,metric,VARCHAR,
 an_bootstrap,proposed,VARCHAR,
 an_bootstrap,baseline,VARCHAR,

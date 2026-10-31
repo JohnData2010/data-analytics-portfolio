@@ -29,6 +29,7 @@ table decision_list
 
 	column series_id
 		dataType: double
+		formatString: 0
 		lineageTag: 6981a4b3-47f6-796f-31d8-df917874cf8f
 		summarizeBy: none
 		sourceColumn: series_id
@@ -37,6 +38,7 @@ table decision_list
 
 	column store_id
 		dataType: double
+		formatString: 0
 		lineageTag: 64f8341c-1e44-f732-a404-a90d2b4f93a6
 		summarizeBy: none
 		sourceColumn: store_id
@@ -45,6 +47,7 @@ table decision_list
 
 	column city_id
 		dataType: double
+		formatString: 0
 		lineageTag: 0e0b0f3c-9bf8-9e0d-164e-ebfe40f4d1e1
 		summarizeBy: none
 		sourceColumn: city_id
@@ -53,6 +56,7 @@ table decision_list
 
 	column product_id
 		dataType: double
+		formatString: 0
 		lineageTag: aecb2af8-c143-ec54-a2cf-22a24a700fb5
 		summarizeBy: none
 		sourceColumn: product_id
@@ -61,6 +65,7 @@ table decision_list
 
 	column first_category_id
 		dataType: double
+		formatString: 0
 		lineageTag: 8eb78987-ccff-51a6-0c1a-04b75b5194f2
 		summarizeBy: none
 		sourceColumn: first_category_id
@@ -69,6 +74,7 @@ table decision_list
 
 	column second_category_id
 		dataType: double
+		formatString: 0
 		lineageTag: 1a985bed-25f8-4995-483f-a274dffe10e7
 		summarizeBy: none
 		sourceColumn: second_category_id
@@ -77,6 +83,7 @@ table decision_list
 
 	column third_category_id
 		dataType: double
+		formatString: 0
 		lineageTag: f4846846-2ed2-89ea-817d-e7a5c9664edd
 		summarizeBy: none
 		sourceColumn: third_category_id
@@ -295,3 +302,4 @@ table decision_list
 				    Typed
 
 	annotation PBI_ResultType = Table
+

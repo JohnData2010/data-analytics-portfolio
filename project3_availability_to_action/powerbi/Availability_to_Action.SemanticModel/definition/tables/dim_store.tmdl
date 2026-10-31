@@ -4,6 +4,7 @@ table dim_store
 
 	column store_id
 		dataType: double
+		formatString: 0
 		lineageTag: 3cd140c1-5b71-445c-df56-413c19bb3451
 		summarizeBy: none
 		sourceColumn: store_id
@@ -12,6 +13,7 @@ table dim_store
 
 	column city_id
 		dataType: double
+		formatString: 0
 		lineageTag: b525d3dc-9bf2-8aad-3ed1-5c74eaea6002
 		summarizeBy: none
 		sourceColumn: city_id
@@ -38,3 +40,4 @@ table dim_store
 				    Typed
 
 	annotation PBI_ResultType = Table
+

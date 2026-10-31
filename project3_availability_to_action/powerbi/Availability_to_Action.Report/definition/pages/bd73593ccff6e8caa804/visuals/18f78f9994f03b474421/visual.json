@@ -28,6 +28,7 @@
               },
               "queryRef": "fact_store_day.dt",
               "nativeQueryRef": "dt",
+              "active": true,
               "displayName": "Date"
             }
           ]

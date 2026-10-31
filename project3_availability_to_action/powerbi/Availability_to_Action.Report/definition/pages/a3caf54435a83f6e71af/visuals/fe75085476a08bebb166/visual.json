@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_store.store_id",
-              "nativeQueryRef": "store_id"
+              "nativeQueryRef": "store_id",
+              "active": true
             }
           ]
         }

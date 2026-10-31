@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Recorded sales vs recovered demand for the listed series, by day. The gap is demand hidden by stockouts (estimated).",
+                    "value": "Recorded sales vs recovered demand for one listed series, by day. The gap is demand hidden by stockouts (estimated).",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#52514e"

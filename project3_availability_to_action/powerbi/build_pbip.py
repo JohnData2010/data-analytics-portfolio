@@ -84,6 +84,13 @@ tables = [
     Table("gov_source_manifest", "gov_source_manifest.csv", formats={"rows": INT, "bytes": INT}),
 ]
 
+# encoded ids and ranks are read as decimals; show them as whole numbers
+for t in tables:
+    if t.csv:
+        for c in pd.read_csv(DATA / t.csv, nrows=0).columns:
+            if c.endswith("_id") or c in ("store_rank", "global_rank", "step_no", "fold"):
+                t.formats.setdefault(c, "0")
+
 relationships = [
     ("dim_series.store_id", "dim_store.store_id"),
     ("decision_list.series_id", "dim_series.series_id"),
@@ -121,8 +128,8 @@ TOP10 = [(col("decision_list", "in_store_top_n"), where_in(col("decision_list", 
 
 pages = [
     Page("Review list", [
-        heading("This week's review list", "Top 10 series per store, ranked by expected lost demand next week. "
-                "A review list, not an order: check stock, open orders and lead time first.", 960),
+        heading("This week's review list", "Top 10 series per store by expected lost demand next week: a review "
+                "list, not an order. Cards show (Blank)? Press Refresh to load outputs/powerbi.", 960),
         store_slicer(),
         *cards(92, [("decision_list", "Listed series", "Series to review"),
                     ("decision_list", "Expected lost demand, listed (7 days)", "Expected lost demand (7 days)"),
@@ -137,9 +144,10 @@ pages = [
         footer(NOTE),
     ]),
     Page("Why this series", [
-        heading("Why this series", "Recorded sales vs recovered demand for the listed series, by day. "
+        heading("Why this series", "Recorded sales vs recovered demand for one listed series, by day. "
                 "The gap is demand hidden by stockouts (estimated).", 700),
-        V("slicer", 740, 2, 240, 84, "Product", {"Values": [col("dim_series", "product_id")]}, single=True),
+        V("slicer", 740, 2, 240, 84, "Rank on the store's list", {"Values": [col("fact_series_day", "store_rank")]},
+          single=True, default=[1]),
         store_slicer(),
         V("line", 20, 92, 820, 400, "Recorded vs recovered (history and outcome week)",
           {"Category": [(col("fact_series_day", "dt"), "Date")],
@@ -173,7 +181,7 @@ pages = [
         heading("Does the ranking beat simpler rules?", "8 decision days: 7 development, 1 holdout (eval split, "
                 "scored once). Store-level bootstrap intervals for the holdout differences.", 1240),
         V("line", 20, 92, 620, 300, "Lost demand captured by each store's top 10",
-          {"Category": [(col("an_eval_fold", "fold"), "Decision day")], "Series": [col("an_eval_fold", "method")],
+          {"Category": [(col("an_eval_fold", "decision_day"), "Decision day")], "Series": [col("an_eval_fold", "method")],
            "Y": [mea("an_eval_fold", "Lost demand captured (store top 10)")]},
           filters=[(col("an_eval_fold", "method"), where_in(col("an_eval_fold", "method"),
                     ["A1 Volume", "A2 Frequency", "B Lost demand", "P hl=14 m=7", "Oracle (hindsight)"]))]),
@@ -219,7 +227,7 @@ pages = [
                                             "rows_flagged": "Rows flagged", "rate": "Rate",
                                             "decision_impact": "Decision impact", "treatment": "Treatment"})},
           sort=[(col("qa_dq_results", "rule_id"), "Ascending")]),
-        V("column", 860, 198, 400, 300, "Stock flags vs sales by hour (DQ07)",
+        V("line", 860, 198, 400, 300, "Stock flags vs sales by hour (DQ07)",
           {"Category": [(col("an_hour_profile", "hour"), "Hour")],
            "Y": [mea("an_hour_profile", "Flagged out of stock"), mea("an_hour_profile", "Share of daily sales")]}),
         V("table", 20, 508, 500, 172, "Row counts through the pipeline",

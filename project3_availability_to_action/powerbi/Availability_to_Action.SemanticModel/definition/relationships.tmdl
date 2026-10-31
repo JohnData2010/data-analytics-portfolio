@@ -21,3 +21,4 @@ relationship f940b776-7c97-d9ee-0a5d-d556755f3405
 relationship 6edbb56e-9951-c3d5-61fc-d41a47914451
 	fromColumn: fact_store_day.dt
 	toColumn: dim_date.dt
+

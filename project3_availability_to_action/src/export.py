@@ -33,10 +33,11 @@ def build_tables(con):
         CREATE OR REPLACE TABLE dim_store AS
         SELECT store_id, any_value(city_id) AS city_id, count(*) AS series FROM dim_series GROUP BY 1;
         CREATE OR REPLACE TABLE fact_series_day AS        -- listed series only (store top 10)
-        SELECT r.series_id, r.day_idx, dd.dt, r.is_outcome, r.method, r.oos_hours, r.first_oos_hour,
-               r.window_sales AS recorded, r.rec AS recovered, r.lost
+        SELECT r.series_id, l.product_id, l.store_rank, r.day_idx, dd.dt, r.is_outcome, r.method, r.oos_hours,
+               r.first_oos_hour, r.window_sales AS recorded, r.rec AS recovered, r.lost
         FROM rec_daily r JOIN dim_date dd USING (day_idx)
-        WHERE r.fold = {T} AND r.series_id IN (SELECT series_id FROM decision_list WHERE in_store_top_n);
+        JOIN decision_list l ON l.series_id = r.series_id AND l.in_store_top_n
+        WHERE r.fold = {T};
     """)
 
 
@@ -48,7 +49,7 @@ EXPORTS = {
     "fact_store_day": "SELECT * FROM fact_store_day",
     "fact_series_day": "SELECT * FROM fact_series_day",
     "an_method_summary": "SELECT * FROM an_method_summary",
-    "an_eval_fold": "SELECT * FROM eval_fold",
+    "an_eval_fold": "SELECT *, 'day ' || fold AS decision_day FROM eval_fold",
     "an_bootstrap": "SELECT * FROM an_bootstrap",
     "an_variant_selection": "SELECT * FROM an_variant_selection",
     "an_masking_summary": "SELECT * FROM an_masking_summary",
@@ -101,7 +102,12 @@ def run(con):
     PBI.mkdir(parents=True, exist_ok=True)
     GOV.mkdir(parents=True, exist_ok=True)
     for name, sql in EXPORTS.items():
-        con.execute(f"COPY ({sql}) TO '{(PBI / f'{name}.csv').as_posix()}' (HEADER, DELIMITER ',')")
+        # stable files: doubles rounded (float sums differ in the last digits between runs) and rows sorted,
+        # so a rerun on the same sources gives no git diff
+        cols = con.execute(f"SELECT column_name, column_type FROM (DESCRIBE {sql})").fetchall()
+        sel = ", ".join(f'round("{c}", 8) AS "{c}"' if t == "DOUBLE" else f'"{c}"' for c, t in cols)
+        con.execute(f"COPY (SELECT {sel} FROM ({sql}) ORDER BY ALL) TO '{(PBI / f'{name}.csv').as_posix()}' "
+                    "(HEADER, DELIMITER ',')")
     data_dictionary(con).to_csv(GOV / "data_dictionary.csv", index=False)
     print(f"exported {len(EXPORTS)} tables to outputs/powerbi")
 

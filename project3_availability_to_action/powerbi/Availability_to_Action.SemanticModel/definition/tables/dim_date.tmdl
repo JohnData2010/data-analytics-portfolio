@@ -10,6 +10,7 @@ table dim_date
 		sourceColumn: dt
 
 		annotation SummarizationSetBy = User
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column day_idx
@@ -66,3 +67,4 @@ table dim_date
 				    Dated
 
 	annotation PBI_ResultType = Table
+

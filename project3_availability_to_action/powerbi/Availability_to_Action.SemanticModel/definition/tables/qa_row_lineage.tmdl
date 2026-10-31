@@ -38,3 +38,4 @@ table qa_row_lineage
 				    Typed
 
 	annotation PBI_ResultType = Table
+

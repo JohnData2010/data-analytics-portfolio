@@ -1,33 +1,33 @@
 role,sellout_window,estimator,days,wape,bias
-development (method chosen here),1. all,A. Recorded sales (no adjustment),836971,0.33908825935008585,-0.33908825935008585
-development (method chosen here),1. all,B. Typical in-stock day,836971,0.259961094862447,0.05553640430948249
-development (method chosen here),1. all,C. Hourly profile scaling,836971,0.21895271556755397,0.001241935016732204
-development (method chosen here),1. all,D. Coverage-weighted blend (used),836971,0.15875160408149525,-0.003684430011659551
-development (method chosen here),2. sell-out by 13:00,A. Recorded sales (no adjustment),221849,0.6656185415254743,-0.6656185415254743
-development (method chosen here),2. sell-out by 13:00,B. Typical in-stock day,221849,0.3149386477501646,-0.0011536715079189228
-development (method chosen here),2. sell-out by 13:00,C. Hourly profile scaling,221849,0.39887791556947205,0.000741327492270503
-development (method chosen here),2. sell-out by 13:00,D. Coverage-weighted blend (used),221849,0.24898412852056848,-0.007204169703349116
-development (method chosen here),3. sell-out 14:00 to 17:00,A. Recorded sales (no adjustment),328904,0.3273816736327581,-0.3273816736327581
-development (method chosen here),3. sell-out 14:00 to 17:00,B. Typical in-stock day,328904,0.2725763427581212,0.044068230546610215
-development (method chosen here),3. sell-out 14:00 to 17:00,C. Hourly profile scaling,328904,0.21191128193198078,0.0022451388449313946
-development (method chosen here),3. sell-out 14:00 to 17:00,D. Coverage-weighted blend (used),328904,0.1655084115281133,-0.0034325210862555765
-development (method chosen here),4. sell-out 18:00 or later,A. Recorded sales (no adjustment),286218,0.09872656091496246,-0.09872656091496246
-development (method chosen here),4. sell-out 18:00 or later,B. Typical in-stock day,286218,0.20276797669517774,0.11274535726059644
-development (method chosen here),4. sell-out 18:00 or later,C. Hourly profile scaling,286218,0.08718569059210635,0.00048080528619478207
-development (method chosen here),4. sell-out 18:00 or later,D. Coverage-weighted blend (used),286218,0.08087475826666204,-0.001237663619995019
-holdout (confirmation),1. all,A. Recorded sales (no adjustment),806550,0.34577460927675413,-0.34577460927675413
-holdout (confirmation),1. all,B. Typical in-stock day,806550,0.25822711707180657,0.052735372718274935
-holdout (confirmation),1. all,C. Hourly profile scaling,806550,0.2183260945912798,0.0009831740572153096
-holdout (confirmation),1. all,D. Coverage-weighted blend (used),806550,0.15815497552483937,-0.0037635494526234528
-holdout (confirmation),2. sell-out by 13:00,A. Recorded sales (no adjustment),223664,0.6619824045576724,-0.6619824045576724
-holdout (confirmation),2. sell-out by 13:00,B. Typical in-stock day,223664,0.3111158122088749,-7.173220177721989e-05
-holdout (confirmation),2. sell-out by 13:00,C. Hourly profile scaling,223664,0.38790600062427744,-0.0001043886416180323
-holdout (confirmation),2. sell-out by 13:00,D. Coverage-weighted blend (used),223664,0.244673684515755,-0.007060581178337195
-holdout (confirmation),3. sell-out 14:00 to 17:00,A. Recorded sales (no adjustment),318397,0.3276100070326927,-0.3276100070326927
-holdout (confirmation),3. sell-out 14:00 to 17:00,B. Typical in-stock day,318397,0.2692388281112851,0.043056420796269576
-holdout (confirmation),3. sell-out 14:00 to 17:00,C. Hourly profile scaling,318397,0.2090546553134623,0.0019877954656765855
-holdout (confirmation),3. sell-out 14:00 to 17:00,D. Coverage-weighted blend (used),318397,0.16248069339646212,-0.003547251199359235
-holdout (confirmation),4. sell-out 18:00 or later,A. Recorded sales (no adjustment),264489,0.10115501159332756,-0.10115501159332756
-holdout (confirmation),4. sell-out 18:00 or later,B. Typical in-stock day,264489,0.20046422149266618,0.10883134721038643
-holdout (confirmation),4. sell-out 18:00 or later,C. Hourly profile scaling,264489,0.08657468517962738,0.000694739326051279
-holdout (confirmation),4. sell-out 18:00 or later,D. Coverage-weighted blend (used),264489,0.08007667680973009,-0.0012452096728777346
+development (method chosen here),1. all,A. Recorded sales (no adjustment),836971,0.33908826,-0.33908826
+development (method chosen here),1. all,B. Typical in-stock day,836971,0.25996109,0.0555364
+development (method chosen here),1. all,C. Hourly profile scaling,836971,0.21895272,0.00124194
+development (method chosen here),1. all,D. Coverage-weighted blend (used),836971,0.1587516,-0.00368443
+development (method chosen here),2. sell-out by 13:00,A. Recorded sales (no adjustment),221849,0.66561854,-0.66561854
+development (method chosen here),2. sell-out by 13:00,B. Typical in-stock day,221849,0.31493865,-0.00115367
+development (method chosen here),2. sell-out by 13:00,C. Hourly profile scaling,221849,0.39887792,0.00074133
+development (method chosen here),2. sell-out by 13:00,D. Coverage-weighted blend (used),221849,0.24898413,-0.00720417
+development (method chosen here),3. sell-out 14:00 to 17:00,A. Recorded sales (no adjustment),328904,0.32738167,-0.32738167
+development (method chosen here),3. sell-out 14:00 to 17:00,B. Typical in-stock day,328904,0.27257634,0.04406823
+development (method chosen here),3. sell-out 14:00 to 17:00,C. Hourly profile scaling,328904,0.21191128,0.00224514
+development (method chosen here),3. sell-out 14:00 to 17:00,D. Coverage-weighted blend (used),328904,0.16550841,-0.00343252
+development (method chosen here),4. sell-out 18:00 or later,A. Recorded sales (no adjustment),286218,0.09872656,-0.09872656
+development (method chosen here),4. sell-out 18:00 or later,B. Typical in-stock day,286218,0.20276798,0.11274536
+development (method chosen here),4. sell-out 18:00 or later,C. Hourly profile scaling,286218,0.08718569,0.00048081
+development (method chosen here),4. sell-out 18:00 or later,D. Coverage-weighted blend (used),286218,0.08087476,-0.00123766
+holdout (confirmation),1. all,A. Recorded sales (no adjustment),806550,0.34577461,-0.34577461
+holdout (confirmation),1. all,B. Typical in-stock day,806550,0.25822712,0.05273537
+holdout (confirmation),1. all,C. Hourly profile scaling,806550,0.21832609,0.00098317
+holdout (confirmation),1. all,D. Coverage-weighted blend (used),806550,0.15815498,-0.00376355
+holdout (confirmation),2. sell-out by 13:00,A. Recorded sales (no adjustment),223664,0.6619824,-0.6619824
+holdout (confirmation),2. sell-out by 13:00,B. Typical in-stock day,223664,0.31111581,-7.173e-05
+holdout (confirmation),2. sell-out by 13:00,C. Hourly profile scaling,223664,0.387906,-0.00010439
+holdout (confirmation),2. sell-out by 13:00,D. Coverage-weighted blend (used),223664,0.24467368,-0.00706058
+holdout (confirmation),3. sell-out 14:00 to 17:00,A. Recorded sales (no adjustment),318397,0.32761001,-0.32761001
+holdout (confirmation),3. sell-out 14:00 to 17:00,B. Typical in-stock day,318397,0.26923883,0.04305642
+holdout (confirmation),3. sell-out 14:00 to 17:00,C. Hourly profile scaling,318397,0.20905466,0.0019878
+holdout (confirmation),3. sell-out 14:00 to 17:00,D. Coverage-weighted blend (used),318397,0.16248069,-0.00354725
+holdout (confirmation),4. sell-out 18:00 or later,A. Recorded sales (no adjustment),264489,0.10115501,-0.10115501
+holdout (confirmation),4. sell-out 18:00 or later,B. Typical in-stock day,264489,0.20046422,0.10883135
+holdout (confirmation),4. sell-out 18:00 or later,C. Hourly profile scaling,264489,0.08657469,0.00069474
+holdout (confirmation),4. sell-out 18:00 or later,D. Coverage-weighted blend (used),264489,0.08007668,-0.00124521

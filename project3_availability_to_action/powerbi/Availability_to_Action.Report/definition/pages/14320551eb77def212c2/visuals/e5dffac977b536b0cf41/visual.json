@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "an_masking_summary.estimator",
-              "nativeQueryRef": "estimator"
+              "nativeQueryRef": "estimator",
+              "active": true
             }
           ]
         },

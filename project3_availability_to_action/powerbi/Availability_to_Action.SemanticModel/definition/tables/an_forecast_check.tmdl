@@ -55,3 +55,4 @@ table an_forecast_check
 				    Typed
 
 	annotation PBI_ResultType = Table
+

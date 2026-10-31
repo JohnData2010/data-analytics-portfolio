@@ -43,10 +43,12 @@ table fact_store_day
 		sourceColumn: dt
 
 		annotation SummarizationSetBy = User
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column store_id
 		dataType: double
+		formatString: 0
 		lineageTag: 8e4a3224-f89c-b2f2-6e74-30381f57282d
 		summarizeBy: none
 		sourceColumn: store_id
@@ -133,3 +135,4 @@ table fact_store_day
 				    Dated
 
 	annotation PBI_ResultType = Table
+

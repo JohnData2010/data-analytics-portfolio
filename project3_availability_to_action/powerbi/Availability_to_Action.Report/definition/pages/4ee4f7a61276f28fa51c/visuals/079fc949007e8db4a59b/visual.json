@@ -23,11 +23,12 @@
                       "Entity": "an_eval_fold"
                     }
                   },
-                  "Property": "fold"
+                  "Property": "decision_day"
                 }
               },
-              "queryRef": "an_eval_fold.fold",
-              "nativeQueryRef": "fold",
+              "queryRef": "an_eval_fold.decision_day",
+              "nativeQueryRef": "decision_day",
+              "active": true,
               "displayName": "Decision day"
             }
           ]

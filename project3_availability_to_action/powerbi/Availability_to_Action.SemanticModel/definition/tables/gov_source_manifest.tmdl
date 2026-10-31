@@ -60,6 +60,7 @@ table gov_source_manifest
 		sourceColumn: first_date
 
 		annotation SummarizationSetBy = User
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column last_date
@@ -70,6 +71,7 @@ table gov_source_manifest
 		sourceColumn: last_date
 
 		annotation SummarizationSetBy = User
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column publisher
@@ -116,3 +118,4 @@ table gov_source_manifest
 				    Dated
 
 	annotation PBI_ResultType = Table
+
