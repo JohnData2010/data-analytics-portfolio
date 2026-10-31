@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "38d7cbfcc7b243b0f13e",
+  "position": {
+    "x": 20,
+    "y": 402,
+    "z": 3000,
+    "height": 278,
+    "width": 1240,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "role"
+                }
+              },
+              "queryRef": "an_method_summary.role",
+              "nativeQueryRef": "role",
+              "displayName": "Role"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "method"
+                }
+              },
+              "queryRef": "an_method_summary.method",
+              "nativeQueryRef": "method",
+              "displayName": "Method"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "folds"
+                }
+              },
+              "queryRef": "an_method_summary.folds",
+              "nativeQueryRef": "folds",
+              "displayName": "Folds"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "store_top10_lost_capture"
+                }
+              },
+              "queryRef": "an_method_summary.store_top10_lost_capture",
+              "nativeQueryRef": "store_top10_lost_capture",
+              "displayName": "Lost demand in top 10"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "worst_fold_lost_capture"
+                }
+              },
+              "queryRef": "an_method_summary.worst_fold_lost_capture",
+              "nativeQueryRef": "worst_fold_lost_capture",
+              "displayName": "Worst fold"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "store_top10_hours_capture"
+                }
+              },
+              "queryRef": "an_method_summary.store_top10_hours_capture",
+              "nativeQueryRef": "store_top10_hours_capture",
+              "displayName": "Stockout hours in top 10"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_method_summary"
+                    }
+                  },
+                  "Property": "global_top10pct_lost_capture"
+                }
+              },
+              "queryRef": "an_method_summary.global_top10pct_lost_capture",
+              "nativeQueryRef": "global_top10pct_lost_capture",
+              "displayName": "Lost demand, global top 10%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "an_method_summary"
+                  }
+                },
+                "Property": "role"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Methods by role'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

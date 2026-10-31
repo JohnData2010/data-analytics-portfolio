@@ -1,0 +1,76 @@
+table an_confidence_check
+	lineageTag: 420cd38f-4a73-08dd-8918-d464af8860c8
+
+	column confidence
+		dataType: string
+		lineageTag: bc680005-f57f-1ce7-081e-00289412cbc3
+		summarizeBy: none
+		sourceColumn: confidence
+
+		annotation SummarizationSetBy = User
+
+	column series
+		dataType: int64
+		formatString: 0
+		lineageTag: 535f9ae5-c928-a236-d30f-8f5410212f65
+		summarizeBy: none
+		sourceColumn: series
+
+		annotation SummarizationSetBy = User
+
+	column listed
+		dataType: int64
+		formatString: 0
+		lineageTag: fca3db11-1d26-cd4e-08d7-4597322484d2
+		summarizeBy: none
+		sourceColumn: listed
+
+		annotation SummarizationSetBy = User
+
+	column realised_over_expected_listed
+		dataType: double
+		formatString: 0.0%
+		lineageTag: aa87d045-e760-be59-ab12-b4dcd9415605
+		summarizeBy: none
+		sourceColumn: realised_over_expected_listed
+
+		annotation SummarizationSetBy = User
+
+	column listed_with_stockout_next_week
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 298f7923-9010-9aaf-afd5-4e51a4a30119
+		summarizeBy: none
+		sourceColumn: listed_with_stockout_next_week
+
+		annotation SummarizationSetBy = User
+
+	column masked_days
+		dataType: int64
+		formatString: 0
+		lineageTag: a6a2151b-369f-f616-3583-20d7e722404f
+		summarizeBy: none
+		sourceColumn: masked_days
+
+		annotation SummarizationSetBy = User
+
+	column masking_wape
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 42613f90-325a-6cba-06ce-fee3cc7fe16c
+		summarizeBy: none
+		sourceColumn: masking_wape
+
+		annotation SummarizationSetBy = User
+
+	partition an_confidence_check = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_confidence_check.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"confidence", type text}, {"series", Int64.Type}, {"listed", Int64.Type}, {"realised_over_expected_listed", type number}, {"listed_with_stockout_next_week", type number}, {"masked_days", Int64.Type}, {"masking_wape", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

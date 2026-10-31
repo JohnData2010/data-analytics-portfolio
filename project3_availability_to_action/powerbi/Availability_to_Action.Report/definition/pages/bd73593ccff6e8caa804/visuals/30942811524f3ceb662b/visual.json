@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "30942811524f3ceb662b",
+  "position": {
+    "x": 272,
+    "y": 92,
+    "z": 3000,
+    "height": 96,
+    "width": 232,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_store_day"
+                    }
+                  },
+                  "Property": "Store recovered demand"
+                }
+              },
+              "queryRef": "fact_store_day.Store recovered demand",
+              "nativeQueryRef": "Store recovered demand",
+              "displayName": "Recovered demand"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

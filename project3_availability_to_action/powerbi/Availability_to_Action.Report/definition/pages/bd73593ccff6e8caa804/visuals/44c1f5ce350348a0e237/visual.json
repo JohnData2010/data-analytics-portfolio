@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "44c1f5ce350348a0e237",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 2000,
+    "height": 96,
+    "width": 232,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_store_day"
+                    }
+                  },
+                  "Property": "Store recorded sales"
+                }
+              },
+              "queryRef": "fact_store_day.Store recorded sales",
+              "nativeQueryRef": "Store recorded sales",
+              "displayName": "Recorded sales"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

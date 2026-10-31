@@ -1,0 +1,164 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bdeb8bc002729481e54d",
+  "position": {
+    "x": 660,
+    "y": 92,
+    "z": 2000,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "metric"
+                }
+              },
+              "queryRef": "an_bootstrap.metric",
+              "nativeQueryRef": "metric",
+              "displayName": "Metric"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "baseline"
+                }
+              },
+              "queryRef": "an_bootstrap.baseline",
+              "nativeQueryRef": "baseline",
+              "displayName": "Baseline"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "difference"
+                }
+              },
+              "queryRef": "an_bootstrap.difference",
+              "nativeQueryRef": "difference",
+              "displayName": "Difference"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "ci_low"
+                }
+              },
+              "queryRef": "an_bootstrap.ci_low",
+              "nativeQueryRef": "ci_low",
+              "displayName": "95% low"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "ci_high"
+                }
+              },
+              "queryRef": "an_bootstrap.ci_high",
+              "nativeQueryRef": "ci_high",
+              "displayName": "95% high"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_bootstrap"
+                    }
+                  },
+                  "Property": "verdict"
+                }
+              },
+              "queryRef": "an_bootstrap.verdict",
+              "nativeQueryRef": "verdict",
+              "displayName": "Verdict"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Holdout: proposed minus baseline'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

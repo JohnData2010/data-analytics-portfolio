@@ -1,0 +1,34 @@
+model Model
+	culture: en-AU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_store", "dim_series", "dim_date", "decision_list", "fact_series_day", "fact_store_day", "an_method_summary", "an_eval_fold", "an_bootstrap", "an_variant_selection", "an_masking_summary", "an_forecast_check", "an_confidence_check", "an_hour_profile", "qa_dq_results", "qa_row_lineage", "gov_source_manifest", "DataFolder"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_store
+ref table dim_series
+ref table dim_date
+ref table decision_list
+ref table fact_series_day
+ref table fact_store_day
+ref table an_method_summary
+ref table an_eval_fold
+ref table an_bootstrap
+ref table an_variant_selection
+ref table an_masking_summary
+ref table an_forecast_check
+ref table an_confidence_check
+ref table an_hour_profile
+ref table qa_dq_results
+ref table qa_row_lineage
+ref table gov_source_manifest
+
+ref cultureInfo en-AU

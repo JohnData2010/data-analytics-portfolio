@@ -1,0 +1,57 @@
+table an_hour_profile
+	lineageTag: 4c387973-531c-f051-7c40-e4a2c91a1243
+
+	measure 'Flagged out of stock' = AVERAGE ( an_hour_profile[oos_share] )
+		formatString: 0.0%
+		displayFolder: Data quality
+		lineageTag: 0354b0a8-e0cb-0479-ebe1-d313d6b6010b
+
+	measure 'Share of daily sales' = AVERAGE ( an_hour_profile[sales_share] )
+		formatString: 0.0%
+		displayFolder: Data quality
+		lineageTag: 78b2c460-ddd6-54a8-8539-ceb889534d42
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bfc561b-20d0-6d1d-8c38-4ead9e342490
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = User
+
+	column in_selling_window
+		dataType: boolean
+		lineageTag: 8ee1424f-909b-7e4a-0efa-3743842fdc23
+		summarizeBy: none
+		sourceColumn: in_selling_window
+
+		annotation SummarizationSetBy = User
+
+	column oos_share
+		dataType: double
+		lineageTag: b328cfdb-e676-ea2f-0da9-0bb772388b9b
+		summarizeBy: none
+		sourceColumn: oos_share
+
+		annotation SummarizationSetBy = User
+
+	column sales_share
+		dataType: double
+		lineageTag: 593f4233-b0db-124a-b038-0a24e7302803
+		summarizeBy: none
+		sourceColumn: sales_share
+
+		annotation SummarizationSetBy = User
+
+	partition an_hour_profile = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_hour_profile.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"hour", Int64.Type}, {"in_selling_window", type logical}, {"oos_share", type number}, {"sales_share", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

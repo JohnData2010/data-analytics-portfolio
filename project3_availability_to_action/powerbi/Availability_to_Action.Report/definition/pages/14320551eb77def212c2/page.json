@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "14320551eb77def212c2",
+  "displayName": "Recovery check",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

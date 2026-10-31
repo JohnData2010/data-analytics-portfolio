@@ -1,0 +1,297 @@
+/// Holdout-week review list: top 25 per store, scored on day 91
+table decision_list
+	lineageTag: c0092bc9-ed11-dfb4-478f-715a97ade214
+
+	measure 'Listed series' = CALCULATE ( COUNTROWS ( decision_list ), decision_list[in_store_top_n] = TRUE () )
+		formatString: #,0
+		displayFolder: Review list
+		lineageTag: 55f48708-b407-ac47-231d-d8e5e86f595a
+
+	measure 'Expected lost demand, listed (7 days)' = CALCULATE ( SUM ( decision_list[expected_lost_7d] ), decision_list[in_store_top_n] = TRUE () )
+		formatString: #,0.0
+		displayFolder: Review list
+		lineageTag: 69927d19-8b80-930f-433b-5ed176b5f674
+
+	measure 'Realised lost demand, listed' = CALCULATE ( SUM ( decision_list[outcome_lost] ), decision_list[in_store_top_n] = TRUE () )
+		formatString: #,0.0
+		displayFolder: Review list
+		lineageTag: e35f9a23-cc46-a4c1-9a40-f831ed316e95
+
+	measure 'Realised vs expected' = DIVIDE ( [Realised lost demand, listed], [Expected lost demand, listed (7 days)] )
+		formatString: 0.0%
+		displayFolder: Review list
+		lineageTag: 67315b41-6f25-61cf-9e80-9db942977033
+
+	measure 'Low-confidence listed' = CALCULATE ( COUNTROWS ( decision_list ), decision_list[in_store_top_n] = TRUE (), decision_list[confidence] = "Low" ) + 0
+		formatString: #,0
+		displayFolder: Review list
+		lineageTag: bf4197fe-ea27-c278-53a5-db7a50a1834b
+
+	column series_id
+		dataType: double
+		lineageTag: 6981a4b3-47f6-796f-31d8-df917874cf8f
+		summarizeBy: none
+		sourceColumn: series_id
+
+		annotation SummarizationSetBy = User
+
+	column store_id
+		dataType: double
+		lineageTag: 64f8341c-1e44-f732-a404-a90d2b4f93a6
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = User
+
+	column city_id
+		dataType: double
+		lineageTag: 0e0b0f3c-9bf8-9e0d-164e-ebfe40f4d1e1
+		summarizeBy: none
+		sourceColumn: city_id
+
+		annotation SummarizationSetBy = User
+
+	column product_id
+		dataType: double
+		lineageTag: aecb2af8-c143-ec54-a2cf-22a24a700fb5
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = User
+
+	column first_category_id
+		dataType: double
+		lineageTag: 8eb78987-ccff-51a6-0c1a-04b75b5194f2
+		summarizeBy: none
+		sourceColumn: first_category_id
+
+		annotation SummarizationSetBy = User
+
+	column second_category_id
+		dataType: double
+		lineageTag: 1a985bed-25f8-4995-483f-a274dffe10e7
+		summarizeBy: none
+		sourceColumn: second_category_id
+
+		annotation SummarizationSetBy = User
+
+	column third_category_id
+		dataType: double
+		lineageTag: f4846846-2ed2-89ea-817d-e7a5c9664edd
+		summarizeBy: none
+		sourceColumn: third_category_id
+
+		annotation SummarizationSetBy = User
+
+	column store_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 10cce07b-5986-4eae-6aff-4c728e984d45
+		summarizeBy: none
+		sourceColumn: store_rank
+
+		annotation SummarizationSetBy = User
+
+	column global_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: bc79dfee-7122-4672-89e1-db179b69accc
+		summarizeBy: none
+		sourceColumn: global_rank
+
+		annotation SummarizationSetBy = User
+
+	column in_store_top_n
+		dataType: boolean
+		lineageTag: edcf10a9-39f6-348e-ae57-5c579a69c5b5
+		summarizeBy: none
+		sourceColumn: in_store_top_n
+
+		annotation SummarizationSetBy = User
+
+	column expected_lost_7d
+		dataType: double
+		formatString: #,0.0
+		lineageTag: c75c1cdd-6d21-3f25-91b3-810503fafbcb
+		summarizeBy: none
+		sourceColumn: expected_lost_7d
+
+		annotation SummarizationSetBy = User
+
+	column obs_28
+		dataType: double
+		formatString: #,0.0
+		lineageTag: c78da48f-74f7-bd31-3ea4-7a011d3b785b
+		summarizeBy: none
+		sourceColumn: obs_28
+
+		annotation SummarizationSetBy = User
+
+	column rec_28
+		dataType: double
+		formatString: #,0.0
+		lineageTag: ce393eb1-94bf-b77f-95bf-9ee3d2cf4e2d
+		summarizeBy: none
+		sourceColumn: rec_28
+
+		annotation SummarizationSetBy = User
+
+	column lost_28
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 31008324-2c4c-1de7-fd5d-abe69148aaec
+		summarizeBy: none
+		sourceColumn: lost_28
+
+		annotation SummarizationSetBy = User
+
+	column imputed_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b8238eab-b38a-a51f-36c6-5719be248547
+		summarizeBy: none
+		sourceColumn: imputed_share
+
+		annotation SummarizationSetBy = User
+
+	column hidden_vs_recorded
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 207e7213-4de9-013d-dddc-d63e091e683d
+		summarizeBy: none
+		sourceColumn: hidden_vs_recorded
+
+		annotation SummarizationSetBy = User
+
+	column oos_days_28
+		dataType: int64
+		formatString: 0
+		lineageTag: 73ec982b-e932-e448-92e4-83e2f08f7143
+		summarizeBy: none
+		sourceColumn: oos_days_28
+
+		annotation SummarizationSetBy = User
+
+	column oos_days_7
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fb10493-609b-4fa3-690d-36eff0afa640
+		summarizeBy: none
+		sourceColumn: oos_days_7
+
+		annotation SummarizationSetBy = User
+
+	column oos_hours_28
+		dataType: int64
+		formatString: 0
+		lineageTag: d9f0f726-d67a-3058-666c-536f8c691a2c
+		summarizeBy: none
+		sourceColumn: oos_hours_28
+
+		annotation SummarizationSetBy = User
+
+	column unavailable_days_28
+		dataType: int64
+		formatString: 0
+		lineageTag: 75823da5-fd30-da67-9555-f122c9604841
+		summarizeBy: none
+		sourceColumn: unavailable_days_28
+
+		annotation SummarizationSetBy = User
+
+	column conflict_days_28
+		dataType: int64
+		formatString: 0
+		lineageTag: f1ccb583-b657-de7e-fe08-2e27242c897a
+		summarizeBy: none
+		sourceColumn: conflict_days_28
+
+		annotation SummarizationSetBy = User
+
+	column instock_days
+		dataType: int64
+		formatString: 0
+		lineageTag: af950308-0030-28dc-d0fd-623186474d48
+		summarizeBy: none
+		sourceColumn: instock_days
+
+		annotation SummarizationSetBy = User
+
+	column typical_sellout_hour
+		dataType: double
+		lineageTag: 837c9f8e-38dd-7651-15a4-4767c88b371a
+		summarizeBy: none
+		sourceColumn: typical_sellout_hour
+
+		annotation SummarizationSetBy = User
+
+	column confidence
+		dataType: string
+		lineageTag: 939116e4-e093-42e9-1fbf-4b817344a238
+		summarizeBy: none
+		sourceColumn: confidence
+
+		annotation SummarizationSetBy = User
+
+	column reasons
+		dataType: string
+		lineageTag: 66ceb8eb-3988-bfe9-52ba-67168f70f90b
+		summarizeBy: none
+		sourceColumn: reasons
+
+		annotation SummarizationSetBy = User
+
+	column checks_before_acting
+		dataType: string
+		lineageTag: adcbbbd4-9e65-604d-89dc-43ce2d5aa231
+		summarizeBy: none
+		sourceColumn: checks_before_acting
+
+		annotation SummarizationSetBy = User
+
+	column outcome_lost
+		dataType: double
+		formatString: #,0.0
+		lineageTag: e84b7464-2b6d-0054-5996-91dc21922a6a
+		summarizeBy: none
+		sourceColumn: outcome_lost
+
+		annotation SummarizationSetBy = User
+
+	column outcome_oos_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: 36051da5-d537-4b58-0fff-f00805ca1370
+		summarizeBy: none
+		sourceColumn: outcome_oos_hours
+
+		annotation SummarizationSetBy = User
+
+	column outcome_unavailable_days
+		dataType: int64
+		formatString: 0
+		lineageTag: d5bae8bb-3afd-ed2b-3be8-141b4fb45cd8
+		summarizeBy: none
+		sourceColumn: outcome_unavailable_days
+
+		annotation SummarizationSetBy = User
+
+	column outcome_recorded
+		dataType: double
+		lineageTag: 3ac6bde1-3f8d-6174-f8d6-7bf980aa66e8
+		summarizeBy: none
+		sourceColumn: outcome_recorded
+
+		annotation SummarizationSetBy = User
+
+	partition decision_list = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\decision_list.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"series_id", type number}, {"store_id", type number}, {"city_id", type number}, {"product_id", type number}, {"first_category_id", type number}, {"second_category_id", type number}, {"third_category_id", type number}, {"store_rank", Int64.Type}, {"global_rank", Int64.Type}, {"in_store_top_n", type logical}, {"expected_lost_7d", type number}, {"obs_28", type number}, {"rec_28", type number}, {"lost_28", type number}, {"imputed_share", type number}, {"hidden_vs_recorded", type number}, {"oos_days_28", Int64.Type}, {"oos_days_7", Int64.Type}, {"oos_hours_28", Int64.Type}, {"unavailable_days_28", Int64.Type}, {"conflict_days_28", Int64.Type}, {"instock_days", Int64.Type}, {"typical_sellout_hour", type number}, {"confidence", type text}, {"reasons", type text}, {"checks_before_acting", type text}, {"outcome_lost", type number}, {"outcome_oos_hours", Int64.Type}, {"outcome_unavailable_days", Int64.Type}, {"outcome_recorded", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

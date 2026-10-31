@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fe4120b711120f4bdc69",
+  "position": {
+    "x": 20,
+    "y": 198,
+    "z": 4000,
+    "height": 300,
+    "width": 820,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "rule_id"
+                }
+              },
+              "queryRef": "qa_dq_results.rule_id",
+              "nativeQueryRef": "rule_id",
+              "displayName": "Rule"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "check"
+                }
+              },
+              "queryRef": "qa_dq_results.check",
+              "nativeQueryRef": "check",
+              "displayName": "Check"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "qa_dq_results.status",
+              "nativeQueryRef": "status",
+              "displayName": "Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "rows_flagged"
+                }
+              },
+              "queryRef": "qa_dq_results.rows_flagged",
+              "nativeQueryRef": "rows_flagged",
+              "displayName": "Rows flagged"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "rate"
+                }
+              },
+              "queryRef": "qa_dq_results.rate",
+              "nativeQueryRef": "rate",
+              "displayName": "Rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "decision_impact"
+                }
+              },
+              "queryRef": "qa_dq_results.decision_impact",
+              "nativeQueryRef": "decision_impact",
+              "displayName": "Decision impact"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "treatment"
+                }
+              },
+              "queryRef": "qa_dq_results.treatment",
+              "nativeQueryRef": "treatment",
+              "displayName": "Treatment"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "qa_dq_results"
+                  }
+                },
+                "Property": "rule_id"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data quality rules'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

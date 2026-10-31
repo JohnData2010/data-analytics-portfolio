@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "41a24917c58edd60cc1a",
+  "position": {
+    "x": 20,
+    "y": 402,
+    "z": 3000,
+    "height": 278,
+    "width": 1240,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_forecast_check"
+                    }
+                  },
+                  "Property": "role"
+                }
+              },
+              "queryRef": "an_forecast_check.role",
+              "nativeQueryRef": "role",
+              "displayName": "Role"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_forecast_check"
+                    }
+                  },
+                  "Property": "forecast"
+                }
+              },
+              "queryRef": "an_forecast_check.forecast",
+              "nativeQueryRef": "forecast",
+              "displayName": "Forecast"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_forecast_check"
+                    }
+                  },
+                  "Property": "days"
+                }
+              },
+              "queryRef": "an_forecast_check.days",
+              "nativeQueryRef": "days",
+              "displayName": "Days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_forecast_check"
+                    }
+                  },
+                  "Property": "wape"
+                }
+              },
+              "queryRef": "an_forecast_check.wape",
+              "nativeQueryRef": "wape",
+              "displayName": "WAPE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_forecast_check"
+                    }
+                  },
+                  "Property": "bias"
+                }
+              },
+              "queryRef": "an_forecast_check.bias",
+              "nativeQueryRef": "bias",
+              "displayName": "Bias"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Does the adjustment improve a simple forecast? (truth: in-stock days)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

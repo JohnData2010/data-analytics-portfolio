@@ -10,3 +10,5 @@ project1_ndis_funding_access/data/raw/UT_*.csv
 project1_ndis_funding_access/data/raw/UT_*.xlsx
 project1_ndis_funding_access/outputs/powerbi/fact_util_cells.csv
 project2_dashboard_reliability/outputs/powerbi/fact_requests_*.csv
+project3_availability_to_action/data/raw/*.parquet
+project3_availability_to_action/outputs/powerbi/fact_series_day.csv

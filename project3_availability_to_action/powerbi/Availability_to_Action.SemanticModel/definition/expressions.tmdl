@@ -1,0 +1,5 @@
+/// Folder holding the pipeline's CSV exports. Change it in Transform data > Manage parameters.
+expression DataFolder = "D:\Data Analytics Project\project3_availability_to_action\outputs\powerbi" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 1c2f9bd6-1800-8fc0-e727-33281813bd86
+
+	annotation PBI_ResultType = Text

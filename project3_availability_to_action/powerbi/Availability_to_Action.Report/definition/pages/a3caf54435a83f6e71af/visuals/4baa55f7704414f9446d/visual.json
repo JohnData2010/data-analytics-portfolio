@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4baa55f7704414f9446d",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 3000,
+    "height": 400,
+    "width": 820,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_series_day"
+                    }
+                  },
+                  "Property": "dt"
+                }
+              },
+              "queryRef": "fact_series_day.dt",
+              "nativeQueryRef": "dt",
+              "displayName": "Date"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_series_day"
+                    }
+                  },
+                  "Property": "Recorded sales"
+                }
+              },
+              "queryRef": "fact_series_day.Recorded sales",
+              "nativeQueryRef": "Recorded sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_series_day"
+                    }
+                  },
+                  "Property": "Recovered demand"
+                }
+              },
+              "queryRef": "fact_series_day.Recovered demand",
+              "nativeQueryRef": "Recovered demand"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Recorded vs recovered (history and outcome week)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

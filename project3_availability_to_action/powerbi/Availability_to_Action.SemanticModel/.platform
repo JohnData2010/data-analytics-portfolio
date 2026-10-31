@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Availability_to_Action"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4b627f47-1502-728c-a0a2-d403de3e754d"
+  }
+}

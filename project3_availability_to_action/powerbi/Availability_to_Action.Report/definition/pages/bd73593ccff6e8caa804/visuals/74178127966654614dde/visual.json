@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "74178127966654614dde",
+  "position": {
+    "x": 1028,
+    "y": 92,
+    "z": 6000,
+    "height": 96,
+    "width": 232,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_store_day"
+                    }
+                  },
+                  "Property": "Unavailable series-days"
+                }
+              },
+              "queryRef": "fact_store_day.Unavailable series-days",
+              "nativeQueryRef": "Unavailable series-days",
+              "displayName": "Unavailable all day"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

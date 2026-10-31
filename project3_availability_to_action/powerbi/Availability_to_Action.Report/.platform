@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Availability_to_Action"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7cf0cf03-09ab-4daf-937d-c217b6d56cc8"
+  }
+}

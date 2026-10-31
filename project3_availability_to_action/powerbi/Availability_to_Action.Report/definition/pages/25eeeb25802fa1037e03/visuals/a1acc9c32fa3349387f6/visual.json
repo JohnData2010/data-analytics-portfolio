@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a1acc9c32fa3349387f6",
+  "position": {
+    "x": 965,
+    "y": 92,
+    "z": 5000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "Realised vs expected"
+                }
+              },
+              "queryRef": "decision_list.Realised vs expected",
+              "nativeQueryRef": "Realised vs expected",
+              "displayName": "Holdout: realised vs expected"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

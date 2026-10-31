@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f55b07344a05a9b0dd7c",
+  "position": {
+    "x": 20,
+    "y": 686,
+    "z": 8000,
+    "height": 30,
+    "width": 1240,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FreshRetailNet-50K (Dingdong Inc., CC BY 4.0). Units are normalised sales, not currency. Decision day = 26-Jun-2024; history 28-May to 25-Jun; outcome week 26-Jun to 02-Jul-2024.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#8a8984"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

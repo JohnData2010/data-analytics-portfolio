@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b077c8ab615a781ee014",
+  "position": {
+    "x": 524,
+    "y": 92,
+    "z": 4000,
+    "height": 96,
+    "width": 232,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_store_day"
+                    }
+                  },
+                  "Property": "Hidden demand vs recorded"
+                }
+              },
+              "queryRef": "fact_store_day.Hidden demand vs recorded",
+              "nativeQueryRef": "Hidden demand vs recorded",
+              "displayName": "Hidden demand vs recorded"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "39aa9c4721a239ffb7d5",
+  "position": {
+    "x": 660,
+    "y": 92,
+    "z": 2000,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_confidence_check"
+                    }
+                  },
+                  "Property": "confidence"
+                }
+              },
+              "queryRef": "an_confidence_check.confidence",
+              "nativeQueryRef": "confidence",
+              "displayName": "Tier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_confidence_check"
+                    }
+                  },
+                  "Property": "series"
+                }
+              },
+              "queryRef": "an_confidence_check.series",
+              "nativeQueryRef": "series",
+              "displayName": "Series"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_confidence_check"
+                    }
+                  },
+                  "Property": "listed"
+                }
+              },
+              "queryRef": "an_confidence_check.listed",
+              "nativeQueryRef": "listed",
+              "displayName": "Listed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_confidence_check"
+                    }
+                  },
+                  "Property": "realised_over_expected_listed"
+                }
+              },
+              "queryRef": "an_confidence_check.realised_over_expected_listed",
+              "nativeQueryRef": "realised_over_expected_listed",
+              "displayName": "Realised / expected"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_confidence_check"
+                    }
+                  },
+                  "Property": "listed_with_stockout_next_week"
+                }
+              },
+              "queryRef": "an_confidence_check.listed_with_stockout_next_week",
+              "nativeQueryRef": "listed_with_stockout_next_week",
+              "displayName": "Stocked out next week"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Confidence tiers: realised vs expected (listed series)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

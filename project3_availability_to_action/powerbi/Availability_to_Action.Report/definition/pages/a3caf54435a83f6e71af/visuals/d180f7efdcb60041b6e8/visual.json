@@ -1,0 +1,284 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d180f7efdcb60041b6e8",
+  "position": {
+    "x": 20,
+    "y": 502,
+    "z": 5000,
+    "height": 178,
+    "width": 1240,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "store_rank"
+                }
+              },
+              "queryRef": "decision_list.store_rank",
+              "nativeQueryRef": "store_rank",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "oos_days_28"
+                }
+              },
+              "queryRef": "decision_list.oos_days_28",
+              "nativeQueryRef": "oos_days_28",
+              "displayName": "Stockout days (28)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "typical_sellout_hour"
+                }
+              },
+              "queryRef": "decision_list.typical_sellout_hour",
+              "nativeQueryRef": "typical_sellout_hour",
+              "displayName": "Typical sell-out hour"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "hidden_vs_recorded"
+                }
+              },
+              "queryRef": "decision_list.hidden_vs_recorded",
+              "nativeQueryRef": "hidden_vs_recorded",
+              "displayName": "Hidden vs recorded"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "instock_days"
+                }
+              },
+              "queryRef": "decision_list.instock_days",
+              "nativeQueryRef": "instock_days",
+              "displayName": "In-stock days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "imputed_share"
+                }
+              },
+              "queryRef": "decision_list.imputed_share",
+              "nativeQueryRef": "imputed_share",
+              "displayName": "Imputed share"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "confidence"
+                }
+              },
+              "queryRef": "decision_list.confidence",
+              "nativeQueryRef": "confidence",
+              "displayName": "Confidence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "outcome_lost"
+                }
+              },
+              "queryRef": "decision_list.outcome_lost",
+              "nativeQueryRef": "outcome_lost",
+              "displayName": "Holdout: realised lost"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "outcome_oos_hours"
+                }
+              },
+              "queryRef": "decision_list.outcome_oos_hours",
+              "nativeQueryRef": "outcome_oos_hours",
+              "displayName": "Holdout: stockout hours"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "decision_list"
+                  }
+                },
+                "Property": "store_rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evidence behind the rank'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "899124cb19626deecbf0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "decision_list"
+              }
+            },
+            "Property": "in_store_top_n"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "decision_list",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "in_store_top_n"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

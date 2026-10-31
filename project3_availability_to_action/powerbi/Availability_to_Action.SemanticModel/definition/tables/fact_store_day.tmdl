@@ -1,0 +1,135 @@
+table fact_store_day
+	lineageTag: edab36d4-add2-e7f6-3859-9f362af96fe5
+
+	measure 'Store recorded sales' = SUM ( fact_store_day[recorded] )
+		formatString: #,0.0
+		displayFolder: Store
+		lineageTag: 7a23ef93-9b3b-e396-1c55-6dcd57d619b1
+
+	measure 'Store recovered demand' = SUM ( fact_store_day[recovered] )
+		formatString: #,0.0
+		displayFolder: Store
+		lineageTag: ec7e7659-4c41-db91-6cd4-674eeff4e410
+
+	measure 'Hidden demand vs recorded' = DIVIDE ( SUM ( fact_store_day[lost_partial] ), SUM ( fact_store_day[recorded] ) )
+		formatString: 0.0%
+		displayFolder: Store
+		lineageTag: b053bbb7-5040-b3f9-1414-82776be68ee7
+
+	measure 'Series-days with a stockout' = DIVIDE ( SUM ( fact_store_day[series_days_with_stockout] ), SUM ( fact_store_day[series] ) )
+		formatString: 0.0%
+		displayFolder: Store
+		lineageTag: 541f264a-b214-b4e7-ab65-9b00f2da1f96
+
+	measure 'Unavailable series-days' = SUM ( fact_store_day[unavailable_series_days] )
+		formatString: #,0
+		displayFolder: Store
+		lineageTag: 391b5a4b-f7e3-f2d9-a517-2deb3a42da3b
+
+	column day_idx
+		dataType: int64
+		formatString: 0
+		lineageTag: d6990255-c43a-dac2-e449-d3d7308dbadc
+		summarizeBy: none
+		sourceColumn: day_idx
+
+		annotation SummarizationSetBy = User
+
+	column dt
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 007f43d0-00fe-6363-f7ba-3d612ad02f2b
+		summarizeBy: none
+		sourceColumn: dt
+
+		annotation SummarizationSetBy = User
+		annotation UnderlyingDateTimeDataType = Date
+
+	column store_id
+		dataType: double
+		lineageTag: 8e4a3224-f89c-b2f2-6e74-30381f57282d
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = User
+
+	column is_outcome
+		dataType: boolean
+		lineageTag: 77f0038d-19ec-a0c6-c8df-7d9706d09d12
+		summarizeBy: none
+		sourceColumn: is_outcome
+
+		annotation SummarizationSetBy = User
+
+	column series
+		dataType: int64
+		formatString: 0
+		lineageTag: 9951d128-0a68-6559-96ba-574218246c5e
+		summarizeBy: none
+		sourceColumn: series
+
+		annotation SummarizationSetBy = User
+
+	column recorded
+		dataType: double
+		lineageTag: 2398f4a1-1665-169e-e5b4-d44d6e59e908
+		summarizeBy: none
+		sourceColumn: recorded
+
+		annotation SummarizationSetBy = User
+
+	column recovered
+		dataType: double
+		lineageTag: ce0e1a96-53a2-cbb1-bff5-c2d40f5c45ac
+		summarizeBy: none
+		sourceColumn: recovered
+
+		annotation SummarizationSetBy = User
+
+	column lost_partial
+		dataType: double
+		lineageTag: b28080b2-ccf2-4074-ad34-230451c515c1
+		summarizeBy: none
+		sourceColumn: lost_partial
+
+		annotation SummarizationSetBy = User
+
+	column unavailable_series_days
+		dataType: int64
+		formatString: 0
+		lineageTag: f8615d41-39db-984a-cf81-4e618321c6fb
+		summarizeBy: none
+		sourceColumn: unavailable_series_days
+
+		annotation SummarizationSetBy = User
+
+	column oos_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: c233350e-3a38-8649-48ad-0595c4127ac4
+		summarizeBy: none
+		sourceColumn: oos_hours
+
+		annotation SummarizationSetBy = User
+
+	column series_days_with_stockout
+		dataType: int64
+		formatString: 0
+		lineageTag: 57a5cf7f-459d-b8d6-50fc-56804a82e7d8
+		summarizeBy: none
+		sourceColumn: series_days_with_stockout
+
+		annotation SummarizationSetBy = User
+
+	partition fact_store_day = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_store_day.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"day_idx", Int64.Type}, {"dt", type datetime}, {"store_id", type number}, {"is_outcome", type logical}, {"series", Int64.Type}, {"recorded", type number}, {"recovered", type number}, {"lost_partial", type number}, {"unavailable_series_days", Int64.Type}, {"oos_hours", Int64.Type}, {"series_days_with_stockout", Int64.Type}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"dt", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table

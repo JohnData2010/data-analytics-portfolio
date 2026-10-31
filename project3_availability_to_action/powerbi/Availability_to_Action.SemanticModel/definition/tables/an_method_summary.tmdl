@@ -1,0 +1,92 @@
+table an_method_summary
+	lineageTag: d894cb08-0c0a-a3da-c941-b4193926f059
+
+	column role
+		dataType: string
+		lineageTag: 5bd37cb7-9368-975c-cc00-a84adc7487e1
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = User
+
+	column method
+		dataType: string
+		lineageTag: 2605cd58-8451-0899-3c5c-9770a8dc960e
+		summarizeBy: none
+		sourceColumn: method
+
+		annotation SummarizationSetBy = User
+
+	column is_proposed
+		dataType: boolean
+		lineageTag: fd9e5481-f4ad-a433-629a-482d1314aad8
+		summarizeBy: none
+		sourceColumn: is_proposed
+
+		annotation SummarizationSetBy = User
+
+	column folds
+		dataType: int64
+		formatString: 0
+		lineageTag: 7cd1d561-b656-cd96-21d0-970069e8e253
+		summarizeBy: none
+		sourceColumn: folds
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_lost_capture
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 16ccf228-2338-6aee-00eb-18dadc0158ab
+		summarizeBy: none
+		sourceColumn: store_top10_lost_capture
+
+		annotation SummarizationSetBy = User
+
+	column worst_fold_lost_capture
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2b2a9457-c155-662a-86f9-cb7153c36d65
+		summarizeBy: none
+		sourceColumn: worst_fold_lost_capture
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_hours_capture
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6dc1cd46-3326-3f66-bf7d-740e157ec308
+		summarizeBy: none
+		sourceColumn: store_top10_hours_capture
+
+		annotation SummarizationSetBy = User
+
+	column global_top10pct_lost_capture
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c630ea43-3c40-3e9a-8874-4171e3c5295b
+		summarizeBy: none
+		sourceColumn: global_top10pct_lost_capture
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_unavailable_capture
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a25b6a3e-30ec-0766-462c-bc53b9f6925f
+		summarizeBy: none
+		sourceColumn: store_top10_unavailable_capture
+
+		annotation SummarizationSetBy = User
+
+	partition an_method_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_method_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"role", type text}, {"method", type text}, {"is_proposed", type logical}, {"folds", Int64.Type}, {"store_top10_lost_capture", type number}, {"worst_fold_lost_capture", type number}, {"store_top10_hours_capture", type number}, {"global_top10pct_lost_capture", type number}, {"store_top10_unavailable_capture", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

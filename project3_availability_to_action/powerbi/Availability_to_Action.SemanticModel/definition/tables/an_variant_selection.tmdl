@@ -1,0 +1,39 @@
+table an_variant_selection
+	lineageTag: 072ecb2e-386f-5694-cff5-f4ff87408ed2
+
+	column method
+		dataType: string
+		lineageTag: 02d5ad8f-a331-e326-ac08-47be4a614005
+		summarizeBy: none
+		sourceColumn: method
+
+		annotation SummarizationSetBy = User
+
+	column dev_mean
+		dataType: double
+		formatString: 0.00%
+		lineageTag: d7d6ce5d-949a-10f4-8aee-e61f87c3ffd4
+		summarizeBy: none
+		sourceColumn: dev_mean
+
+		annotation SummarizationSetBy = User
+
+	column chosen
+		dataType: boolean
+		lineageTag: 66adb082-dc99-7995-e25e-7357520dfd5c
+		summarizeBy: none
+		sourceColumn: chosen
+
+		annotation SummarizationSetBy = User
+
+	partition an_variant_selection = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_variant_selection.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"method", type text}, {"dev_mean", type number}, {"chosen", type logical}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

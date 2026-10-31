@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2b896590a317ddbaa403",
+  "position": {
+    "x": 776,
+    "y": 92,
+    "z": 5000,
+    "height": 96,
+    "width": 232,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_store_day"
+                    }
+                  },
+                  "Property": "Series-days with a stockout"
+                }
+              },
+              "queryRef": "fact_store_day.Series-days with a stockout",
+              "nativeQueryRef": "Series-days with a stockout",
+              "displayName": "Series-days with a stockout"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

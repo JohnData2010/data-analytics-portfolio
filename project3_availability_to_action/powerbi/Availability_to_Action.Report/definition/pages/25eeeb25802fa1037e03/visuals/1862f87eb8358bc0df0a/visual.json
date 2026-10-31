@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1862f87eb8358bc0df0a",
+  "position": {
+    "x": 20,
+    "y": 198,
+    "z": 6000,
+    "height": 482,
+    "width": 1240,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "store_rank"
+                }
+              },
+              "queryRef": "decision_list.store_rank",
+              "nativeQueryRef": "store_rank",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "product_id"
+                }
+              },
+              "queryRef": "decision_list.product_id",
+              "nativeQueryRef": "product_id",
+              "displayName": "Product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "third_category_id"
+                }
+              },
+              "queryRef": "decision_list.third_category_id",
+              "nativeQueryRef": "third_category_id",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "expected_lost_7d"
+                }
+              },
+              "queryRef": "decision_list.expected_lost_7d",
+              "nativeQueryRef": "expected_lost_7d",
+              "displayName": "Expected lost (7d)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "confidence"
+                }
+              },
+              "queryRef": "decision_list.confidence",
+              "nativeQueryRef": "confidence",
+              "displayName": "Confidence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "reasons"
+                }
+              },
+              "queryRef": "decision_list.reasons",
+              "nativeQueryRef": "reasons",
+              "displayName": "Why it is here"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "checks_before_acting"
+                }
+              },
+              "queryRef": "decision_list.checks_before_acting",
+              "nativeQueryRef": "checks_before_acting",
+              "displayName": "Check before acting"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "decision_list"
+                  }
+                },
+                "Property": "store_rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Review first'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "899124cb19626deecbf0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "decision_list"
+              }
+            },
+            "Property": "in_store_top_n"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "decision_list",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "in_store_top_n"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

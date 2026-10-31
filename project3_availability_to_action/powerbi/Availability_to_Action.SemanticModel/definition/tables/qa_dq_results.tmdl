@@ -1,0 +1,104 @@
+table qa_dq_results
+	lineageTag: 7c89369f-de83-5909-76f5-358b4e369fb4
+
+	measure 'DQ checks passed' = CALCULATE ( COUNTROWS ( qa_dq_results ), qa_dq_results[status] = "PASS" ) + 0
+		formatString: #,0
+		displayFolder: Data quality
+		lineageTag: eef389af-27db-7849-3e52-5112c453ce75
+
+	measure 'DQ checks warned' = CALCULATE ( COUNTROWS ( qa_dq_results ), qa_dq_results[status] = "WARN" ) + 0
+		formatString: #,0
+		displayFolder: Data quality
+		lineageTag: 13c73934-8330-5cc6-7808-a32ea5ece901
+
+	measure 'DQ checks failed' = CALCULATE ( COUNTROWS ( qa_dq_results ), qa_dq_results[status] = "FAIL" ) + 0
+		formatString: #,0
+		displayFolder: Data quality
+		lineageTag: a28084fa-fcf1-1c02-ddab-6680fe6e586d
+
+	column rule_id
+		dataType: string
+		lineageTag: fce09a2c-4e75-1053-de02-a6cc81a15d45
+		summarizeBy: none
+		sourceColumn: rule_id
+
+		annotation SummarizationSetBy = User
+
+	column check
+		dataType: string
+		lineageTag: a8c9e457-a39b-9fb2-e66a-5a7a3730bf97
+		summarizeBy: none
+		sourceColumn: check
+
+		annotation SummarizationSetBy = User
+
+	column severity
+		dataType: string
+		lineageTag: 6a9814cf-eecc-4c12-78ad-c323323416e8
+		summarizeBy: none
+		sourceColumn: severity
+
+		annotation SummarizationSetBy = User
+
+	column rows_checked
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d1943b5-e0e6-a3dd-9722-d57c1bd78eab
+		summarizeBy: none
+		sourceColumn: rows_checked
+
+		annotation SummarizationSetBy = User
+
+	column rows_flagged
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b38fbc4-5eca-d240-41ab-6ff8a17bbd2f
+		summarizeBy: none
+		sourceColumn: rows_flagged
+
+		annotation SummarizationSetBy = User
+
+	column rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 257b9f97-6d3f-73ed-484a-657a6da49e6c
+		summarizeBy: none
+		sourceColumn: rate
+
+		annotation SummarizationSetBy = User
+
+	column decision_impact
+		dataType: string
+		lineageTag: c8d649d4-4cba-8558-8518-e1d05a92644a
+		summarizeBy: none
+		sourceColumn: decision_impact
+
+		annotation SummarizationSetBy = User
+
+	column treatment
+		dataType: string
+		lineageTag: 8097fc5c-2a33-d02d-ac15-e8a8c63917ec
+		summarizeBy: none
+		sourceColumn: treatment
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: c1beafb3-9c04-c78c-9c90-5ad9a84c146d
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	partition qa_dq_results = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\qa_dq_results.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"rule_id", type text}, {"check", type text}, {"severity", type text}, {"rows_checked", Int64.Type}, {"rows_flagged", Int64.Type}, {"rate", type number}, {"decision_impact", type text}, {"treatment", type text}, {"status", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

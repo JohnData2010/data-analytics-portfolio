@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "935f259e177446c5bc6c",
+  "position": {
+    "x": 20,
+    "y": 92,
+    "z": 2000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "Listed series"
+                }
+              },
+              "queryRef": "decision_list.Listed series",
+              "nativeQueryRef": "Listed series",
+              "displayName": "Series to review"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

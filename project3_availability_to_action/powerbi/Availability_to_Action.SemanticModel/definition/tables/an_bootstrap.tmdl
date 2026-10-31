@@ -1,0 +1,73 @@
+table an_bootstrap
+	lineageTag: 1c98d3fa-ed4c-685b-cd1a-15f4128a9c28
+
+	column metric
+		dataType: string
+		lineageTag: f15c21cb-d90d-b0a3-655b-1213cfd36789
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = User
+
+	column proposed
+		dataType: string
+		lineageTag: 18522743-9f55-9627-9e37-3b00709093b4
+		summarizeBy: none
+		sourceColumn: proposed
+
+		annotation SummarizationSetBy = User
+
+	column baseline
+		dataType: string
+		lineageTag: 68e1ae63-b17f-5eea-2951-1c035a8d3eed
+		summarizeBy: none
+		sourceColumn: baseline
+
+		annotation SummarizationSetBy = User
+
+	column difference
+		dataType: double
+		formatString: +0.00%;-0.00%
+		lineageTag: a4090ee0-82d7-b8cc-f33d-e50200fe4bdd
+		summarizeBy: none
+		sourceColumn: difference
+
+		annotation SummarizationSetBy = User
+
+	column ci_low
+		dataType: double
+		formatString: +0.00%;-0.00%
+		lineageTag: 384a6771-2460-4cd0-12b6-b82a4dcf993b
+		summarizeBy: none
+		sourceColumn: ci_low
+
+		annotation SummarizationSetBy = User
+
+	column ci_high
+		dataType: double
+		formatString: +0.00%;-0.00%
+		lineageTag: f11225db-886f-24ee-4c6b-5157d32a8c2d
+		summarizeBy: none
+		sourceColumn: ci_high
+
+		annotation SummarizationSetBy = User
+
+	column verdict
+		dataType: string
+		lineageTag: 0a816bb6-06d2-1f05-cecd-f90fdbe58832
+		summarizeBy: none
+		sourceColumn: verdict
+
+		annotation SummarizationSetBy = User
+
+	partition an_bootstrap = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_bootstrap.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"metric", type text}, {"proposed", type text}, {"baseline", type text}, {"difference", type number}, {"ci_low", type number}, {"ci_high", type number}, {"verdict", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

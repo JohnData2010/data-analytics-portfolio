@@ -1,0 +1,118 @@
+table gov_source_manifest
+	lineageTag: 2cfddd7e-eac6-e04c-4482-dfa8f1dcb1ea
+
+	column split
+		dataType: string
+		lineageTag: 870843bc-a393-9399-5510-49d549d52129
+		summarizeBy: none
+		sourceColumn: split
+
+		annotation SummarizationSetBy = User
+
+	column file
+		dataType: string
+		lineageTag: 46d36b31-d992-0346-83c9-feb95dc4c2f6
+		summarizeBy: none
+		sourceColumn: file
+
+		annotation SummarizationSetBy = User
+
+	column sha256
+		dataType: string
+		lineageTag: d6b03779-c010-b73a-6242-ae07888c20db
+		summarizeBy: none
+		sourceColumn: sha256
+
+		annotation SummarizationSetBy = User
+
+	column bytes
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5c7d67a6-580b-590b-2310-feab9c00ce15
+		summarizeBy: none
+		sourceColumn: bytes
+
+		annotation SummarizationSetBy = User
+
+	column rows
+		dataType: int64
+		formatString: #,0
+		lineageTag: 031209f6-eff1-be93-3eb8-0b06a36a7b78
+		summarizeBy: none
+		sourceColumn: rows
+
+		annotation SummarizationSetBy = User
+
+	column series
+		dataType: int64
+		formatString: 0
+		lineageTag: 18617f48-1812-a281-addf-7e50d65745c2
+		summarizeBy: none
+		sourceColumn: series
+
+		annotation SummarizationSetBy = User
+
+	column first_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: f1137e61-e99c-a437-9fe4-24a439b87312
+		summarizeBy: none
+		sourceColumn: first_date
+
+		annotation SummarizationSetBy = User
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_date
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 372f68b1-f2fd-ab8e-ca38-3de15cab3af8
+		summarizeBy: none
+		sourceColumn: last_date
+
+		annotation SummarizationSetBy = User
+		annotation UnderlyingDateTimeDataType = Date
+
+	column publisher
+		dataType: string
+		lineageTag: e40c8628-7864-986a-cbb3-721c40a9bab2
+		summarizeBy: none
+		sourceColumn: publisher
+
+		annotation SummarizationSetBy = User
+
+	column licence
+		dataType: string
+		lineageTag: 1bada124-d536-b5a9-3b43-0b86e4004abb
+		summarizeBy: none
+		sourceColumn: licence
+
+		annotation SummarizationSetBy = User
+
+	column source_url
+		dataType: string
+		lineageTag: 9bb56245-5b1a-14eb-1900-7c7f5f4634f5
+		summarizeBy: none
+		sourceColumn: source_url
+
+		annotation SummarizationSetBy = User
+
+	column file_downloaded
+		dataType: string
+		lineageTag: 65ae774b-c4c2-7f49-3ebe-a26e7a7d14fa
+		summarizeBy: none
+		sourceColumn: file_downloaded
+
+		annotation SummarizationSetBy = User
+
+	partition gov_source_manifest = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\gov_source_manifest.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"split", type text}, {"file", type text}, {"sha256", type text}, {"bytes", Int64.Type}, {"rows", Int64.Type}, {"series", Int64.Type}, {"first_date", type datetime}, {"last_date", type datetime}, {"publisher", type text}, {"licence", type text}, {"source_url", type text}, {"file_downloaded", type text}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"first_date", type date}, {"last_date", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table

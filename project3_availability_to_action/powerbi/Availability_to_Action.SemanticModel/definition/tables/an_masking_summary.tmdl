@@ -1,0 +1,70 @@
+table an_masking_summary
+	lineageTag: 58bcb7b2-1b15-60fd-83b2-9b82b0bcd22d
+
+	measure 'Masking error (WAPE)' = AVERAGE ( an_masking_summary[wape] )
+		formatString: 0.0%
+		displayFolder: Recovery
+		lineageTag: 7f4533dc-5fb3-e48a-a07a-b8cd51b6df11
+
+	column role
+		dataType: string
+		lineageTag: 2c206083-6f2e-7c4f-9548-bbbfa4d86b35
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = User
+
+	column sellout_window
+		dataType: string
+		lineageTag: b05b04a3-6fcb-cbc7-ad8e-e3716e7cab95
+		summarizeBy: none
+		sourceColumn: sellout_window
+
+		annotation SummarizationSetBy = User
+
+	column estimator
+		dataType: string
+		lineageTag: feffd86b-606b-82f9-992b-dadf039e67b3
+		summarizeBy: none
+		sourceColumn: estimator
+
+		annotation SummarizationSetBy = User
+
+	column days
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d50a478-2a08-258f-499a-0debf9344c58
+		summarizeBy: none
+		sourceColumn: days
+
+		annotation SummarizationSetBy = User
+
+	column wape
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1f6b494d-317a-9c00-19e8-758a07005fe3
+		summarizeBy: none
+		sourceColumn: wape
+
+		annotation SummarizationSetBy = User
+
+	column bias
+		dataType: double
+		formatString: +0.0%;-0.0%
+		lineageTag: b8b67cc4-85b2-d235-a85e-a8189b150c35
+		summarizeBy: none
+		sourceColumn: bias
+
+		annotation SummarizationSetBy = User
+
+	partition an_masking_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_masking_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"role", type text}, {"sellout_window", type text}, {"estimator", type text}, {"days", Int64.Type}, {"wape", type number}, {"bias", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

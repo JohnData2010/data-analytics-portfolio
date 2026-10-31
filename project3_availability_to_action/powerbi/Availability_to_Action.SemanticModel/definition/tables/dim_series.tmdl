@@ -1,0 +1,79 @@
+/// One store-product series; product hierarchy
+table dim_series
+	lineageTag: b5c75afb-41ed-25c7-1cac-114c969976eb
+
+	column series_id
+		dataType: double
+		lineageTag: 2e3a23e8-9a54-200e-669d-627ae5e20d8a
+		summarizeBy: none
+		sourceColumn: series_id
+
+		annotation SummarizationSetBy = User
+
+	column store_id
+		dataType: double
+		lineageTag: 5e05cdb3-596a-8146-967f-58aa0ec6675d
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = User
+
+	column product_id
+		dataType: double
+		lineageTag: 9595415f-e2d5-28c7-9a30-db30e00fc11b
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = User
+
+	column city_id
+		dataType: double
+		lineageTag: 1b42617e-0a2a-fb49-a4f1-1989189ee9e6
+		summarizeBy: none
+		sourceColumn: city_id
+
+		annotation SummarizationSetBy = User
+
+	column management_group_id
+		dataType: double
+		lineageTag: eb8bfdb8-8cc5-6979-e69a-9f00dc64ec1d
+		summarizeBy: none
+		sourceColumn: management_group_id
+
+		annotation SummarizationSetBy = User
+
+	column first_category_id
+		dataType: double
+		lineageTag: 5921344b-d0f6-ab56-c369-5f0b02259785
+		summarizeBy: none
+		sourceColumn: first_category_id
+
+		annotation SummarizationSetBy = User
+
+	column second_category_id
+		dataType: double
+		lineageTag: 7a9b9ce6-faec-732e-16a3-03b8b0f0414b
+		summarizeBy: none
+		sourceColumn: second_category_id
+
+		annotation SummarizationSetBy = User
+
+	column third_category_id
+		dataType: double
+		lineageTag: 3104efd7-06d9-93a3-8355-4fd4edaaa415
+		summarizeBy: none
+		sourceColumn: third_category_id
+
+		annotation SummarizationSetBy = User
+
+	partition dim_series = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\dim_series.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"series_id", type number}, {"store_id", type number}, {"product_id", type number}, {"city_id", type number}, {"management_group_id", type number}, {"first_category_id", type number}, {"second_category_id", type number}, {"third_category_id", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

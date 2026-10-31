@@ -1,0 +1,116 @@
+/// Listed series only, history + outcome week
+table fact_series_day
+	lineageTag: 5c4cf44f-462d-75d9-20c2-9fbfa1be442b
+
+	measure 'Recorded sales' = SUM ( fact_series_day[recorded] )
+		formatString: #,0.0
+		displayFolder: Series
+		lineageTag: 18f48cb8-0e90-d8d7-4bbe-883bb5644f62
+
+	measure 'Recovered demand' = SUM ( fact_series_day[recovered] )
+		formatString: #,0.0
+		displayFolder: Series
+		lineageTag: eb6cc834-5ed9-ca5d-12a7-c7cbbe9b130b
+
+	measure 'Stockout hours' = SUM ( fact_series_day[oos_hours] )
+		formatString: #,0
+		displayFolder: Series
+		lineageTag: d6105f28-4968-5af4-7576-d96fd97f1408
+
+	column series_id
+		dataType: double
+		lineageTag: 6e75b14f-23ed-e3f7-b6c1-eb7d826fb550
+		summarizeBy: none
+		sourceColumn: series_id
+
+		annotation SummarizationSetBy = User
+
+	column day_idx
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ac7e07a-8d94-4fb9-1356-6c70ce19da58
+		summarizeBy: none
+		sourceColumn: day_idx
+
+		annotation SummarizationSetBy = User
+
+	column dt
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: e7a2a32d-7ddf-4ca5-7d4f-73f70c001a95
+		summarizeBy: none
+		sourceColumn: dt
+
+		annotation SummarizationSetBy = User
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_outcome
+		dataType: boolean
+		lineageTag: 98395ca9-64ff-47f0-0746-4b93a9d22182
+		summarizeBy: none
+		sourceColumn: is_outcome
+
+		annotation SummarizationSetBy = User
+
+	column method
+		dataType: string
+		lineageTag: 081cb73d-13bd-dd33-6af9-908924eb4733
+		summarizeBy: none
+		sourceColumn: method
+
+		annotation SummarizationSetBy = User
+
+	column oos_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: 783096cb-df97-3be0-5fee-f5c1c123fcb5
+		summarizeBy: none
+		sourceColumn: oos_hours
+
+		annotation SummarizationSetBy = User
+
+	column first_oos_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: fd61818e-31a0-8325-0a27-91c18e25ccb3
+		summarizeBy: none
+		sourceColumn: first_oos_hour
+
+		annotation SummarizationSetBy = User
+
+	column recorded
+		dataType: double
+		lineageTag: cfa3a31b-c373-8d3a-8742-ce07761834ef
+		summarizeBy: none
+		sourceColumn: recorded
+
+		annotation SummarizationSetBy = User
+
+	column recovered
+		dataType: double
+		lineageTag: b2092e26-31bb-b80f-0280-3c603a427afe
+		summarizeBy: none
+		sourceColumn: recovered
+
+		annotation SummarizationSetBy = User
+
+	column lost
+		dataType: double
+		lineageTag: d2e6917a-6129-42e0-86ba-cbe9de73acf0
+		summarizeBy: none
+		sourceColumn: lost
+
+		annotation SummarizationSetBy = User
+
+	partition fact_series_day = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\fact_series_day.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"series_id", type number}, {"day_idx", Int64.Type}, {"dt", type datetime}, {"is_outcome", type logical}, {"method", type text}, {"oos_hours", Int64.Type}, {"first_oos_hour", Int64.Type}, {"recorded", type number}, {"recovered", type number}, {"lost", type number}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"dt", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table

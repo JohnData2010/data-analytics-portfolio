@@ -1,0 +1,13 @@
+step_no,step,rows
+1,raw parquet rows (train + eval),4850000
+2,stg_daily rows,4850000
+3,"rec_daily rows, decision day 36 (35 days x 50,000 series)",1750000
+4,"rec_daily rows, decision day 43 (35 days x 50,000 series)",1750000
+5,"rec_daily rows, decision day 50 (35 days x 50,000 series)",1750000
+6,"rec_daily rows, decision day 57 (35 days x 50,000 series)",1750000
+7,"rec_daily rows, decision day 64 (35 days x 50,000 series)",1750000
+8,"rec_daily rows, decision day 71 (35 days x 50,000 series)",1750000
+9,"rec_daily rows, decision day 78 (35 days x 50,000 series)",1750000
+10,"rec_daily rows, decision day 91 (35 days x 50,000 series)",1750000
+11,"series scored, decision day 91",50000
+12,decision_list rows,50000

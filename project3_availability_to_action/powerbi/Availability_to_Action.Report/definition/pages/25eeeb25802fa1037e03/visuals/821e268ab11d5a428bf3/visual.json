@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "821e268ab11d5a428bf3",
+  "position": {
+    "x": 335,
+    "y": 92,
+    "z": 3000,
+    "height": 96,
+    "width": 295,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "decision_list"
+                    }
+                  },
+                  "Property": "Expected lost demand, listed (7 days)"
+                }
+              },
+              "queryRef": "decision_list.Expected lost demand, listed (7 days)",
+              "nativeQueryRef": "Expected lost demand, listed (7 days)",
+              "displayName": "Expected lost demand (7 days)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

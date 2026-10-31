@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "39ef8d6f0532bffbe545",
+  "position": {
+    "x": 860,
+    "y": 198,
+    "z": 5000,
+    "height": 300,
+    "width": 400,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_hour_profile"
+                    }
+                  },
+                  "Property": "hour"
+                }
+              },
+              "queryRef": "an_hour_profile.hour",
+              "nativeQueryRef": "hour",
+              "displayName": "Hour"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_hour_profile"
+                    }
+                  },
+                  "Property": "Flagged out of stock"
+                }
+              },
+              "queryRef": "an_hour_profile.Flagged out of stock",
+              "nativeQueryRef": "Flagged out of stock"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "an_hour_profile"
+                    }
+                  },
+                  "Property": "Share of daily sales"
+                }
+              },
+              "queryRef": "an_hour_profile.Share of daily sales",
+              "nativeQueryRef": "Share of daily sales"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Stock flags vs sales by hour (DQ07)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

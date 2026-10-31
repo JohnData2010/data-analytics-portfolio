@@ -1,0 +1,23 @@
+relationship e7c04866-d34d-5339-e9ed-129377d90114
+	fromColumn: dim_series.store_id
+	toColumn: dim_store.store_id
+
+relationship cfe97e63-156e-b154-19ca-34f27c28ebed
+	fromColumn: decision_list.series_id
+	toColumn: dim_series.series_id
+
+relationship 326a3cf1-be6e-e2f0-ff72-8dbd7264c1b3
+	fromColumn: fact_series_day.series_id
+	toColumn: dim_series.series_id
+
+relationship f0d24d2c-1621-f880-c0e3-819999c7241f
+	fromColumn: fact_series_day.dt
+	toColumn: dim_date.dt
+
+relationship f940b776-7c97-d9ee-0a5d-d556755f3405
+	fromColumn: fact_store_day.store_id
+	toColumn: dim_store.store_id
+
+relationship 6edbb56e-9951-c3d5-61fc-d41a47914451
+	fromColumn: fact_store_day.dt
+	toColumn: dim_date.dt

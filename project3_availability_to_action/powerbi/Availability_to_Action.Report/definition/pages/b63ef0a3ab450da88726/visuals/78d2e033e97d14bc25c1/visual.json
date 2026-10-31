@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "78d2e033e97d14bc25c1",
+  "position": {
+    "x": 860,
+    "y": 92,
+    "z": 3000,
+    "height": 96,
+    "width": 400,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "qa_dq_results"
+                    }
+                  },
+                  "Property": "DQ checks failed"
+                }
+              },
+              "queryRef": "qa_dq_results.DQ checks failed",
+              "nativeQueryRef": "DQ checks failed",
+              "displayName": "FAIL"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

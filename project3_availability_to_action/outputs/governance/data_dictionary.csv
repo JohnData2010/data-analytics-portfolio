@@ -1,0 +1,141 @@
+table,column,type,description
+dim_series,series_id,BIGINT,store_id * 10000 + product_id: one store-product time series
+dim_series,store_id,BIGINT,
+dim_series,product_id,BIGINT,
+dim_series,city_id,BIGINT,
+dim_series,management_group_id,BIGINT,
+dim_series,first_category_id,BIGINT,
+dim_series,second_category_id,BIGINT,
+dim_series,third_category_id,BIGINT,
+dim_store,store_id,BIGINT,
+dim_store,city_id,BIGINT,
+dim_store,series,BIGINT,
+dim_date,dt,DATE,
+dim_date,day_idx,BIGINT,
+dim_date,dow,BIGINT,
+dim_date,split,VARCHAR,
+dim_date,weekday,VARCHAR,
+dim_date,is_outcome_week,BOOLEAN,
+decision_list,series_id,BIGINT,store_id * 10000 + product_id: one store-product time series
+decision_list,store_id,BIGINT,
+decision_list,city_id,BIGINT,
+decision_list,product_id,BIGINT,
+decision_list,first_category_id,BIGINT,
+decision_list,second_category_id,BIGINT,
+decision_list,third_category_id,BIGINT,
+decision_list,store_rank,BIGINT,Rank within the store by the proposed score (1 = review first)
+decision_list,global_rank,BIGINT,"Rank across all 50,000 series"
+decision_list,in_store_top_n,BOOLEAN,On the store's top-10 review list
+decision_list,expected_lost_7d,DOUBLE,Proposed score: expected lost demand next 7 days (normalised units)
+decision_list,obs_28,DOUBLE,"Recorded selling-window sales, last 28 days"
+decision_list,rec_28,DOUBLE,"Recovered demand, last 28 days"
+decision_list,lost_28,DOUBLE,"Recovered minus recorded demand on partial stockout days, last 28 days"
+decision_list,imputed_share,DOUBLE,Share of 28-day recovered demand that is imputed (incl. unavailable days)
+decision_list,hidden_vs_recorded,DOUBLE,lost_28 / obs_28
+decision_list,oos_days_28,BIGINT,"Days with any stockout hour in the selling window, last 28 days"
+decision_list,oos_days_7,BIGINT,"Same, last 7 days"
+decision_list,oos_hours_28,HUGEINT,"Stockout hours in the selling window, last 28 days"
+decision_list,unavailable_days_28,BIGINT,"Days out of stock for the whole selling window, last 28 days"
+decision_list,conflict_days_28,BIGINT,"Days with sales recorded after the sell-out hour (DQ06), last 28 days"
+decision_list,instock_days,INTEGER,Fully in-stock days in the last 28 (the basis of the hourly profile)
+decision_list,typical_sellout_hour,DOUBLE,Median first stockout hour on partial stockout days
+decision_list,confidence,VARCHAR,High / Medium / Low: how much of the demand estimate is imputed
+decision_list,reasons,VARCHAR,Why the series is ranked where it is
+decision_list,checks_before_acting,VARCHAR,What to verify before ordering
+decision_list,outcome_lost,DOUBLE,Holdout week: realised lost demand on partial stockout days (estimated)
+decision_list,outcome_oos_hours,HUGEINT,Holdout week: realised stockout hours (model-free)
+decision_list,outcome_unavailable_days,BIGINT,Holdout week: days out of stock all window
+decision_list,outcome_recorded,DOUBLE,Holdout week: recorded sales
+fact_store_day,day_idx,INTEGER,
+fact_store_day,dt,DATE,
+fact_store_day,store_id,BIGINT,
+fact_store_day,is_outcome,BOOLEAN,Day falls in the holdout outcome week (26-Jun to 02-Jul-2024)
+fact_store_day,series,BIGINT,
+fact_store_day,recorded,DOUBLE,Recorded selling-window sales
+fact_store_day,recovered,DOUBLE,Recovered demand
+fact_store_day,lost_partial,DOUBLE,Lost demand on partial stockout days
+fact_store_day,unavailable_series_days,BIGINT,
+fact_store_day,oos_hours,HUGEINT,
+fact_store_day,series_days_with_stockout,BIGINT,
+fact_series_day,series_id,BIGINT,store_id * 10000 + product_id: one store-product time series
+fact_series_day,day_idx,INTEGER,
+fact_series_day,dt,DATE,
+fact_series_day,is_outcome,BOOLEAN,Day falls in the holdout outcome week (26-Jun to 02-Jul-2024)
+fact_series_day,method,VARCHAR,observed / partial / unavailable
+fact_series_day,oos_hours,INTEGER,
+fact_series_day,first_oos_hour,INTEGER,
+fact_series_day,recorded,DOUBLE,Recorded selling-window sales
+fact_series_day,recovered,DOUBLE,Recovered demand
+fact_series_day,lost,DOUBLE,recovered - recorded
+an_method_summary,role,VARCHAR,
+an_method_summary,method,VARCHAR,observed / partial / unavailable
+an_method_summary,is_proposed,BOOLEAN,
+an_method_summary,folds,BIGINT,
+an_method_summary,store_top10_lost_capture,DOUBLE,
+an_method_summary,worst_fold_lost_capture,DOUBLE,
+an_method_summary,store_top10_hours_capture,DOUBLE,
+an_method_summary,global_top10pct_lost_capture,DOUBLE,
+an_method_summary,store_top10_unavailable_capture,DOUBLE,
+an_eval_fold,fold,INTEGER,
+an_eval_fold,role,VARCHAR,
+an_eval_fold,method,VARCHAR,observed / partial / unavailable
+an_eval_fold,store_top10_lost_capture,DOUBLE,
+an_eval_fold,store_top10_hours_capture,DOUBLE,
+an_eval_fold,global_top10pct_lost_capture,DOUBLE,
+an_eval_fold,store_top10_unavailable_capture,DOUBLE,
+an_bootstrap,metric,VARCHAR,
+an_bootstrap,proposed,VARCHAR,
+an_bootstrap,baseline,VARCHAR,
+an_bootstrap,difference,DOUBLE,
+an_bootstrap,ci_low,DOUBLE,
+an_bootstrap,ci_high,DOUBLE,
+an_bootstrap,verdict,VARCHAR,
+an_variant_selection,method,VARCHAR,observed / partial / unavailable
+an_variant_selection,dev_mean,DOUBLE,
+an_variant_selection,chosen,BOOLEAN,
+an_masking_summary,role,VARCHAR,
+an_masking_summary,sellout_window,VARCHAR,
+an_masking_summary,estimator,VARCHAR,
+an_masking_summary,days,BIGINT,
+an_masking_summary,wape,DOUBLE,
+an_masking_summary,bias,DOUBLE,
+an_forecast_check,role,VARCHAR,
+an_forecast_check,forecast,VARCHAR,
+an_forecast_check,days,BIGINT,
+an_forecast_check,wape,DOUBLE,
+an_forecast_check,bias,DOUBLE,
+an_confidence_check,confidence,VARCHAR,High / Medium / Low: how much of the demand estimate is imputed
+an_confidence_check,series,BIGINT,
+an_confidence_check,listed,BIGINT,
+an_confidence_check,realised_over_expected_listed,DOUBLE,
+an_confidence_check,listed_with_stockout_next_week,DOUBLE,
+an_confidence_check,masked_days,BIGINT,
+an_confidence_check,masking_wape,DOUBLE,
+an_hour_profile,hour,BIGINT,
+an_hour_profile,in_selling_window,BOOLEAN,
+an_hour_profile,oos_share,DOUBLE,
+an_hour_profile,sales_share,DOUBLE,
+qa_dq_results,rule_id,VARCHAR,
+qa_dq_results,check,VARCHAR,
+qa_dq_results,severity,VARCHAR,
+qa_dq_results,rows_checked,BIGINT,
+qa_dq_results,rows_flagged,BIGINT,
+qa_dq_results,rate,DOUBLE,
+qa_dq_results,decision_impact,VARCHAR,
+qa_dq_results,treatment,VARCHAR,
+qa_dq_results,status,VARCHAR,
+qa_row_lineage,step_no,BIGINT,
+qa_row_lineage,step,VARCHAR,
+qa_row_lineage,rows,BIGINT,
+gov_source_manifest,split,VARCHAR,
+gov_source_manifest,file,VARCHAR,
+gov_source_manifest,sha256,VARCHAR,
+gov_source_manifest,bytes,BIGINT,
+gov_source_manifest,rows,BIGINT,
+gov_source_manifest,series,BIGINT,
+gov_source_manifest,first_date,VARCHAR,
+gov_source_manifest,last_date,VARCHAR,
+gov_source_manifest,publisher,VARCHAR,
+gov_source_manifest,licence,VARCHAR,
+gov_source_manifest,source_url,VARCHAR,
+gov_source_manifest,file_downloaded,VARCHAR,

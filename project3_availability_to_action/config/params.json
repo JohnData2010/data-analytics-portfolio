@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "change_log": [
+    {"version": "1.0.0", "date": "2026-10-31", "change": "Initial definitions"}
+  ],
+  "selling_window": {
+    "first_hour": 6,
+    "last_hour": 21,
+    "note": "Hours 6:00 to 21:59, the 16 hours the publisher counts in stock_hour6_22_cnt. Overnight flags are excluded from every availability KPI (see DQ07)."
+  },
+  "history_days": 28,
+  "horizon_days": 7,
+  "dev_decision_days": [36, 43, 50, 57, 64, 71, 78],
+  "holdout_decision_day": 91,
+  "recovery": {
+    "profile_shrinkage_days": 5,
+    "min_coverage": 0.15,
+    "method_selection_fold": 78,
+    "note": "Hourly profile from fully in-stock days, shrunk toward the third-category profile with a prior worth 5 days. Recovered demand = in-stock sales + (1 - coverage) x typical in-stock day; the blend was chosen on the fold-78 masking test. min_coverage only applies to series with no in-stock day in history."
+  },
+  "prioritisation": {
+    "top_share": 0.10,
+    "store_top_n": 10,
+    "half_life_grid": [3.5, 7, 14, 1000],
+    "bootstrap_reps": 1000,
+    "seed": 20261031
+  },
+  "confidence": {
+    "high_max_imputed_share": 0.30,
+    "high_min_instock_days": 7,
+    "low_max_imputed_share": 0.60,
+    "low_min_instock_days": 3
+  },
+  "masking_test": {
+    "seed": 7
+  }
+}

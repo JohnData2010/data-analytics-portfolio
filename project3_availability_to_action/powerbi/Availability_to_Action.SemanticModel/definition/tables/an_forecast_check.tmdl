@@ -1,0 +1,57 @@
+table an_forecast_check
+	lineageTag: 74a33e75-d4ad-ce1b-e3c6-37f246967cde
+
+	column role
+		dataType: string
+		lineageTag: b09af6d1-9a4f-105e-8f35-bd35e8edc0b6
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = User
+
+	column forecast
+		dataType: string
+		lineageTag: bda58f2d-e56e-2995-a7d6-eff2af7a87b3
+		summarizeBy: none
+		sourceColumn: forecast
+
+		annotation SummarizationSetBy = User
+
+	column days
+		dataType: int64
+		formatString: 0
+		lineageTag: 2bb52f8d-1fbe-09e3-c120-58bf1a0b4891
+		summarizeBy: none
+		sourceColumn: days
+
+		annotation SummarizationSetBy = User
+
+	column wape
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ea4d5f4d-5ee1-5c7e-ee0b-0292cedd3a8a
+		summarizeBy: none
+		sourceColumn: wape
+
+		annotation SummarizationSetBy = User
+
+	column bias
+		dataType: double
+		formatString: +0.0%;-0.0%
+		lineageTag: d84ebcc0-559b-f016-9e37-cd8fffe5b1fc
+		summarizeBy: none
+		sourceColumn: bias
+
+		annotation SummarizationSetBy = User
+
+	partition an_forecast_check = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_forecast_check.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"role", type text}, {"forecast", type text}, {"days", Int64.Type}, {"wape", type number}, {"bias", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

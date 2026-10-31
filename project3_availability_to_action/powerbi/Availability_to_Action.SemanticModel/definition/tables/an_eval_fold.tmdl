@@ -1,0 +1,81 @@
+table an_eval_fold
+	lineageTag: 5cacfde0-fe41-a081-8d1a-5632814e5481
+
+	measure 'Lost demand captured (store top 10)' = AVERAGE ( an_eval_fold[store_top10_lost_capture] )
+		formatString: 0.0%
+		displayFolder: Backtest
+		lineageTag: 5d98c2a9-bf8d-6d10-e0ca-96a0b6177a37
+
+	measure 'Stockout hours captured (store top 10)' = AVERAGE ( an_eval_fold[store_top10_hours_capture] )
+		formatString: 0.0%
+		displayFolder: Backtest
+		lineageTag: 421dd890-401b-1a6c-cddf-ce4006ef9837
+
+	column fold
+		dataType: int64
+		formatString: 0
+		lineageTag: 09cea511-6c16-0cb4-bb92-98a46a7af02c
+		summarizeBy: none
+		sourceColumn: fold
+
+		annotation SummarizationSetBy = User
+
+	column role
+		dataType: string
+		lineageTag: 0bb63c9c-db2e-20f2-6d71-f9f989eb2eff
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = User
+
+	column method
+		dataType: string
+		lineageTag: 46759c76-d13b-8d1c-7f59-27b74baf3e04
+		summarizeBy: none
+		sourceColumn: method
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_lost_capture
+		dataType: double
+		lineageTag: 21bd6b6e-6647-96ab-d97e-96fe568f8a76
+		summarizeBy: none
+		sourceColumn: store_top10_lost_capture
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_hours_capture
+		dataType: double
+		lineageTag: 1915d7c6-0254-19b9-05cf-1d69700fb2e6
+		summarizeBy: none
+		sourceColumn: store_top10_hours_capture
+
+		annotation SummarizationSetBy = User
+
+	column global_top10pct_lost_capture
+		dataType: double
+		lineageTag: df1bb44e-9e13-469d-0a9f-94edd9f4c535
+		summarizeBy: none
+		sourceColumn: global_top10pct_lost_capture
+
+		annotation SummarizationSetBy = User
+
+	column store_top10_unavailable_capture
+		dataType: double
+		lineageTag: 00508505-4fcc-4810-c1a0-28f1395a375b
+		summarizeBy: none
+		sourceColumn: store_top10_unavailable_capture
+
+		annotation SummarizationSetBy = User
+
+	partition an_eval_fold = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\an_eval_fold.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"fold", Int64.Type}, {"role", type text}, {"method", type text}, {"store_top10_lost_capture", type number}, {"store_top10_hours_capture", type number}, {"global_top10pct_lost_capture", type number}, {"store_top10_unavailable_capture", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

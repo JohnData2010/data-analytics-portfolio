@@ -1,0 +1,68 @@
+/// The 28 history days before the holdout decision + the outcome week
+table dim_date
+	lineageTag: 79a31759-577e-48f7-8db8-e3bfa41ba977
+
+	column dt
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: e00223e9-76d3-d750-7377-9c8f8600a52b
+		summarizeBy: none
+		sourceColumn: dt
+
+		annotation SummarizationSetBy = User
+		annotation UnderlyingDateTimeDataType = Date
+
+	column day_idx
+		dataType: int64
+		formatString: 0
+		lineageTag: 58f03853-20d1-88b5-3714-be848124bb6c
+		summarizeBy: none
+		sourceColumn: day_idx
+
+		annotation SummarizationSetBy = User
+
+	column dow
+		dataType: int64
+		formatString: 0
+		lineageTag: 02890cbd-ba8f-641d-2557-df18287a351d
+		summarizeBy: none
+		sourceColumn: dow
+
+		annotation SummarizationSetBy = User
+
+	column split
+		dataType: string
+		lineageTag: 42ce46ff-483d-4932-0be3-b9d156247b75
+		summarizeBy: none
+		sourceColumn: split
+
+		annotation SummarizationSetBy = User
+
+	column weekday
+		dataType: string
+		lineageTag: e16793ae-a7a2-0ddd-f3ee-6df38208ccc9
+		summarizeBy: none
+		sourceColumn: weekday
+
+		annotation SummarizationSetBy = User
+
+	column is_outcome_week
+		dataType: boolean
+		lineageTag: 2d0ad74d-be25-431f-3620-6184e983e39a
+		summarizeBy: none
+		sourceColumn: is_outcome_week
+
+		annotation SummarizationSetBy = User
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\dim_date.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dt", type datetime}, {"day_idx", Int64.Type}, {"dow", Int64.Type}, {"split", type text}, {"weekday", type text}, {"is_outcome_week", type logical}}, "en-US"),
+				    Dated = Table.TransformColumnTypes(Typed, {{"dt", type date}})
+				in
+				    Dated
+
+	annotation PBI_ResultType = Table
